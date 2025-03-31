@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 from datetime import datetime
+from os import mkdir
 from pathlib import Path
 
 from pyaxmlparser import APK
@@ -160,7 +161,7 @@ def get_apk_filepath(path):
 
     apk_dir = Path(get_working_directory()).joinpath('apk')
     if not apk_dir.exists():
-        die("apk dir not found")
+        mkdir(apk_dir)
 
     for p in apk_dir.iterdir():
         if p.is_file() and p.name.endswith('.apk'):
