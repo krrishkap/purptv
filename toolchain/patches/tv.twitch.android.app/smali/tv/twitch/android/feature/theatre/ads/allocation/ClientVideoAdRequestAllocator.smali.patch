@@ -1,0 +1,27 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali b/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
+--- a/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
+@@ -973,22 +973,10 @@
+ .end method
+ 
+ .method private final initialState(Z)Ltv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$State;
+-    .locals 1
+-
+-    if-eqz p1, :cond_0
+-
+-    new-instance p1, Ltv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$State$Inactive;
+-
+-    const/4 v0, 0x0
+-
+-    invoke-direct {p1, v0, v0, v0, v0}, Ltv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$State$Inactive;-><init>(Ltv/twitch/android/shared/ads/models/context/AdSessionManifest;Ltv/twitch/android/models/channel/ChannelModel;Ltv/twitch/android/models/player/PlayerMode;Ltv/twitch/android/models/ads/AdsPlayable;)V
+-
+-    goto :goto_0
++    .locals 0
+ 
+-    :cond_0
+     sget-object p1, Ltv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$State$Disabled;->INSTANCE:Ltv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$State$Disabled;
+ 
+-    :goto_0
+     return-object p1
+ .end method
+ 

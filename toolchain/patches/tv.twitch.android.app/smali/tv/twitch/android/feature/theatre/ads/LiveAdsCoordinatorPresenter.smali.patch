@@ -1,0 +1,26 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsCoordinatorPresenter.smali b/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsCoordinatorPresenter.smali
+--- a/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsCoordinatorPresenter.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsCoordinatorPresenter.smali
+@@ -439,22 +439,12 @@
+         }
+     .end annotation
+ 
+-    invoke-virtual {p1, p3}, Ltv/twitch/android/core/mvp/presenter/RxPresenter;->setViewDelegateContainer(Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateContainer;)V
+-
+-    invoke-virtual {p2}, Ltv/twitch/android/feature/foreground/audio/ads/AudioAdsDebugPresenter;->showDebugAudioAd()V
+-
+-    invoke-virtual {p4}, Ltv/twitch/android/feature/theatre/ads/AudioAdBackgroundContextProvider;->listenForContextUpdates()V
+-
+-    invoke-virtual {p1, p5}, Ltv/twitch/android/feature/foreground/audio/ads/foreground/AudioAdsForegroundPresenter;->bindPlayerPresenterState(Lio/reactivex/Flowable;)V
+-
+     return-void
+ .end method
+ 
+ .method private final bindStreamDisplayAds(Ltv/twitch/android/shared/display/ads/routers/StreamDisplayAdsResponseRouter;Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsDebugPresenter;Landroid/view/View;Ltv/twitch/android/shared/display/ads/routers/StreamDisplayAdsResponseRouter$StreamDisplayAdsComponents;)V
+     .locals 0
+ 
+-    invoke-virtual {p1, p2, p3, p4}, Ltv/twitch/android/shared/display/ads/routers/StreamDisplayAdsResponseRouter;->bindStreamDisplayAds(Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsDebugPresenter;Landroid/view/View;Ltv/twitch/android/shared/display/ads/routers/StreamDisplayAdsResponseRouter$StreamDisplayAdsComponents;)V
+-
+     return-void
+ .end method
+ 

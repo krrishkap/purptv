@@ -1,0 +1,25 @@
+diff --git a/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali b/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali
+--- a/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali
++++ b/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali
+@@ -476,7 +476,9 @@
+ 
+     move-result-object v27
+ 
+-    const/4 v11, 0x1
++    invoke-static {}, Ltv/purple/monolith/core/bridge/CoreHook;->hookFastBreadArg()Z
++
++    move-result v11
+ 
+     const/4 v13, 0x1
+ 
+@@ -494,6 +496,10 @@
+ 
+     move-result-object v3
+ 
++    invoke-static {v5, v3}, Ltv/purple/monolith/features/proxy/bridge/ProxyHook;->tryHookStreamManifestResponse(Ljava/lang/String;Lio/reactivex/Single;)Lio/reactivex/Single;
++
++    move-result-object v3
++
+     invoke-direct {v0, v3, v1}, Ltv/twitch/android/shared/player/network/manifest/ManifestApi;->toManifestResponse(Lio/reactivex/Single;Ltv/twitch/android/models/AccessTokenResponse;)Lio/reactivex/Single;
+ 
+     move-result-object v1

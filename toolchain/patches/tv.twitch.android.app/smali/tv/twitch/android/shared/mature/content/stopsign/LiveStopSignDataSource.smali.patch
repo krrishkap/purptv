@@ -1,0 +1,55 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource.smali b/smali_classes7/tv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource.smali
+--- a/smali_classes7/tv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource.smali
++++ b/smali_classes7/tv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource.smali
+@@ -568,6 +568,25 @@
+         }
+     .end annotation
+ 
++    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->getDisableMatureContent()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    new-instance v0, Ltv/twitch/android/models/contentclassification/DisclosureModel$NotShowing;
++
++    const/4 v1, 0x0
++
++    invoke-direct {v0, v1}, Ltv/twitch/android/models/contentclassification/DisclosureModel$NotShowing;-><init>(Z)V
++
++    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
++
++    move-result-object v0
++
++    return-object v0
++
++    :cond_z
+     iget-object v0, p0, Ltv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource;->contentClassificationsFlowable:Lio/reactivex/Flowable;
+ 
+     new-instance v1, Ltv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource$observeDisclosureUpdates$1;
+@@ -600,6 +619,25 @@
+         }
+     .end annotation
+ 
++    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->getDisableMatureContent()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    new-instance v0, Ltv/twitch/android/models/contentclassification/StopSignModel$None;
++
++    const/4 v1, 0x0
++
++    invoke-direct {v0, v1}, Ltv/twitch/android/models/contentclassification/StopSignModel$None;-><init>(Z)V
++
++    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
++
++    move-result-object v0
++
++    return-object v0
++
++    :cond_z
+     iget-object v0, p0, Ltv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource;->contentClassificationsFlowable:Lio/reactivex/Flowable;
+ 
+     new-instance v1, Ltv/twitch/android/shared/mature/content/stopsign/LiveStopSignDataSource$observeStopSignUpdates$1;

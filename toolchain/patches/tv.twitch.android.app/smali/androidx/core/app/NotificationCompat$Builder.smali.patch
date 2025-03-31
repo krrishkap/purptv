@@ -1,0 +1,31 @@
+diff --git a/smali_classes3/androidx/core/app/NotificationCompat$Builder.smali b/smali_classes3/androidx/core/app/NotificationCompat$Builder.smali
+--- a/smali_classes3/androidx/core/app/NotificationCompat$Builder.smali
++++ b/smali_classes3/androidx/core/app/NotificationCompat$Builder.smali
+@@ -655,3 +655,27 @@
+ 
+     return-object p0
+ .end method
++
++# revision: 3
++.method public setOnlyAlertOnce(Z)Landroidx/core/app/NotificationCompat$Builder;
++    .locals 1
++
++    const/16 v0, 0x8
++
++    invoke-direct {p0, v0, p1}, Landroidx/core/app/NotificationCompat$Builder;->setFlag(IZ)V
++
++    return-object p0
++.end method
++
++# revision: 3
++.method public setProgress(IIZ)Landroidx/core/app/NotificationCompat$Builder;
++    .locals 0
++
++    iput p1, p0, Landroidx/core/app/NotificationCompat$Builder;->mProgressMax:I
++
++    iput p2, p0, Landroidx/core/app/NotificationCompat$Builder;->mProgress:I
++
++    iput-boolean p3, p0, Landroidx/core/app/NotificationCompat$Builder;->mProgressIndeterminate:Z
++
++    return-object p0
++.end method

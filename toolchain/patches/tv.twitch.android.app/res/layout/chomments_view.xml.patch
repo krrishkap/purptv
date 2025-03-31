@@ -1,0 +1,12 @@
+diff --git a/res/layout/chomments_view.xml b/res/layout/chomments_view.xml
+--- a/res/layout/chomments_view.xml
++++ b/res/layout/chomments_view.xml
+@@ -8,7 +8,7 @@
+     </LinearLayout>
+     <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+         <LinearLayout android:gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+-            <View android:background="@color/list_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/divider_height" />
++            <View android:id="@+id/chomments_header_container_divider" android:background="@color/list_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/divider_height" />
+             <FrameLayout android:id="@id/chomments_header_container" android:background="@color/background_base" android:padding="@dimen/default_margin" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:importantForAccessibility="no" android:elevation="@dimen/small_elevation">
+                 <tv.twitch.android.core.ui.kit.principles.typography.TitleExtraSmall android:ellipsize="end" android:id="@id/chomments_header_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/chomment_replay_header_text" android:maxLines="1" />
+             </FrameLayout>

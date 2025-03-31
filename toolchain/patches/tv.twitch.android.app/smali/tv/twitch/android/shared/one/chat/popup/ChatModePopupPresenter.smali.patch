@@ -1,0 +1,19 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali b/smali_classes7/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
+--- a/smali_classes7/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
++++ b/smali_classes7/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
+@@ -346,6 +346,15 @@
+ .method private final maybeObserveChatModeChanges()V
+     .locals 10
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->isHideOneChatPopupEnabled()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    return-void
++
++    :cond_z
+     iget-object v0, p0, Ltv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter;->oneChatExperiment:Ltv/twitch/android/provider/experiments/helpers/OneChatExperiment;
+ 
+     invoke-virtual {v0}, Ltv/twitch/android/provider/experiments/helpers/OneChatExperiment;->isEnabled()Z

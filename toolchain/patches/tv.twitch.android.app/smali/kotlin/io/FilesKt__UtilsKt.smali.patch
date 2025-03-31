@@ -1,0 +1,37 @@
+diff --git a/smali/kotlin/io/FilesKt__UtilsKt.smali b/smali/kotlin/io/FilesKt__UtilsKt.smali
+--- a/smali/kotlin/io/FilesKt__UtilsKt.smali
++++ b/smali/kotlin/io/FilesKt__UtilsKt.smali
+@@ -427,3 +427,33 @@
+ 
+     return-object p0
+ .end method
++
++.method public static final getNameWithoutExtension(Ljava/io/File;)Ljava/lang/String;
++    .registers 5
++    .param p0, "$this$nameWithoutExtension"    # Ljava/io/File;
++
++    const-string v0, "<this>"
++
++    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
++
++    .line 105
++    invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
++
++    move-result-object v0
++
++    const-string v1, "name"
++
++    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
++
++    const/4 v1, 0x0
++
++    const/4 v2, 0x2
++
++    const-string v3, "."
++
++    invoke-static {v0, v3, v1, v2, v1}, Lkotlin/text/StringsKt;->substringBeforeLast$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
++
++    move-result-object v0
++
++    return-object v0
++.end method

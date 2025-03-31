@@ -1,0 +1,21 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
+@@ -3538,3 +3538,17 @@
+ 
+     return-void
+ .end method
++
++.method public pushPurpleTVEmoteCardLoadedState(Ltv/purple/monolith/features/chat/bridge/PurpleTVEmoteCardModel;)V
++    .registers 3
++    .param p1, "emoteCardModel"    # Ltv/purple/monolith/features/chat/bridge/PurpleTVEmoteCardModel;
++
++    .prologue
++    .line 14
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardPresenter;->stateUpdater:Ltv/twitch/android/shared/chat/emotecard/EmoteCardPresenter$stateUpdater$1;
++
++    invoke-static {v0, p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->pushPurpleTVEmoteCardLoadedState(Ltv/twitch/android/core/mvp/presenter/StateUpdater;Ltv/purple/monolith/features/chat/bridge/PurpleTVEmoteCardModel;)V
++
++    .line 15
++    return-void
++.end method

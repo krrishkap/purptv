@@ -1,0 +1,44 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
+--- a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
++++ b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
+@@ -636,6 +636,21 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl;->vodModel:Ltv/twitch/android/models/videos/VodModel;
++
++    invoke-static {v0, p2}, Ltv/purple/monolith/features/vodsync/bridge/VodSyncHook;->hookChommentTimestamp(Ltv/twitch/android/models/videos/VodModel;I)I
++
++    move-result p2
++
++    if-gez p2, :cond_z
++
++    invoke-static {}, Lio/reactivex/Maybe;->empty()Lio/reactivex/Maybe;
++
++    move-result-object v0
++
++    return-object v0
++
++    :cond_z
+     iget-boolean v0, p0, Ltv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl;->isRequestInFlight:Z
+ 
+     if-nez v0, :cond_1
+@@ -841,6 +856,18 @@
+ 
+     invoke-virtual {p1, v0}, Ltv/twitch/android/shared/badges/ChatBadgeProvider;->fetchChannelBadges(I)V
+ 
++    invoke-virtual {p2}, Ltv/twitch/android/models/channel/ChannelModel;->getId()I
++
++    move-result p1
++
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getLifecycle()Ltv/purple/monolith/core/LifecycleCore;
++
++    move-result-object v0
++
++    invoke-virtual {v0, p1}, Ltv/purple/monolith/core/LifecycleCore;->onConnectingToChannel(I)V
++
++    invoke-virtual {v0, p1}, Ltv/purple/monolith/core/LifecycleCore;->onConnectedToChannel(I)V
++
+     iget-object p1, p0, Ltv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl;->twitchAccountManager:Ltv/twitch/android/core/user/TwitchAccountManager;
+ 
+     invoke-virtual {p1}, Ltv/twitch/android/core/user/TwitchAccountManager;->isLoggedIn()Z

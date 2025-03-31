@@ -1,0 +1,106 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator.smali b/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator.smali
+--- a/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator.smali
+@@ -370,7 +370,7 @@
+ .end method
+ 
+ .method private final maybeRequestAds(Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$Waiting;)Ltv/twitch/android/core/mvp/presenter/StateAndAction;
+-    .locals 4
++    .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+@@ -383,89 +383,13 @@
+         }
+     .end annotation
+ 
+-    iget-object v0, p0, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator;->debugPreferences:Landroid/content/SharedPreferences;
+-
+-    const-string v1, "bypass_ad_eligibility"
+-
+-    const/4 v2, 0x0
+-
+-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+-
+-    move-result v0
+-
+-    invoke-virtual {p1}, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$Waiting;->getManifest()Ltv/twitch/android/shared/ads/models/context/AdSessionManifest;
+-
+-    move-result-object v1
+-
+-    if-eqz v1, :cond_0
+-
+-    invoke-virtual {v1}, Ltv/twitch/android/shared/ads/models/context/AdSessionManifest;->getHasSureStreamAds()Z
+-
+-    move-result v2
+-
+-    const/4 v3, 0x1
+-
+-    if-ne v2, v3, :cond_0
+-
+-    if-nez v0, :cond_0
+-
+-    sget-object p1, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$PrerollIneligible;->INSTANCE:Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$PrerollIneligible;
+-
+-    invoke-static {p1}, Ltv/twitch/android/core/mvp/presenter/StateMachineKt;->noAction(Ltv/twitch/android/core/mvp/presenter/PresenterState;)Ltv/twitch/android/core/mvp/presenter/StateAndAction;
+-
+-    move-result-object p1
+-
+-    goto :goto_0
+-
+-    :cond_0
+-    if-eqz v1, :cond_2
++    sget-object v0, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$PrerollIneligible;->INSTANCE:Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$PrerollIneligible;
+ 
+-    iget-object v0, p0, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator;->matureGatingHelper:Ltv/twitch/android/shared/mature/content/helper/MatureGatingHelper;
++    invoke-static {v0}, Ltv/twitch/android/core/mvp/presenter/StateMachineKt;->noAction(Ltv/twitch/android/core/mvp/presenter/PresenterState;)Ltv/twitch/android/core/mvp/presenter/StateAndAction;
+ 
+-    invoke-virtual {p1}, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$Waiting;->getMatureGatingModel()Ltv/twitch/android/models/ads/MatureGatingModel;
+-
+-    move-result-object v2
+-
+-    invoke-virtual {v0, v2}, Ltv/twitch/android/shared/mature/content/helper/MatureGatingHelper;->shouldRequestPreroll(Ltv/twitch/android/models/ads/MatureGatingModel;)Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_2
+-
+-    invoke-virtual {p1}, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$Waiting;->getEnteredFromFeed()Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_1
+-
+-    sget-object v0, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$Action$MaybeDelayAdRequest;->INSTANCE:Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$Action$MaybeDelayAdRequest;
+-
+-    invoke-static {p1, v0}, Ltv/twitch/android/core/mvp/presenter/StateMachineKt;->plus(Ltv/twitch/android/core/mvp/presenter/PresenterState;Ltv/twitch/android/core/mvp/presenter/PresenterAction;)Ltv/twitch/android/core/mvp/presenter/StateAndAction;
+-
+-    move-result-object p1
+-
+-    goto :goto_0
+-
+-    :cond_1
+-    sget-object p1, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$PrerollRequested;->INSTANCE:Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$State$PrerollRequested;
+-
+-    new-instance v0, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$Action$PerformAdRequest;
+-
+-    invoke-direct {v0, v1}, Ltv/twitch/android/feature/theatre/ads/allocation/ClientPrerollAllocator$Action$PerformAdRequest;-><init>(Ltv/twitch/android/shared/ads/models/context/AdSessionManifest;)V
+-
+-    invoke-static {p1, v0}, Ltv/twitch/android/core/mvp/presenter/StateMachineKt;->plus(Ltv/twitch/android/core/mvp/presenter/PresenterState;Ltv/twitch/android/core/mvp/presenter/PresenterAction;)Ltv/twitch/android/core/mvp/presenter/StateAndAction;
+-
+-    move-result-object p1
+-
+-    goto :goto_0
+-
+-    :cond_2
+-    invoke-static {p1}, Ltv/twitch/android/core/mvp/presenter/StateMachineKt;->noAction(Ltv/twitch/android/core/mvp/presenter/PresenterState;)Ltv/twitch/android/core/mvp/presenter/StateAndAction;
+-
+-    move-result-object p1
++    move-result-object v0
+ 
+-    :goto_0
+-    return-object p1
++    return-object v0
+ .end method
+ 
+ .method private final observeManifestAndCclUpdates(Lio/reactivex/Flowable;)V

@@ -1,0 +1,25 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
+--- a/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
+@@ -2370,7 +2370,9 @@
+ 
+     move-result p2
+ 
+-    const/high16 v0, 0x3f000000    # 0.5f
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getLandscapeSplitContainerScaleFloat()F
++
++    move-result v0
+ 
+     invoke-virtual {p1, p2, v0}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
+ 
+@@ -2466,6 +2468,10 @@
+     const v3, 0x3f333333    # 0.7f
+ 
+     :goto_1
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getLandscapeContainerScaleFloat()F
++
++    move-result v3
++
+     invoke-virtual {p1, v0, v3}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
+ 
+     :goto_2

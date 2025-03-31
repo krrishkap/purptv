@@ -1,0 +1,112 @@
+diff --git a/smali/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali/tv/twitch/android/app/consumer/TwitchApplication.smali
+--- a/smali/tv/twitch/android/app/consumer/TwitchApplication.smali
++++ b/smali/tv/twitch/android/app/consumer/TwitchApplication.smali
+@@ -4,6 +4,7 @@
+ 
+ # interfaces
+ .implements Ldagger/android/HasAndroidInjector;
++.implements Ltv/purple/monolith/bridge/ex/IPurpleTVAppContainerProvider;
+ 
+ 
+ # instance fields
+@@ -12,6 +13,8 @@
+     .end annotation
+ .end field
+ 
++.field private volatile purpleTVAppContainer:Ltv/purple/monolith/models/IPurpleTVAppContainer;
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -92,14 +95,32 @@
+ .method public onCreate()V
+     .locals 11
+ 
++    new-instance v0, Ltv/twitch/android/util/logging/LogcatLoggingTree;
++
++    invoke-direct {v0}, Ltv/twitch/android/util/logging/LogcatLoggingTree;-><init>()V
++
++    invoke-static {v0}, Ltimber/log/Timber;->plant(Ltimber/log/Timber$Tree;)V
++
++    invoke-static {p0}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->create(Landroid/content/Context;)Ltv/purple/monolith/models/IPurpleTVAppContainer;
++
++    move-result-object v0
++
++    iput-object v0, p0, Ltv/twitch/android/app/consumer/TwitchApplication;->purpleTVAppContainer:Ltv/purple/monolith/models/IPurpleTVAppContainer;
++
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+     move-result-wide v0
+ 
+     sget-object v2, Ltv/twitch/android/app/consumer/ApplicationDelegate;->Companion:Ltv/twitch/android/app/consumer/ApplicationDelegate$Companion;
+ 
++    iget-object v4, p0, Ltv/twitch/android/app/consumer/TwitchApplication;->purpleTVAppContainer:Ltv/purple/monolith/models/IPurpleTVAppContainer;
++
++    invoke-interface {v4}, Ltv/purple/monolith/models/IPurpleTVAppContainer;->onBeforeHiltBeforeSuperOnCreate()V
++
+     invoke-virtual {v2, p0}, Ltv/twitch/android/app/consumer/ApplicationDelegate$Companion;->beforeSuperOnCreate(Landroid/app/Application;)V
+ 
++    invoke-interface {v4}, Ltv/purple/monolith/models/IPurpleTVAppContainer;->onAfterHiltBeforeSuperOnCreate()V
++
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+     move-result-wide v2
+@@ -122,12 +143,16 @@
+ 
+     move-result-wide v0
+ 
++    invoke-interface {v4}, Ltv/purple/monolith/models/IPurpleTVAppContainer;->onBeforeHiltAfterSuperOnCreate()V
++
+     invoke-virtual {p0}, Ltv/twitch/android/app/consumer/TwitchApplication;->getApplicationDelegate()Ltv/twitch/android/app/consumer/ApplicationDelegate;
+ 
+     move-result-object v2
+ 
+     invoke-virtual {v2}, Ltv/twitch/android/app/consumer/ApplicationDelegate;->afterSuperOnCreate()V
+ 
++    invoke-interface {v4}, Ltv/purple/monolith/models/IPurpleTVAppContainer;->onAfterHiltAfterSuperOnCreate()V
++
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+     move-result-wide v2
+@@ -156,3 +181,41 @@
+ 
+     return-void
+ .end method
++
++.method public providePurpleTVAppContainer()Ltv/purple/monolith/models/IPurpleTVAppContainer;
++    .registers 3
++    .annotation build Landroidx/annotation/NonNull;
++    .end annotation
++
++    .prologue
++    .line 60
++    iget-object v0, p0, Ltv/twitch/android/app/consumer/TwitchApplication;->purpleTVAppContainer:Ltv/purple/monolith/models/IPurpleTVAppContainer;
++
++    if-nez v0, :cond_16
++
++    .line 62
++    const-string v0, "Failed to apply patches!"
++
++    const/4 v1, 0x1
++
++    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
++
++    .line 63
++    new-instance v0, Ljava/lang/IllegalStateException;
++
++    const-string v1, "purpleTVAppContainer is not initialized!"
++
++    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
++
++    throw v0
++
++    .line 66
++    :cond_16
++    iget-object v0, p0, Ltv/twitch/android/app/consumer/TwitchApplication;->purpleTVAppContainer:Ltv/purple/monolith/models/IPurpleTVAppContainer;
++
++    return-object v0
++.end method

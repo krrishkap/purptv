@@ -1,0 +1,47 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
+@@ -1896,3 +1896,43 @@
+     :cond_1
+     return-void
+ .end method
++
++.method public final fastScrollToPosition(I)V
++    .registers 4
++    .param p1, "i"    # I
++
++    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->layoutManager:Landroidx/recyclerview/widget/GridLayoutManager;
++
++    if-eqz v0, :cond_11
++
++    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->gridView:Landroidx/recyclerview/widget/RecyclerView;
++
++    if-eqz v0, :cond_b
++
++    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->stopScroll()V
++
++    :cond_b
++    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->layoutManager:Landroidx/recyclerview/widget/GridLayoutManager;
++
++    const/4 v1, 0x0
++
++    invoke-virtual {v0, p1, v1}, Landroidx/recyclerview/widget/GridLayoutManager;->scrollToPositionWithOffset(II)V
++
++    :cond_11
++    return-void
++.end method
++
++.method public final getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
++    .registers 2
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "()",
++            "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
++            "*>;"
++        }
++    .end annotation
++
++    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
++
++    return-object v0
++.end method

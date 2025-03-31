@@ -1,0 +1,36 @@
+diff --git a/smali/okhttp3/HttpUrl$Companion.smali b/smali/okhttp3/HttpUrl$Companion.smali
+--- a/smali/okhttp3/HttpUrl$Companion.smali
++++ b/smali/okhttp3/HttpUrl$Companion.smali
+@@ -1138,3 +1138,31 @@
+     :cond_4
+     return-void
+ .end method
++
++# revision: 3
++.method public final get(Ljava/net/URI;)Lokhttp3/HttpUrl;
++    .registers 5
++    .param p1, "$this$toHttpUrlOrNull"    # Ljava/net/URI;
++
++    const-string v0, "$this$toHttpUrlOrNull"
++
++    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
++
++    move-object v0, p0
++
++    check-cast v0, Lokhttp3/HttpUrl$Companion;
++
++    invoke-virtual {p1}, Ljava/net/URI;->toString()Ljava/lang/String;
++
++    move-result-object v1
++
++    const-string v2, "toString()"
++
++    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
++
++    invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Companion;->parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
++
++    move-result-object v0
++
++    return-object v0
++.end method
+\ No newline at end of file

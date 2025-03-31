@@ -1,0 +1,16 @@
+diff --git a/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali b/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali
+--- a/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali
++++ b/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali
+@@ -71,11 +71,7 @@
+ 
+     if-eqz p5, :cond_0
+ 
+-    new-instance p1, Ltv/twitch/android/models/feed/DiscoveryFeedPage$FeedLocationPage;
+-
+-    sget-object p5, Ltv/twitch/android/models/feed/FeedLocation$Live;->INSTANCE:Ltv/twitch/android/models/feed/FeedLocation$Live;
+-
+-    invoke-direct {p1, p5}, Ltv/twitch/android/models/feed/DiscoveryFeedPage$FeedLocationPage;-><init>(Ltv/twitch/android/models/feed/FeedLocation;)V
++    sget-object p1, Ltv/twitch/android/models/feed/DiscoveryFeedPage$FollowingPage;->INSTANCE:Ltv/twitch/android/models/feed/DiscoveryFeedPage$FollowingPage;
+ 
+     :cond_0
+     and-int/lit8 p5, p4, 0x2

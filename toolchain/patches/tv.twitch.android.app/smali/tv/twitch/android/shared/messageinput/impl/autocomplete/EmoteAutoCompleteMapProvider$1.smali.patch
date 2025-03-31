@@ -1,0 +1,12 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
+--- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
++++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
+@@ -123,6 +123,8 @@
+ 
+     move-result-object v0
+ 
++    invoke-interface {v0}, Ljava/util/Map;->clear()V
++
+     invoke-static {p1, v1}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+ 
+     move-result v1

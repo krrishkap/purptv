@@ -1,0 +1,83 @@
+diff --git a/smali_classes2/tv/twitch/android/models/manifest/ManifestModel.smali b/smali_classes2/tv/twitch/android/models/manifest/ManifestModel.smali
+--- a/smali_classes2/tv/twitch/android/models/manifest/ManifestModel.smali
++++ b/smali_classes2/tv/twitch/android/models/manifest/ManifestModel.smali
+@@ -458,6 +458,23 @@
+ .method public getManifestUrlWithParams(ZZZ)Ljava/lang/String;
+     .locals 2
+ 
++    iget-object v0, p0, Ltv/twitch/android/models/manifest/ManifestModel;->mManifest:Ltv/twitch/android/models/manifest/extm3u;
++
++    iget-object v0, v0, Ltv/twitch/android/models/manifest/extm3u;->ProxyUrl:Ljava/lang/String;
++
++    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
++
++    move-result v0
++
++    if-nez v0, :cond_z
++
++    iget-object v0, p0, Ltv/twitch/android/models/manifest/ManifestModel;->mManifest:Ltv/twitch/android/models/manifest/extm3u;
++
++    iget-object v0, v0, Ltv/twitch/android/models/manifest/extm3u;->ProxyUrl:Ljava/lang/String;
++
++    return-object v0
++
++    :cond_z
+     iget-object v0, p0, Ltv/twitch/android/models/manifest/ManifestModel;->mBaseManifestURL:Ljava/lang/String;
+ 
+     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+@@ -837,3 +854,55 @@
+ 
+     return v0
+ .end method
++
++.method public getProxyServer()Ljava/lang/String;
++    .registers 3
++
++    .prologue
++    .line 14
++    iget-object v1, p0, Ltv/twitch/android/models/manifest/ManifestModel;->mManifest:Ltv/twitch/android/models/manifest/extm3u;
++
++    iget-object v0, v1, Ltv/twitch/android/models/manifest/extm3u;->ProxyServer:Ljava/lang/String;
++
++    .line 15
++    .local v0, "proxyServer":Ljava/lang/String;
++    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
++
++    move-result v1
++
++    if-eqz v1, :cond_b
++
++    .line 16
++    const/4 v0, 0x0
++
++    .line 19
++    .end local v0    # "proxyServer":Ljava/lang/String;
++    :cond_b
++    return-object v0
++.end method
++
++.method public getProxyUrl()Ljava/lang/String;
++    .registers 3
++
++    .prologue
++    .line 23
++    iget-object v1, p0, Ltv/twitch/android/models/manifest/ManifestModel;->mManifest:Ltv/twitch/android/models/manifest/extm3u;
++
++    iget-object v0, v1, Ltv/twitch/android/models/manifest/extm3u;->ProxyUrl:Ljava/lang/String;
++
++    .line 24
++    .local v0, "url":Ljava/lang/String;
++    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
++
++    move-result v1
++
++    if-eqz v1, :cond_b
++
++    .line 25
++    const/4 v0, 0x0
++
++    .line 28
++    .end local v0    # "url":Ljava/lang/String;
++    :cond_b
++    return-object v0
++.end method

@@ -1,0 +1,78 @@
+diff --git a/smali_classes2/tv/twitch/android/network/OkHttpClientFactory.smali b/smali_classes2/tv/twitch/android/network/OkHttpClientFactory.smali
+--- a/smali_classes2/tv/twitch/android/network/OkHttpClientFactory.smali
++++ b/smali_classes2/tv/twitch/android/network/OkHttpClientFactory.smali
+@@ -80,7 +80,7 @@
+ .end method
+ 
+ .method public constructor <init>(Ltv/twitch/android/network/NetworkManager;Ltv/twitch/android/network/analytics/NetworkStatsInterceptor;Ltv/twitch/android/network/retrofit/UserAgentInterceptor;Ldagger/Lazy;)V
+-    .locals 1
++    .locals 4
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+@@ -122,35 +122,42 @@
+ 
+     sget-object p1, Ltv/twitch/android/core/buildconfig/BuildConfigUtil;->INSTANCE:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;
+ 
+-    invoke-virtual {p1}, Ltv/twitch/android/core/buildconfig/BuildConfigUtil;->isDebugConfigEnabled()Z
++    invoke-static {}, Ltv/purple/monolith/core/bridge/CoreHook;->isOkHttpLoggingEnabled()Z
+ 
+-    move-result p1
++    move-result v0
+ 
+     const/4 p2, 0x0
+ 
+-    if-eqz p1, :cond_0
++    if-eqz v0, :cond_zz
+ 
+-    new-instance p1, Lcom/facebook/stetho/okhttp3/StethoInterceptor;
++    new-instance v1, Lokhttp3/logging/HttpLoggingInterceptor;
+ 
+-    invoke-direct {p1}, Lcom/facebook/stetho/okhttp3/StethoInterceptor;-><init>()V
++    const/4 v3, 0x1
+ 
+-    iput-object p1, p0, Ltv/twitch/android/network/OkHttpClientFactory;->stethoInterceptor:Lcom/facebook/stetho/okhttp3/StethoInterceptor;
++    invoke-direct {v1, p2, v3, p2}, Lokhttp3/logging/HttpLoggingInterceptor;-><init>(Lokhttp3/logging/HttpLoggingInterceptor$Logger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    new-instance p1, Lokhttp3/logging/HttpLoggingInterceptor;
++    const-string v2, "Trusted-Twitch-Session"
+ 
+-    const/4 p3, 0x1
++    invoke-virtual {v1, v2}, Lokhttp3/logging/HttpLoggingInterceptor;->redactHeader(Ljava/lang/String;)V
+ 
+-    invoke-direct {p1, p2, p3, p2}, Lokhttp3/logging/HttpLoggingInterceptor;-><init>(Lokhttp3/logging/HttpLoggingInterceptor$Logger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    sget-object v2, Lokhttp3/logging/HttpLoggingInterceptor$Level;->BODY:Lokhttp3/logging/HttpLoggingInterceptor$Level;
+ 
+-    const-string p2, "Trusted-Twitch-Session"
++    invoke-virtual {v1, v2}, Lokhttp3/logging/HttpLoggingInterceptor;->level(Lokhttp3/logging/HttpLoggingInterceptor$Level;)V
+ 
+-    invoke-virtual {p1, p2}, Lokhttp3/logging/HttpLoggingInterceptor;->redactHeader(Ljava/lang/String;)V
++    iput-object v1, p0, Ltv/twitch/android/network/OkHttpClientFactory;->httpLoggingInterceptor:Lokhttp3/logging/HttpLoggingInterceptor;
+ 
+-    sget-object p2, Lokhttp3/logging/HttpLoggingInterceptor$Level;->BODY:Lokhttp3/logging/HttpLoggingInterceptor$Level;
++    :cond_zz
++    invoke-virtual {p1}, Ltv/twitch/android/core/buildconfig/BuildConfigUtil;->isDebugConfigEnabled()Z
+ 
+-    invoke-virtual {p1, p2}, Lokhttp3/logging/HttpLoggingInterceptor;->level(Lokhttp3/logging/HttpLoggingInterceptor$Level;)V
++    move-result p1
+ 
+-    iput-object p1, p0, Ltv/twitch/android/network/OkHttpClientFactory;->httpLoggingInterceptor:Lokhttp3/logging/HttpLoggingInterceptor;
++    if-eqz p1, :cond_0
++
++    new-instance p1, Lcom/facebook/stetho/okhttp3/StethoInterceptor;
++
++    invoke-direct {p1}, Lcom/facebook/stetho/okhttp3/StethoInterceptor;-><init>()V
++
++    iput-object p1, p0, Ltv/twitch/android/network/OkHttpClientFactory;->stethoInterceptor:Lcom/facebook/stetho/okhttp3/StethoInterceptor;
+ 
+     invoke-interface {p4}, Ldagger/Lazy;->get()Ljava/lang/Object;
+ 
+@@ -459,6 +466,8 @@
+ 
+     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->proxySelector(Ljava/net/ProxySelector;)Lokhttp3/OkHttpClient$Builder;
+ 
++    invoke-static {v0}, Ltv/purple/monolith/features/proxy/bridge/ProxyHook;->maybeAddInterceptor(Lokhttp3/OkHttpClient$Builder;)V
++
+     invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
+ 
+     move-result-object p1

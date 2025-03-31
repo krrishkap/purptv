@@ -1,0 +1,1 @@
+RUN_JAVA_COMMAND = ["java", "-Xms1024m", "-Xmx8192m"]

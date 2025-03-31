@@ -1,0 +1,25 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/PlayPauseFastSeekViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/PlayPauseFastSeekViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/PlayPauseFastSeekViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/PlayPauseFastSeekViewDelegate.smali
+@@ -481,7 +481,9 @@
+ 
+     iget-object p1, p0, Ltv/twitch/android/shared/player/overlay/seekable/PlayPauseFastSeekViewDelegate;->seekSubject:Lio/reactivex/subjects/PublishSubject;
+ 
+-    const/16 p2, -0xa
++    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->getRewindSeek()I
++
++    move-result p2
+ 
+     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+@@ -519,7 +521,9 @@
+ 
+     iget-object p1, p0, Ltv/twitch/android/shared/player/overlay/seekable/PlayPauseFastSeekViewDelegate;->seekSubject:Lio/reactivex/subjects/PublishSubject;
+ 
+-    const/16 p2, 0x1e
++    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->getForwardSeek()I
++
++    move-result p2
+ 
+     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 

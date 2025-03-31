@@ -1,0 +1,11 @@
+diff --git a/smali/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+--- a/smali/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
++++ b/smali/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+@@ -103,5 +103,7 @@
+ 
+     invoke-virtual {v0, p1, p2, p3}, Ltv/twitch/android/shared/ui/elements/image/TwitchGlideModule;->registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
+ 
++    invoke-static {v0, p1, p2, p3}, Ltv/purple/monolith/core/bridge/GlideIntegration;->registerWebpGlideLibraryModule(Ltv/twitch/android/shared/ui/elements/image/TwitchGlideModule;Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
++
+     return-void
+ .end method

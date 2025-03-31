@@ -1,0 +1,16 @@
+diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali
+--- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali
++++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali
+@@ -415,6 +415,12 @@
+ 
+     invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
++    invoke-virtual {p0}, Ltv/twitch/android/settings/main/MainSettingsPresenter;->getSettingModels()Ljava/util/List;
++
++    move-result-object v0
++
++    invoke-static {v0}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->injectOrangeSettingsMenuModel(Ljava/util/List;)V
++
+     invoke-virtual {p0}, Ltv/twitch/android/shared/settings/BaseSettingsPresenter;->getActivity()Landroidx/fragment/app/FragmentActivity;
+ 
+     move-result-object v0

@@ -1,0 +1,60 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory.smali
+@@ -24,6 +24,8 @@
+ 
+ .field private final whisperCommandInterceptor:Ltv/twitch/android/shared/chat/command/WhisperCommandInterceptor;
+ 
++.field private final logsCommandInterceptor:Ltv/twitch/android/shared/chat/command/ChatCommandInterceptor;
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -33,7 +35,7 @@
+ .end method
+ 
+ .method public constructor <init>(Ltv/twitch/android/shared/chat/command/BlockAndUnblockCommandInterceptor;Ltv/twitch/android/shared/chat/command/HelpCommandInterceptor;Ltv/twitch/android/shared/chat/command/ListModsCommandInterceptor;Ltv/twitch/android/shared/chat/command/MarkerCommandInterceptor;Ltv/twitch/android/shared/chat/command/OpenViewerCardCommandInterceptor;Ltv/twitch/android/shared/chat/command/RaidCommandInterceptor;Ltv/twitch/android/shared/chat/command/ShoutoutCommandInterceptor;Ltv/twitch/android/shared/chat/command/VoteCommandInterceptor;Ltv/twitch/android/shared/chat/command/WarnCommandInterceptor;Ltv/twitch/android/shared/chat/command/WhisperCommandInterceptor;)V
+-    .locals 1
++    .locals 2
+     .annotation runtime Ljavax/inject/Inject;
+     .end annotation
+ 
+@@ -99,6 +101,16 @@
+ 
+     iput-object p10, p0, Ltv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory;->whisperCommandInterceptor:Ltv/twitch/android/shared/chat/command/WhisperCommandInterceptor;
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory;->voteCommandInterceptor:Ltv/twitch/android/shared/chat/command/VoteCommandInterceptor;
++
++    iget-object v1, p0, Ltv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory;->blockAndUnblockCommandInterceptor:Ltv/twitch/android/shared/chat/command/BlockAndUnblockCommandInterceptor;
++
++    invoke-static {v0, v1}, Ltv/purple/monolith/features/logs/bridge/ChatLogsHook;->createLogsCommandInterceptor(Ltv/twitch/android/shared/chat/command/VoteCommandInterceptor;Ltv/twitch/android/shared/chat/command/BlockAndUnblockCommandInterceptor;)Ltv/twitch/android/shared/chat/command/ChatCommandInterceptor;
++
++    move-result-object v0
++
++    iput-object v0, p0, Ltv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory;->logsCommandInterceptor:Ltv/twitch/android/shared/chat/command/ChatCommandInterceptor;
++
+     return-void
+ .end method
+ 
+@@ -135,7 +147,7 @@
+ 
+     iget-object v9, p0, Ltv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory;->whisperCommandInterceptor:Ltv/twitch/android/shared/chat/command/WhisperCommandInterceptor;
+ 
+-    const/16 v10, 0xa
++    const/16 v10, 0xb
+ 
+     new-array v10, v10, [Ltv/twitch/android/shared/chat/command/ChatCommandInterceptor;
+ 
+@@ -179,6 +191,12 @@
+ 
+     aput-object v9, v10, v0
+ 
++    iget-object v9, p0, Ltv/twitch/android/shared/chat/command/ChatCommandInterceptorFactory;->logsCommandInterceptor:Ltv/twitch/android/shared/chat/command/ChatCommandInterceptor;
++
++    const/16 v0, 0xa
++
++    aput-object v9, v10, v0
++
+     invoke-static {v10}, Lkotlin/collections/SetsKt;->setOf([Ljava/lang/Object;)Ljava/util/Set;
+ 
+     move-result-object v0

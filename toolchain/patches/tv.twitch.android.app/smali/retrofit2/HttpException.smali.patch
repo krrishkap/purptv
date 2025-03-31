@@ -1,0 +1,16 @@
+diff --git a/smali_classes4/retrofit2/HttpException.smali b/smali_classes4/retrofit2/HttpException.smali
+--- a/smali_classes4/retrofit2/HttpException.smali
++++ b/smali_classes4/retrofit2/HttpException.smali
+@@ -107,3 +107,12 @@
+ 
+     return v0
+ .end method
++
++# revision: 3
++.method public message()Ljava/lang/String;
++    .locals 1
++
++    iget-object v0, p0, Lretrofit2/HttpException;->message:Ljava/lang/String;
++
++    return-object v0
++.end method

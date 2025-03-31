@@ -1,0 +1,23 @@
+diff --git a/smali/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali b/smali/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali
+--- a/smali/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali
++++ b/smali/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali
+@@ -82,19 +82,6 @@
+ 
+     sget-object v0, Ltv/twitch/android/core/buildconfig/BuildConfigUtil;->INSTANCE:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;
+ 
+-    invoke-virtual {v0}, Ltv/twitch/android/core/buildconfig/BuildConfigUtil;->isDebugConfigEnabled()Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_0
+-
+-    new-instance v0, Ltv/twitch/android/util/logging/LogcatLoggingTree;
+-
+-    invoke-direct {v0}, Ltv/twitch/android/util/logging/LogcatLoggingTree;-><init>()V
+-
+-    invoke-static {v0}, Ltimber/log/Timber;->plant(Ltimber/log/Timber$Tree;)V
+-
+-    :cond_0
+     sget-object v0, Ltv/twitch/android/shared/analytics/UpTimeCalculator;->INSTANCE:Ltv/twitch/android/shared/analytics/UpTimeCalculator;
+ 
+     invoke-virtual {v0}, Ltv/twitch/android/shared/analytics/UpTimeCalculator;->onAppStarted()V

@@ -1,0 +1,72 @@
+diff --git a/smali/kotlin/collections/ArraysKt___ArraysKt.smali b/smali/kotlin/collections/ArraysKt___ArraysKt.smali
+--- a/smali/kotlin/collections/ArraysKt___ArraysKt.smali
++++ b/smali/kotlin/collections/ArraysKt___ArraysKt.smali
+@@ -2659,3 +2659,68 @@
+     :cond_0
+     return-object v1
+ .end method
++
++# revision: 3
++.method public static final sliceArray([Ljava/lang/Object;Lkotlin/ranges/IntRange;)[Ljava/lang/Object;
++    .registers 4
++    .param p0, "$this$sliceArray"    # [Ljava/lang/Object;
++    .param p1, "indices"    # Lkotlin/ranges/IntRange;
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<T:",
++            "Ljava/lang/Object;",
++            ">([TT;",
++            "Lkotlin/ranges/IntRange;",
++            ")[TT;"
++        }
++    .end annotation
++
++    const-string v0, "<this>"
++
++    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
++
++    const-string v0, "indices"
++
++    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
++
++    .line 4692
++    invoke-virtual {p1}, Lkotlin/ranges/IntRange;->isEmpty()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_16
++
++    const/4 v0, 0x0
++
++    invoke-static {p0, v0, v0}, Lkotlin/collections/ArraysKt;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
++
++    move-result-object v0
++
++    return-object v0
++
++    .line 4693
++    :cond_16
++    invoke-virtual {p1}, Lkotlin/ranges/IntRange;->getStart()Ljava/lang/Integer;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
++
++    move-result v0
++
++    invoke-virtual {p1}, Lkotlin/ranges/IntRange;->getEndInclusive()Ljava/lang/Integer;
++
++    move-result-object v1
++
++    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
++
++    move-result v1
++
++    add-int/lit8 v1, v1, 0x1
++
++    invoke-static {p0, v0, v1}, Lkotlin/collections/ArraysKt;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
++
++    move-result-object v0
++
++    return-object v0
++.end method

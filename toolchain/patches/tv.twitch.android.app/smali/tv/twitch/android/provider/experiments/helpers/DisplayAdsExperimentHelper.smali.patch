@@ -1,0 +1,37 @@
+diff --git a/smali_classes2/tv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper.smali b/smali_classes2/tv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper.smali
+--- a/smali_classes2/tv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper.smali
++++ b/smali_classes2/tv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper.smali
+@@ -27,29 +27,17 @@
+ 
+ # virtual methods
+ .method public final areBannerDisplayAdsEnabled()Z
+-    .locals 2
+-
+-    iget-object v0, p0, Ltv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper;->experimentHelper:Ltv/twitch/android/provider/experiments/ExperimentHelper;
+-
+-    sget-object v1, Ltv/twitch/android/provider/experiments/Experiment;->BANNER_ADS:Ltv/twitch/android/provider/experiments/Experiment;
+-
+-    invoke-interface {v0, v1}, Ltv/twitch/android/provider/experiments/ExperimentHelper;->isInOnGroupForBinaryExperiment(Ltv/twitch/android/provider/experiments/Experiment;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public final areLeftThirdDisplayAdsEnabled()Z
+-    .locals 2
+-
+-    iget-object v0, p0, Ltv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper;->experimentHelper:Ltv/twitch/android/provider/experiments/ExperimentHelper;
+-
+-    sget-object v1, Ltv/twitch/android/provider/experiments/Experiment;->STREAM_DISPLAY_ADS:Ltv/twitch/android/provider/experiments/Experiment;
+-
+-    invoke-interface {v0, v1}, Ltv/twitch/android/provider/experiments/ExperimentHelper;->isInOnGroupForBinaryExperiment(Ltv/twitch/android/provider/experiments/Experiment;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method

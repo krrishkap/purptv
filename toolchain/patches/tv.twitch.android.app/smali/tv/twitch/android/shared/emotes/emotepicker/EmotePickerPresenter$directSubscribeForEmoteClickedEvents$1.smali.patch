@@ -1,0 +1,19 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$directSubscribeForEmoteClickedEvents$1.smali b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$directSubscribeForEmoteClickedEvents$1.smali
+--- a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$directSubscribeForEmoteClickedEvents$1.smali
++++ b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$directSubscribeForEmoteClickedEvents$1.smali
+@@ -73,6 +73,15 @@
+ 
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    invoke-static {v1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->hookEmotePickerPresenterLongEmoteClick(Ltv/twitch/android/shared/emotes/emotepicker/models/EmoteClickedEvent;)Z
++
++    move-result v2
++
++    if-eqz v2, :cond_z
++
++    return-void
++
++    :cond_z
+     invoke-virtual/range {p1 .. p1}, Ltv/twitch/android/shared/emotes/emotepicker/models/EmoteClickedEvent;->getClickedEmote()Ltv/twitch/android/shared/emotes/emotepicker/models/ClickedEmote;
+ 
+     move-result-object v2

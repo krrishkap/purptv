@@ -1,0 +1,22 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali b/smali_classes6/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali
+@@ -577,8 +577,17 @@
+ .end method
+ 
+ .method private final shouldHideChatHeaderBasedOnDefaultRules(Z)Z
+-    .locals 0
++    .locals 1
++
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getHideChatHeader()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    const/4 p1, 0x1
+ 
++    :cond_z
+     return p1
+ .end method
+ 

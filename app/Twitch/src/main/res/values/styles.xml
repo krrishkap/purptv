@@ -1,0 +1,21 @@
+<resources>
+    <style name="ChatMessageView" />
+    <style name="RowItemStyleWithForeground" />
+    <style name="SemiboldFont" />
+    <style name="BodyText" />
+    <style name="ButtonStyle.Primary" parent="@style/ButtonStyle" />
+    <style name="ButtonStyle.Secondary" parent="@style/ButtonStyle" />
+    <style name="ButtonStyle" />
+    <style name="BoldFont" />
+    <style name="Title" parent="@style/BoldFont" />
+    <style name="Title2Text" parent="@style/SemiboldFont" />
+    <style name="TitleExtraLarge" parent="@style/BoldFont" />
+    <style name="TitleLarge" parent="@style/BoldFont" />
+    <style name="TitleText" parent="@style/SemiboldFont" />
+    <style name="Subtitle" />
+    <style name="SubtitleLarge" />
+    <style name="SubtitleText" />
+    <style name="ExtraLargeTitleText" parent="@style/TitleText" />
+    <style name="ButtonStyle.Toast" />
+    <style name="ThemeOverlay.Material3.Button.TonalButton" />
+</resources>

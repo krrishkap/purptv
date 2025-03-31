@@ -1,0 +1,44 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
+--- a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
++++ b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
+@@ -408,33 +408,24 @@
+ 
+ # virtual methods
+ .method public observeModelUpdates()Lio/reactivex/Flowable;
+-    .locals 2
++    .registers 2
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "()",
+-            "Lio/reactivex/Flowable<",
++            "Lio/reactivex/Flowable",
++            "<",
+             "Ltv/twitch/android/models/ads/SponsoredStream;",
+             ">;"
+         }
+     .end annotation
+ 
+-    invoke-direct {p0}, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource;->updateChannelModelWhenTier3UiIsLoaded()Lio/reactivex/Flowable;
+-
+-    move-result-object v0
+-
+-    iget-object v1, p0, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource;->pubSubUpdateDispatcher:Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;
+-
+-    invoke-virtual {v1}, Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;->eventObserver()Lio/reactivex/Flowable;
++    .prologue
++    .line 10
++    sget-object v0, Ltv/twitch/android/models/ads/SponsoredStream$NotSponsored;->INSTANCE:Ltv/twitch/android/models/ads/SponsoredStream$NotSponsored;
+ 
+-    move-result-object v1
+-
+-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->merge(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
++    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
+ 
+     move-result-object v0
+ 
+-    const-string v1, "merge(...)"
+-
+-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+-
+     return-object v0
+ .end method

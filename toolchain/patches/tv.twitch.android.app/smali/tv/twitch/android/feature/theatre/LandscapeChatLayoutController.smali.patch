@@ -1,0 +1,25 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali b/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
+--- a/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
+@@ -853,6 +853,10 @@
+     const/16 v0, 0x1e
+ 
+     :goto_0
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getLandscapeContainerScale()I
++
++    move-result v0
++
+     iget-object v1, p0, Ltv/twitch/android/feature/theatre/LandscapeChatLayoutController;->landscapeContainer:Landroid/view/ViewGroup;
+ 
+     invoke-static {v1, v0}, Ltv/twitch/android/app/core/ViewExtensionsKt;->setLargestScreenEdgePercentage(Landroid/view/View;I)V
+@@ -892,7 +896,9 @@
+     :cond_0
+     iget-object v0, p0, Ltv/twitch/android/feature/theatre/LandscapeChatLayoutController;->landscapeContainer:Landroid/view/ViewGroup;
+ 
+-    const/16 v1, 0x32
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getLandscapeSplitContainerScale()I
++
++    move-result v1
+ 
+     invoke-static {v0, v1}, Ltv/twitch/android/app/core/ViewExtensionsKt;->setLargestScreenEdgePercentage(Landroid/view/View;I)V
+ 

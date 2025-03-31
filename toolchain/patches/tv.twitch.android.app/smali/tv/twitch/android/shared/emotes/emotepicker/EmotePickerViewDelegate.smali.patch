@@ -1,0 +1,162 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate.smali
+@@ -2,6 +2,9 @@
+ .super Ltv/twitch/android/core/mvp/viewdelegate/RxViewDelegate;
+ .source "EmotePickerViewDelegate.kt"
+ 
++# interfaces
++.implements Ltv/purple/monolith/features/chat/bridge/PurpleTVScrollableSection;
++
+ 
+ # annotations
+ .annotation system Ldalvik/annotation/MemberClasses;
+@@ -45,6 +48,8 @@
+ 
+ .field private final showKeyboardButton:Landroid/widget/ImageView;
+ 
++.field private final purpleTVEmotesButton:Landroid/widget/ImageView;
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -96,6 +101,12 @@
+ 
+     iput-object p4, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate;->listViewDelegate:Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;
+ 
++    invoke-static {v1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getPurpleTVEmotesButton(Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate;)Landroid/widget/ImageView;
++
++    move-result-object p2
++
++    iput-object p2, v1, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate;->purpleTVEmotesButton:Landroid/widget/ImageView;
++
+     invoke-virtual {p0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->getContentView()Landroid/view/View;
+ 
+     move-result-object p2
+@@ -572,6 +583,10 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate;->purpleTVEmotesButton:Landroid/widget/ImageView;
++
++    invoke-static {p1, v0}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->renderEmotePickerState(Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$EmotePickerState;Landroid/widget/ImageView;)V
++
+     invoke-virtual {p1}, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$EmotePickerState;->isOpen()Z
+ 
+     move-result v0
+@@ -685,3 +700,115 @@
+ 
+     return-void
+ .end method
++
++.method public scrollToPurpleTVSection()V
++    .registers 10
++
++    .prologue
++    .line 38
++    iget-object v6, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate;->listViewDelegate:Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;
++
++    if-nez v6, :cond_5
++
++    .line 68
++    :cond_4
++    :goto_4
++    return-void
++
++    .line 42
++    :cond_5
++    iget-object v6, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate;->listViewDelegate:Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;
++
++    invoke-virtual {v6}, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
++
++    move-result-object v0
++
++    check-cast v0, Ltv/twitch/android/core/adapters/TwitchSectionAdapter;
++
++    .line 44
++    .local v0, "adapter":Ltv/twitch/android/core/adapters/TwitchSectionAdapter;
++    if-eqz v0, :cond_4
++
++    .line 48
++    invoke-virtual {v0}, Ltv/twitch/android/core/adapters/TwitchSectionAdapter;->getSections()Ljava/util/List;
++
++    move-result-object v3
++
++    .line 49
++    .local v3, "sections":Ljava/util/List;, "Ljava/util/List<Ltv/twitch/android/core/adapters/RecyclerAdapterSection;>;"
++    if-eqz v3, :cond_4
++
++    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
++
++    move-result v6
++
++    if-nez v6, :cond_4
++
++    .line 53
++    const/4 v1, 0x0
++
++    .line 55
++    .local v1, "pos":I
++    const/4 v4, 0x0
++
++    .line 56
++    .local v4, "sizeWithHeader":I
++    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
++
++    move-result-object v6
++
++    :goto_21
++    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
++
++    move-result v7
++
++    if-eqz v7, :cond_39
++
++    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
++
++    move-result-object v5
++
++    check-cast v5, Ltv/twitch/android/core/adapters/RecyclerAdapterSection;
++
++    .local v5, "t":Ltv/twitch/android/core/adapters/RecyclerAdapterSection;
++    move-object v2, v5
++
++    .line 57
++    check-cast v2, Ltv/twitch/android/shared/emotes/emotepicker/adapter/EmotePickerAdapterSection;
++
++    .line 59
++    .local v2, "section":Ltv/twitch/android/shared/emotes/emotepicker/adapter/EmotePickerAdapterSection;
++    invoke-virtual {v2}, Ltv/twitch/android/shared/emotes/emotepicker/adapter/EmotePickerAdapterSection;->getEmotePickerSection()Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
++
++    move-result-object v7
++
++    sget-object v8, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->PURPLETV:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
++
++    if-ne v7, v8, :cond_3f
++
++    .line 60
++    move v1, v4
++
++    .line 67
++    .end local v2    # "section":Ltv/twitch/android/shared/emotes/emotepicker/adapter/EmotePickerAdapterSection;
++    .end local v5    # "t":Ltv/twitch/android/core/adapters/RecyclerAdapterSection;
++    :cond_39
++    iget-object v6, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerViewDelegate;->listViewDelegate:Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;
++
++    invoke-virtual {v6, v1}, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->fastScrollToPosition(I)V
++
++    goto :goto_4
++
++    .line 64
++    .restart local v2    # "section":Ltv/twitch/android/shared/emotes/emotepicker/adapter/EmotePickerAdapterSection;
++    .restart local v5    # "t":Ltv/twitch/android/core/adapters/RecyclerAdapterSection;
++    :cond_3f
++    invoke-virtual {v2}, Ltv/twitch/android/shared/emotes/emotepicker/adapter/EmotePickerAdapterSection;->sizeWithHeader()I
++
++    move-result v7
++
++    add-int/2addr v4, v7
++
++    .line 65
++    goto :goto_21
++.end method

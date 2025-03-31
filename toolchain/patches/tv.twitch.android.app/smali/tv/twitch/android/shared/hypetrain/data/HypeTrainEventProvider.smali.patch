@@ -1,0 +1,39 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali b/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali
+--- a/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali
++++ b/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali
+@@ -1997,6 +1997,19 @@
+         }
+     .end annotation
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getHypetrainDisabled()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
++
++    move-result-object v0
++
++    return-object v0
++
++    :cond_z
+     invoke-virtual {p0}, Ltv/twitch/android/core/mvp/presenter/RxPresenter;->stateObserver()Lio/reactivex/Flowable;
+ 
+     move-result-object v0
+@@ -2057,6 +2070,15 @@
+ .method public bind(I)V
+     .locals 2
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getHypetrainDisabled()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    return-void
++
++    :cond_z
+     iget-object v0, p0, Ltv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider;->stateUpdater:Ltv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider$stateUpdater$1;
+ 
+     new-instance v1, Ltv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider$StateEvent$ChannelIdSet;

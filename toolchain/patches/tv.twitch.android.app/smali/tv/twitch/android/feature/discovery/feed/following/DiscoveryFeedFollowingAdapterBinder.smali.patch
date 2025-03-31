@@ -1,0 +1,14 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/discovery/feed/following/DiscoveryFeedFollowingAdapterBinder.smali b/smali_classes5/tv/twitch/android/feature/discovery/feed/following/DiscoveryFeedFollowingAdapterBinder.smali
+--- a/smali_classes5/tv/twitch/android/feature/discovery/feed/following/DiscoveryFeedFollowingAdapterBinder.smali
++++ b/smali_classes5/tv/twitch/android/feature/discovery/feed/following/DiscoveryFeedFollowingAdapterBinder.smali
+@@ -791,6 +791,10 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    invoke-static {p1}, Ltv/purple/monolith/features/ui/bridge/UIHook;->filterFollowingContentItemCollection(Ljava/util/List;)Ljava/util/List;
++
++    move-result-object p1
++
+     new-instance v0, Ljava/util/ArrayList;
+ 
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V

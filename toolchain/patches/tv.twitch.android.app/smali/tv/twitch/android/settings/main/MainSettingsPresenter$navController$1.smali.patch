@@ -1,0 +1,31 @@
+diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
+--- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
++++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
+@@ -216,9 +216,9 @@
+     goto :goto_0
+ 
+     :pswitch_2
+-    new-instance p2, Ltv/twitch/android/settings/system/SystemSettingsFragment;
++    invoke-static {}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->createSettingsFragment()Landroidx/fragment/app/Fragment;
+ 
+-    invoke-direct {p2}, Ltv/twitch/android/settings/system/SystemSettingsFragment;-><init>()V
++    move-result-object v0
+ 
+     goto :goto_0
+ 
+@@ -263,6 +263,15 @@
+     invoke-direct {p2}, Ltv/twitch/android/settings/account/AccountSettingsFragment;-><init>()V
+ 
+     :goto_0
++    sget-object v1, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleSettings:Ltv/twitch/android/models/settings/SettingsDestination;
++
++    if-ne p1, v1, :cond_z
++
++    invoke-static {}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->createSettingsFragment()Landroidx/fragment/app/Fragment;
++
++    move-result-object p2
++
++    :cond_z
+     if-eqz p2, :cond_4
+ 
+     iget-object v0, p0, Ltv/twitch/android/settings/main/MainSettingsPresenter$navController$1;->this$0:Ltv/twitch/android/settings/main/MainSettingsPresenter;

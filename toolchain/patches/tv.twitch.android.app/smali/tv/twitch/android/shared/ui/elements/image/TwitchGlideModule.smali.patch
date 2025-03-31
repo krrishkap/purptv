@@ -1,0 +1,14 @@
+diff --git a/smali_classes2/tv/twitch/android/shared/ui/elements/image/TwitchGlideModule.smali b/smali_classes2/tv/twitch/android/shared/ui/elements/image/TwitchGlideModule.smali
+--- a/smali_classes2/tv/twitch/android/shared/ui/elements/image/TwitchGlideModule.smali
++++ b/smali_classes2/tv/twitch/android/shared/ui/elements/image/TwitchGlideModule.smali
+@@ -54,7 +54,9 @@
+ 
+     new-instance v0, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory;
+ 
+-    const-wide/32 v1, 0x4000000
++    invoke-static {}, Ltv/purple/monolith/core/bridge/CoreHook;->getGlideCacheSize()J
++
++    move-result-wide v1
+ 
+     invoke-direct {v0, p1, v1, v2}, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory;-><init>(Landroid/content/Context;J)V
+ 

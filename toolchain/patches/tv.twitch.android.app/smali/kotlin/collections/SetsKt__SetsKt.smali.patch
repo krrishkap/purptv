@@ -1,0 +1,45 @@
+diff --git a/smali/kotlin/collections/SetsKt__SetsKt.smali b/smali/kotlin/collections/SetsKt__SetsKt.smali
+--- a/smali/kotlin/collections/SetsKt__SetsKt.smali
++++ b/smali/kotlin/collections/SetsKt__SetsKt.smali
+@@ -179,3 +179,41 @@
+     :goto_0
+     return-object p0
+ .end method
++
++.method public static final varargs hashSetOf([Ljava/lang/Object;)Ljava/util/HashSet;
++    .registers 3
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<T:",
++            "Ljava/lang/Object;",
++            ">([TT;)",
++            "Ljava/util/HashSet<",
++            "TT;>;"
++        }
++    .end annotation
++
++    const-string v0, "elements"
++
++    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
++
++    .line 76
++    new-instance v0, Ljava/util/HashSet;
++
++    array-length v1, p0
++
++    invoke-static {v1}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
++
++    move-result v1
++
++    invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(I)V
++
++    check-cast v0, Ljava/util/Collection;
++
++    invoke-static {p0, v0}, Lkotlin/collections/ArraysKt___ArraysKt;->toCollection([Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
++
++    move-result-object p0
++
++    check-cast p0, Ljava/util/HashSet;
++
++    return-object p0
++.end method

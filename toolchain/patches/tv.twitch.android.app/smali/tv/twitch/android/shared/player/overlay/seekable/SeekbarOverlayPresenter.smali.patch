@@ -1,0 +1,31 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
+@@ -2,6 +2,9 @@
+ .super Ltv/twitch/android/core/mvp/presenter/BasePresenter;
+ .source "SeekbarOverlayPresenter.kt"
+ 
++# interfaces
++.implements Ltv/purple/monolith/bridge/ex/ISeekbarOverlayPresenter;
++
+ 
+ # annotations
+ .annotation system Ldalvik/annotation/MemberClasses;
+@@ -315,3 +318,17 @@
+     :cond_0
+     return-void
+ .end method
++
++.method public xSeekTo(I)V
++    .registers 3
++    .param p1, "pos"    # I
++
++    .prologue
++    .line 12
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter;->seekbarOverlayViewDelegate:Ltv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate;
++
++    invoke-virtual {v0, p1}, Ltv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate;->xSeekTo(I)V
++
++    .line 13
++    return-void
++.end method

@@ -1,0 +1,20 @@
+diff --git a/smali/okhttp3/HttpUrl.smali b/smali/okhttp3/HttpUrl.smali
+--- a/smali/okhttp3/HttpUrl.smali
++++ b/smali/okhttp3/HttpUrl.smali
+@@ -930,3 +930,16 @@
+ 
+     throw v1
+ .end method
++
++# revision: 3
++.method public static final get(Ljava/net/URI;)Lokhttp3/HttpUrl;
++    .locals 1
++
++    sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
++
++    invoke-virtual {v0, p0}, Lokhttp3/HttpUrl$Companion;->get(Ljava/net/URI;)Lokhttp3/HttpUrl;
++
++    move-result-object v0
++
++    return-object v0
++.end method

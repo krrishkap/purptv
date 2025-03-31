@@ -1,0 +1,52 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
+--- a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
++++ b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
+@@ -125,7 +125,7 @@
+ 
+ # virtual methods
+ .method public observeModelUpdates()Lio/reactivex/Flowable;
+-    .locals 3
++    .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "()",
+@@ -135,37 +135,11 @@
+         }
+     .end annotation
+ 
+-    iget-object v0, p0, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource;->vodModelProvider:Ltv/twitch/android/core/data/source/DataProvider;
+-
+-    invoke-interface {v0}, Ltv/twitch/android/core/data/source/DataProvider;->dataObserver()Lio/reactivex/Flowable;
+-
+-    move-result-object v0
+-
+-    sget-object v1, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource$observeModelUpdates$1;->INSTANCE:Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource$observeModelUpdates$1;
+-
+-    new-instance v2, Lxd/k;
+-
+-    invoke-direct {v2, v1}, Lxd/k;-><init>(Lkotlin/jvm/functions/Function1;)V
+-
+-    invoke-virtual {v0, v2}, Lio/reactivex/Flowable;->switchMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
++    sget-object v0, Ltv/twitch/android/models/ads/SponsoredStream$NotSponsored;->INSTANCE:Ltv/twitch/android/models/ads/SponsoredStream$NotSponsored;
+ 
+-    move-result-object v0
+-
+-    new-instance v1, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource$observeModelUpdates$2;
+-
+-    invoke-direct {v1, p0}, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource$observeModelUpdates$2;-><init>(Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource;)V
+-
+-    new-instance v2, Lxd/l;
+-
+-    invoke-direct {v2, v1}, Lxd/l;-><init>(Lkotlin/jvm/functions/Function1;)V
+-
+-    invoke-virtual {v0, v2}, Lio/reactivex/Flowable;->switchMapSingle(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
++    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
+ 
+     move-result-object v0
+ 
+-    const-string v1, "switchMapSingle(...)"
+-
+-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+-
+     return-object v0
+ .end method

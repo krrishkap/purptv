@@ -1,0 +1,14 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/clips/list/ClipsFeedPresenter.smali b/smali_classes6/tv/twitch/android/shared/clips/list/ClipsFeedPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/clips/list/ClipsFeedPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/clips/list/ClipsFeedPresenter.smali
+@@ -1324,9 +1324,7 @@
+ .method private final trackEmptyStateImpression()V
+     .locals 2
+ 
+-    invoke-direct {p0}, Ltv/twitch/android/shared/clips/list/ClipsFeedPresenter;->isViewingClipsForChannel()Z
+-
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     const/4 v1, 0x1
+ 

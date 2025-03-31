@@ -1,0 +1,58 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+@@ -99,6 +99,8 @@
+ 
+ .field private final subOnlyToggleViewDelegate:Ltv/twitch/android/shared/ui/menus/togglemenu/SimpleToggleRowViewDelegate;
+ 
++.field private final purpleTVViewDelegate:Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -132,6 +134,16 @@
+ 
+     invoke-direct/range {v1 .. v6}, Ltv/twitch/android/core/mvp/viewdelegate/RxViewDelegate;-><init>(Landroid/content/Context;Landroid/view/View;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
++    new-instance v0, Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;
++
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getChatHookProvider()Ltv/purple/monolith/features/chat/ChatHookProvider;
++
++    move-result-object v7
++
++    invoke-direct {v0, v1, v7}, Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;-><init>(Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;Ltv/purple/monolith/features/chat/ChatHookProvider;)V
++
++    iput-object v0, v1, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->purpleTVViewDelegate:Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;
++
+     sget p2, Ltv/twitch/android/shared/chat/settings/R$id;->channel_mode_title:I
+ 
+     invoke-virtual {p0, p2}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->findView(I)Landroid/view/View;
+@@ -1385,6 +1397,12 @@
+ 
+     move-result-object v0
+ 
++    iget-object v1, p0, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->purpleTVViewDelegate:Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;
++
++    invoke-virtual {v1, v0}, Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;->injectEvents(Ljava/util/List;)Ljava/util/List;
++
++    move-result-object v0
++
+     invoke-static {v0}, Lio/reactivex/Flowable;->merge(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
+ 
+     move-result-object v0
+@@ -1437,9 +1455,13 @@
+ 
+     invoke-virtual {p1}, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State;->getPreferencesSettings()Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State$PreferencesSettings;
+ 
+-    move-result-object p1
++    move-result-object v0
++
++    invoke-direct {p0, v0}, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->renderPreferencesSettings(Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State$PreferencesSettings;)V
++
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->purpleTVViewDelegate:Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;
+ 
+-    invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->renderPreferencesSettings(Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State$PreferencesSettings;)V
++    invoke-virtual {v0, p1}, Ltv/purple/monolith/features/chat/bridge/PurpleTVChatSettingsViewDelegate;->render(Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateState;)V
+ 
+     return-void
+ .end method

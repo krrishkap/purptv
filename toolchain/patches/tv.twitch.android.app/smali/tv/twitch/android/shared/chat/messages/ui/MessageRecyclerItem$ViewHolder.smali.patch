@@ -1,0 +1,23 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem$ViewHolder.smali b/smali_classes6/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem$ViewHolder.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem$ViewHolder.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem$ViewHolder.smali
+@@ -643,6 +643,8 @@
+ 
+     invoke-virtual/range {v4 .. v9}, Ltv/twitch/android/shared/chat/messages/util/ChatUtil$Companion;->createDeletedSpanFromChatMessageSpan(Ljava/lang/String;Landroid/text/Spanned;Landroid/content/Context;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;Z)Landroid/text/Spanned;
+ 
++    invoke-static {v5, v6, v7, v8, v9}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->hookCreateDeletedSpanFromChatMessageSpan(Ljava/lang/String;Landroid/text/Spanned;Landroid/content/Context;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;Z)Landroid/text/Spanned;
++
+     move-result-object v4
+ 
+     if-nez v4, :cond_3
+@@ -704,6 +706,10 @@
+ 
+     move-result-object v4
+ 
++    invoke-static {v0, p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->maybeAddTimestamp(Landroid/text/Spanned;Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;)Landroid/text/Spanned;
++
++    move-result-object v0
++
+     invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+     iget-object v0, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem$ViewHolder;->messageHeader:Landroid/widget/TextView;

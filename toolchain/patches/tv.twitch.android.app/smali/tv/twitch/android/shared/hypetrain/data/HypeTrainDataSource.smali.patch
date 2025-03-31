@@ -1,0 +1,45 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainDataSource.smali b/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainDataSource.smali
+--- a/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainDataSource.smali
++++ b/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainDataSource.smali
+@@ -84,6 +84,21 @@
+         }
+     .end annotation
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getHypetrainDisabled()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    sget-object v0, Ltv/twitch/android/shared/hypetrain/pub/models/HypeTrainResponse$None;->INSTANCE:Ltv/twitch/android/shared/hypetrain/pub/models/HypeTrainResponse$None;
++
++    invoke-static {v0}, Lio/reactivex/Single;->just(Ljava/lang/Object;)Lio/reactivex/Single;
++
++    move-result-object v0
++
++    return-object v0
++
++    :cond_z
+     iget-object v0, p0, Ltv/twitch/android/shared/hypetrain/data/HypeTrainDataSource;->hypeTrainApi:Ltv/twitch/android/shared/hypetrain/pub/api/HypeTrainApi;
+ 
+     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+@@ -108,6 +123,19 @@
+         }
+     .end annotation
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getHypetrainDisabled()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
++
++    move-result-object v0
++
++    return-object v0
++
++    :cond_z
+     iget-object v0, p0, Ltv/twitch/android/shared/hypetrain/data/HypeTrainDataSource;->pubSubController:Ltv/twitch/android/core/pubsub/PubSubController;
+ 
+     sget-object v1, Ltv/twitch/android/core/pubsub/PubSubTopic$HYPE_TRAIN_EVENTS_V2;->INSTANCE:Ltv/twitch/android/core/pubsub/PubSubTopic$HYPE_TRAIN_EVENTS_V2;

@@ -1,0 +1,102 @@
+diff --git a/smali/tv/twitch/android/app/consumer/ApplicationLifecycleController.smali b/smali/tv/twitch/android/app/consumer/ApplicationLifecycleController.smali
+--- a/smali/tv/twitch/android/app/consumer/ApplicationLifecycleController.smali
++++ b/smali/tv/twitch/android/app/consumer/ApplicationLifecycleController.smali
+@@ -743,6 +743,12 @@
+ 
+     invoke-virtual {v0}, Ltv/twitch/android/shared/player/manifest/StreamPreloader;->clearAll()V
+ 
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getLifecycle()Ltv/purple/monolith/core/LifecycleCore;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ltv/purple/monolith/core/LifecycleCore;->onAllComponentDestroyed()V
++
+     :cond_0
+     return-void
+ .end method
+@@ -795,6 +801,12 @@
+ 
+     invoke-interface {v0}, Ltv/twitch/android/network/clientintegrity/ClientIntegrityTokenManager;->cleanResources()V
+ 
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getLifecycle()Ltv/purple/monolith/core/LifecycleCore;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ltv/purple/monolith/core/LifecycleCore;->onAllComponentStopped()V
++
+     :cond_1
+     return-void
+ .end method
+@@ -960,6 +972,14 @@
+ 
+     invoke-interface {v0, v1}, Ltv/twitch/android/network/clientintegrity/ClientIntegrityTokenManager;->fetchNewToken(Ltv/twitch/android/network/clientintegrity/Scope;)V
+ 
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getLifecycle()Ltv/purple/monolith/core/LifecycleCore;
++
++    move-result-object v0
++
++    iget-object v1, p0, Ltv/twitch/android/app/consumer/ApplicationLifecycleController;->twitchAccountManager:Ltv/twitch/android/core/user/TwitchAccountManager;
++
++    invoke-virtual {v0, v1}, Ltv/purple/monolith/core/LifecycleCore;->onAccountLogin(Ltv/twitch/android/core/user/TwitchAccountManager;)V
++
+     return-void
+ .end method
+ 
+@@ -1047,6 +1067,12 @@
+ 
+     invoke-virtual {v0}, Ltv/twitch/android/core/pubsub/PubSubController;->onLogout()V
+ 
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getLifecycle()Ltv/purple/monolith/core/LifecycleCore;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ltv/purple/monolith/core/LifecycleCore;->onAccountLogout()V
++
+     return-void
+ .end method
+ 
+@@ -1162,6 +1188,12 @@
+ 
+     invoke-interface {p1}, Ltv/twitch/android/shared/activityfeed/pub/ActivityFeedPreferences;->maybeMigrateActivityFeedPreferences()V
+ 
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getLifecycle()Ltv/purple/monolith/core/LifecycleCore;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ltv/purple/monolith/core/LifecycleCore;->onFirstActivityCreated()V
++
+     :cond_1
+     return-void
+ .end method
+@@ -1478,7 +1510,7 @@
+ 
+     move-result v0
+ 
+-    if-eqz v0, :cond_4
++    if-eqz v0, :cond_5
+ 
+     iget-object v0, p0, Ltv/twitch/android/app/consumer/ApplicationLifecycleController;->networkManager:Ltv/twitch/android/network/NetworkManager;
+ 
+@@ -1486,7 +1518,7 @@
+ 
+     move-result v0
+ 
+-    if-nez v0, :cond_4
++    if-nez v0, :cond_5
+ 
+     new-instance v0, Ltv/twitch/android/core/ui/kit/patterns/Alert;
+ 
+@@ -1536,6 +1568,13 @@
+ 
+     invoke-virtual {v0}, Ltv/twitch/android/core/ui/kit/patterns/Alert;->show()V
+ 
++    :cond_5
++    invoke-static {}, Ltv/purple/monolith/bridge/PurpleTVAppContainer;->getLifecycle()Ltv/purple/monolith/core/LifecycleCore;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ltv/purple/monolith/core/LifecycleCore;->onFirstActivityStarted()V
++
+     :cond_4
+     return-void
+ .end method

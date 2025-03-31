@@ -1,0 +1,26 @@
+diff --git a/smali_classes3/androidx/recyclerview/widget/ItemTouchHelper$Callback.smali b/smali_classes3/androidx/recyclerview/widget/ItemTouchHelper$Callback.smali
+--- a/smali_classes3/androidx/recyclerview/widget/ItemTouchHelper$Callback.smali
++++ b/smali_classes3/androidx/recyclerview/widget/ItemTouchHelper$Callback.smali
+@@ -669,10 +669,20 @@
+     return p1
+ .end method
+ 
+-.method public abstract isItemViewSwipeEnabled()Z
++.method public isItemViewSwipeEnabled()Z
++    .registers 2
++
++    const/4 v0, 0x1
++
++    return v0
+ .end method
+ 
+-.method public abstract isLongPressDragEnabled()Z
++.method public isLongPressDragEnabled()Z
++    .registers 2
++
++    const/4 v0, 0x1
++
++    return v0
+ .end method
+ 
+ .method public onChildDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;FFIZ)V

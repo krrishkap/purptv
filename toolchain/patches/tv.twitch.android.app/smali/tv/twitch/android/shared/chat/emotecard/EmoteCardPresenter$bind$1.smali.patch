@@ -1,0 +1,25 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter$bind$1.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter$bind$1.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter$bind$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter$bind$1.smali
+@@ -83,6 +83,21 @@
+ 
+     move-result-object p1
+ 
++    instance-of v0, p1, Ltv/purple/monolith/features/chat/bridge/PurpleTVEmoteCardModel;
++
++    if-eqz v0, :cond_z
++
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardPresenter$bind$1;->this$0:Ltv/twitch/android/shared/chat/emotecard/EmoteCardPresenter;
++
++    if-eqz v0, :cond_z
++
++    check-cast p1, Ltv/purple/monolith/features/chat/bridge/PurpleTVEmoteCardModel;
++
++    invoke-virtual {v0, p1}, Ltv/twitch/android/shared/chat/emotecard/EmoteCardPresenter;->pushPurpleTVEmoteCardLoadedState(Ltv/purple/monolith/features/chat/bridge/PurpleTVEmoteCardModel;)V
++
++    goto :goto_0
++
++    :cond_z
+     instance-of v0, p1, Ltv/twitch/android/models/emotes/EmoteCardModel$ChannelEmoteCardModel;
+ 
+     if-eqz v0, :cond_0

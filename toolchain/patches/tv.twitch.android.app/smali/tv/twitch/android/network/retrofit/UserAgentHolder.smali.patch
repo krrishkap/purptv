@@ -1,0 +1,14 @@
+diff --git a/smali_classes2/tv/twitch/android/network/retrofit/UserAgentHolder.smali b/smali_classes2/tv/twitch/android/network/retrofit/UserAgentHolder.smali
+--- a/smali_classes2/tv/twitch/android/network/retrofit/UserAgentHolder.smali
++++ b/smali_classes2/tv/twitch/android/network/retrofit/UserAgentHolder.smali
+@@ -36,9 +36,7 @@
+ 
+     move-result-object p3
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object p1
++    const-string p1, "tv.twitch.android.app"
+ 
+     invoke-interface {p2}, Ltv/twitch/android/core/buildconfig/IBuildConfig;->getVersionName()Ljava/lang/String;
+ 

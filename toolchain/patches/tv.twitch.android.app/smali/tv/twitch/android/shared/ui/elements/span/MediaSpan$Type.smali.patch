@@ -1,0 +1,13 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/MediaSpan$Type.smali b/smali_classes8/tv/twitch/android/shared/ui/elements/span/MediaSpan$Type.smali
+--- a/smali_classes8/tv/twitch/android/shared/ui/elements/span/MediaSpan$Type.smali
++++ b/smali_classes8/tv/twitch/android/shared/ui/elements/span/MediaSpan$Type.smali
+@@ -274,5 +274,9 @@
+ 
+     iget v0, p0, Ltv/twitch/android/shared/ui/elements/span/MediaSpan$Type;->sizeDp:F
+ 
++    invoke-static {v0}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->hookMediaSpanSizeDp(F)F
++
++    move-result v0
++
+     return v0
+ .end method

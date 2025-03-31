@@ -1,0 +1,53 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel.smali b/smali_classes8/tv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel.smali
+--- a/smali_classes8/tv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel.smali
++++ b/smali_classes8/tv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel.smali
+@@ -1,4 +1,4 @@
+-.class public final Ltv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel;
++.class public Ltv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel;
+ .super Ltv/twitch/android/shared/ui/menus/core/MenuModel$SingleItemModel;
+ .source "ToggleMenuModel.kt"
+ 
+@@ -24,6 +24,8 @@
+ 
+ .field private final toggleState:Z
+ 
++.field private orangeKey:Ljava/lang/String;
++
+ 
+ # direct methods
+ .method public constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/String;Landroid/text/Spannable;ZZLandroid/graphics/drawable/Drawable;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;Landroid/view/View$OnClickListener;Ljava/lang/Integer;)V
+@@ -332,7 +334,7 @@
+     return-object v0
+ .end method
+ 
+-.method public final getToggleState()Z
++.method public getToggleState()Z
+     .locals 1
+ 
+     iget-boolean v0, p0, Ltv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel;->toggleState:Z
+@@ -371,3 +373,25 @@
+ 
+     return-object p1
+ .end method
++
++.method public getOrangeKey()Ljava/lang/String;
++    .registers 2
++
++    .prologue
++    .line 40
++    iget-object v0, p0, Ltv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel;->orangeKey:Ljava/lang/String;
++
++    return-object v0
++.end method
++
++.method public setOrangeKey(Ljava/lang/String;)V
++    .registers 2
++    .param p1, "key"    # Ljava/lang/String;
++
++    .prologue
++    .line 36
++    iput-object p1, p0, Ltv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel;->orangeKey:Ljava/lang/String;
++
++    .line 37
++    return-void
++.end method

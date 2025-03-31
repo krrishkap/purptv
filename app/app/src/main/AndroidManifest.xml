@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tv.orange">
+
+    <application
+        android:allowBackup="true"
+        android:label="Orange TV"
+        android:supportsRtl="true"
+        android:icon="@android:mipmap/sym_def_app_icon" />
+
+</manifest>

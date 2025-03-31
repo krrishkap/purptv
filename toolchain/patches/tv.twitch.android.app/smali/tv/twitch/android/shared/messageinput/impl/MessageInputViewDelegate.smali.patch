@@ -1,0 +1,14 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
+@@ -1063,6 +1063,10 @@
+ 
+     move-result v1
+ 
++    invoke-static {v1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->changeBitsButtonVisibility(Z)Z
++
++    move-result v1
++
+     const/16 v2, 0x8
+ 
+     const/4 v3, 0x0

@@ -1,0 +1,26 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
+@@ -737,6 +737,22 @@
+     invoke-direct {v0, v2}, Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;->hideViews([Landroid/view/View;)V
+ 
+     :cond_5
++    move-object/from16 v3, p0
++
++    move-object/from16 v4, p1
++
++    invoke-virtual {v4}, Ltv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded;->getEmoteCardUiModel()Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel;->getFollowButton()Ltv/twitch/android/shared/chat/emotecard/FollowButtonUiModel;
++
++    move-result-object v1
++
++    iget-object v2, v3, Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;->followButton:Landroid/widget/LinearLayout;
++
++    invoke-static {v2, v1}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideFollowButton(Landroid/view/View;Ltv/twitch/android/shared/chat/emotecard/FollowButtonUiModel;)V
++
+     return-void
+ .end method
+ 

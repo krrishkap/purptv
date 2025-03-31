@@ -1,0 +1,12 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsViewDelegate.smali
+--- a/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsViewDelegate.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsViewDelegate.smali
+@@ -231,6 +231,8 @@
+ 
+     iput-object p1, p0, Ltv/twitch/android/feature/theatre/chomments/ChommentsViewDelegate;->scrolledBackListener:Ltv/twitch/android/feature/theatre/chomments/ChommentsViewDelegate$scrolledBackListener$1;
+ 
++    invoke-static {p0}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->maybeHideChatHeader(Ltv/twitch/android/feature/theatre/chomments/ChommentsViewDelegate;)V
++
+     return-void
+ .end method
+ 

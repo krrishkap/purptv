@@ -1,0 +1,20 @@
+diff --git a/smali_classes2/androidx/appcompat/app/AlertDialog.smali b/smali_classes2/androidx/appcompat/app/AlertDialog.smali
+--- a/smali_classes2/androidx/appcompat/app/AlertDialog.smali
++++ b/smali_classes2/androidx/appcompat/app/AlertDialog.smali
+@@ -159,3 +159,16 @@
+ 
+     return-void
+ .end method
++
++# revision: 3
++.method public getButton(I)Landroid/widget/Button;
++    .locals 1
++
++    iget-object v0, p0, Landroidx/appcompat/app/AlertDialog;->mAlert:Landroidx/appcompat/app/AlertController;
++
++    invoke-virtual {v0, p1}, Landroidx/appcompat/app/AlertController;->getButton(I)Landroid/widget/Button;
++
++    move-result-object v0
++
++    return-object v0
++.end method

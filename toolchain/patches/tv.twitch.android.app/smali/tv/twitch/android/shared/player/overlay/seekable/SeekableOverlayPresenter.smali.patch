@@ -1,0 +1,38 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
+@@ -894,6 +894,10 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter;->playerOverlayPresenter:Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;
++
++    invoke-virtual {v0}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->onBindClip()V
++
+     iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter;->stateMachine:Ltv/twitch/android/core/mvp/presenter/StateMachine;
+ 
+     sget-object v1, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter$UpdateEvent$ClipBound;->INSTANCE:Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter$UpdateEvent$ClipBound;
+@@ -942,6 +946,12 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter;->playerOverlayPresenter:Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;
++
++    iget-object v1, p0, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter;->seekbarOverlayPresenter:Ltv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter;
++
++    invoke-virtual {v0, p1, v1}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->onBindVodModel(Ltv/twitch/android/models/videos/VodModel;Ltv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter;)V
++
+     iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter;->stateMachine:Ltv/twitch/android/core/mvp/presenter/StateMachine;
+ 
+     sget-object v1, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter$UpdateEvent$VodBound;->INSTANCE:Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter$UpdateEvent$VodBound;
+@@ -1120,6 +1130,10 @@
+ 
+     invoke-virtual {v0, p1}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->attachViewDelegate(Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;)V
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter;->playerOverlayPresenter:Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;
++
++    invoke-virtual {v0}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->onInflateViewDelegate()V
++
+     return-void
+ .end method
+ 

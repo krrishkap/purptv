@@ -1,0 +1,41 @@
+diff --git a/smali_classes2/androidx/appcompat/app/AlertController.smali b/smali_classes2/androidx/appcompat/app/AlertController.smali
+--- a/smali_classes2/androidx/appcompat/app/AlertController.smali
++++ b/smali_classes2/androidx/appcompat/app/AlertController.smali
+@@ -1765,3 +1765,37 @@
+ 
+     return-void
+ .end method
++
++# revision: 3
++.method public getButton(I)Landroid/widget/Button;
++    .registers 3
++    .param p1, "whichButton"    # I
++
++    packed-switch p1, :pswitch_data_e
++
++    const/4 v0, 0x0
++
++    return-object v0
++
++    :pswitch_5
++    iget-object v0, p0, Landroidx/appcompat/app/AlertController;->mButtonPositive:Landroid/widget/Button;
++
++    return-object v0
++
++    :pswitch_8
++    iget-object v0, p0, Landroidx/appcompat/app/AlertController;->mButtonNegative:Landroid/widget/Button;
++
++    return-object v0
++
++    :pswitch_b
++    iget-object v0, p0, Landroidx/appcompat/app/AlertController;->mButtonNeutral:Landroid/widget/Button;
++
++    return-object v0
++
++    :pswitch_data_e
++    .packed-switch -0x3
++        :pswitch_b
++        :pswitch_8
++        :pswitch_5
++    .end packed-switch
++.end method

@@ -1,0 +1,31 @@
+diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
+--- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
++++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
+@@ -313,9 +313,9 @@
+     goto :goto_0
+ 
+     :pswitch_3
+-    new-instance v0, Ltv/twitch/android/settings/system/SystemSettingsFragment;
++    invoke-static {}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->createSettingsFragment()Landroidx/fragment/app/Fragment;
+ 
+-    invoke-direct {v0}, Ltv/twitch/android/settings/system/SystemSettingsFragment;-><init>()V
++    move-result-object v0
+ 
+     goto :goto_0
+ 
+@@ -360,6 +360,15 @@
+     invoke-direct {v0}, Ltv/twitch/android/settings/account/AccountSettingsFragment;-><init>()V
+ 
+     :goto_0
++    sget-object v1, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleSettings:Ltv/twitch/android/models/settings/SettingsDestination;
++
++    if-ne p2, v1, :cond_z
++
++    invoke-static {}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->createSettingsFragment()Landroidx/fragment/app/Fragment;
++
++    move-result-object v0
++
++    :cond_z
+     if-eqz v0, :cond_4
+ 
+     iget-object v1, p0, Ltv/twitch/android/settings/main/MainSettingsRouter;->fragmentRouter:Ltv/twitch/android/routing/routers/IFragmentRouter;

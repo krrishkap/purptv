@@ -1,0 +1,14 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali b/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
+@@ -101,6 +101,10 @@
+ 
+     check-cast v0, Ltv/twitch/android/shared/chat/pub/pinnedchat/CreatorPinnedChatUiModel;
+ 
++    invoke-static {v0}, Ltv/purple/monolith/features/chat/ChatHookProvider;->hookCreatorPinnedChatMessageModel(Ltv/twitch/android/shared/chat/pub/pinnedchat/CreatorPinnedChatUiModel;)Ltv/twitch/android/shared/chat/pub/pinnedchat/CreatorPinnedChatUiModel;
++
++    move-result-object v0
++
+     if-eqz v0, :cond_1
+ 
+     iget-object v1, p0, Ltv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1;->this$0:Ltv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter;

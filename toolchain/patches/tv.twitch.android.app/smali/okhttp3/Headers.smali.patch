@@ -1,0 +1,68 @@
+diff --git a/smali/okhttp3/Headers.smali b/smali/okhttp3/Headers.smali
+--- a/smali/okhttp3/Headers.smali
++++ b/smali/okhttp3/Headers.smali
+@@ -538,3 +538,63 @@
+     :goto_1
+     return-object p1
+ .end method
++
++# revision: 3
++.method public final names()Ljava/util/Set;
++    .registers 5
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "()",
++            "Ljava/util/Set<",
++            "Ljava/lang/String;",
++            ">;"
++        }
++    .end annotation
++
++    new-instance v0, Ljava/util/TreeSet;
++
++    sget-object v1, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
++
++    invoke-static {v1}, Lkotlin/text/StringsKt;->getCASE_INSENSITIVE_ORDER(Lkotlin/jvm/internal/StringCompanionObject;)Ljava/util/Comparator;
++
++    move-result-object v1
++
++    invoke-direct {v0, v1}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
++
++    .local v0, "result":Ljava/util/TreeSet;
++    invoke-virtual {p0}, Lokhttp3/Headers;->size()I
++
++    move-result v1
++
++    const/4 v2, 0x0
++
++    :goto_10
++    if-ge v2, v1, :cond_1d
++
++    .local v2, "i":I
++    invoke-virtual {p0, v2}, Lokhttp3/Headers;->name(I)Ljava/lang/String;
++
++    move-result-object v3
++
++    invoke-virtual {v0, v3}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
++
++    .end local v2    # "i":I
++    add-int/lit8 v2, v2, 0x1
++
++    goto :goto_10
++
++    :cond_1d
++    move-object v1, v0
++
++    check-cast v1, Ljava/util/Set;
++
++    invoke-static {v1}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
++
++    move-result-object v1
++
++    const-string v2, "Collections.unmodifiableSet(result)"
++
++    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
++
++    return-object v1
++.end method
+\ No newline at end of file

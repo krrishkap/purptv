@@ -1,0 +1,33 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+@@ -2587,6 +2587,20 @@
+ 
+     move-result-object v3
+ 
++    const/4 v5, 0x1
++
++    instance-of v4, v3, Ltv/purple/monolith/features/logs/bridge/ChatLocalLogsCommand;
++
++    if-eqz v4, :cond_z
++
++    :cond_zz
++    return v5
++
++    :cond_z
++    instance-of v4, v3, Ltv/purple/monolith/features/logs/bridge/ChatTwitchLogsCommand;
++
++    if-nez v4, :cond_zz
++
+     instance-of v4, v3, Ltv/twitch/android/shared/chat/command/ChatCommandAction$WhisperUnverified;
+ 
+     const/4 v5, 0x1
+@@ -5030,6 +5044,8 @@
+ 
+     invoke-virtual {v0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->onConfigurationChanged()V
+ 
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/bridge/UIHook;->onChatViewPresenterConfigurationChanged(Ltv/twitch/android/shared/chat/ChatViewDelegate;)V
++
+     :cond_0
+     return-void
+ .end method

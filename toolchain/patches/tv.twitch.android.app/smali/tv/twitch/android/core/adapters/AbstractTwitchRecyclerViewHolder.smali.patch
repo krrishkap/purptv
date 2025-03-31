@@ -1,0 +1,26 @@
+diff --git a/smali/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewHolder.smali b/smali/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewHolder.smali
+--- a/smali/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewHolder.smali
++++ b/smali/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewHolder.smali
+@@ -137,6 +137,8 @@
+ 
+     invoke-virtual {p0, p1}, Ltv/twitch/android/core/adapters/AbstractTwitchRecyclerViewHolder;->onBindDataItem(Ltv/twitch/android/core/adapters/RecyclerAdapterItem;)V
+ 
++    invoke-static {p0, p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->onBindToViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Ltv/twitch/android/core/adapters/RecyclerAdapterItem;)V
++
+     return-void
+ .end method
+ 
+@@ -149,9 +151,11 @@
+ 
+     invoke-interface {p1}, Ltv/twitch/android/core/adapters/RecyclerAdapterItem;->nestedItem()Ltv/twitch/android/core/adapters/RecyclerAdapterItem;
+ 
+-    move-result-object p1
++    move-result-object v0
++
++    invoke-interface {v0, p0}, Ltv/twitch/android/core/adapters/RecyclerAdapterItem;->bindToViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+ 
+-    invoke-interface {p1, p0}, Ltv/twitch/android/core/adapters/RecyclerAdapterItem;->bindToViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
++    invoke-static {p0, p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->onBindToViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Ltv/twitch/android/core/adapters/RecyclerAdapterItem;)V
+ 
+     return-void
+ .end method

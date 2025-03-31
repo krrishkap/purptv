@@ -1,0 +1,45 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher.smali b/smali_classes6/tv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher.smali
+--- a/smali_classes6/tv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher.smali
++++ b/smali_classes6/tv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher.smali
+@@ -563,7 +563,7 @@
+ 
+ # virtual methods
+ .method public final shouldRequestAd(Ltv/twitch/android/shared/ads/models/AdRequestInfo;)Lio/reactivex/Single;
+-    .locals 2
++    .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+@@ -579,29 +579,11 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    new-instance v0, Lqh/a;
+-
+-    invoke-direct {v0, p0, p1}, Lqh/a;-><init>(Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher;Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
++    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+ 
+-    invoke-static {v0}, Lio/reactivex/Single;->create(Lio/reactivex/SingleOnSubscribe;)Lio/reactivex/Single;
++    invoke-static {v0}, Lio/reactivex/Single;->just(Ljava/lang/Object;)Lio/reactivex/Single;
+ 
+     move-result-object v0
+ 
+-    new-instance v1, Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher$shouldRequestAd$2;
+-
+-    invoke-direct {v1, p1, p0}, Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher$shouldRequestAd$2;-><init>(Ltv/twitch/android/shared/ads/models/AdRequestInfo;Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher;)V
+-
+-    new-instance p1, Lqh/b;
+-
+-    invoke-direct {p1, v1}, Lqh/b;-><init>(Lkotlin/jvm/functions/Function1;)V
+-
+-    invoke-virtual {v0, p1}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
+-
+-    move-result-object p1
+-
+-    const-string v0, "flatMap(...)"
+-
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    return-object p1
++    return-object v0
+ .end method

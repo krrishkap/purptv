@@ -1,0 +1,18 @@
+diff --git a/smali_classes2/tv/twitch/chat/library/model/MessageToken$EmoteToken.smali b/smali_classes2/tv/twitch/chat/library/model/MessageToken$EmoteToken.smali
+--- a/smali_classes2/tv/twitch/chat/library/model/MessageToken$EmoteToken.smali
++++ b/smali_classes2/tv/twitch/chat/library/model/MessageToken$EmoteToken.smali
+@@ -1,4 +1,4 @@
+-.class public final Ltv/twitch/chat/library/model/MessageToken$EmoteToken;
++.class public Ltv/twitch/chat/library/model/MessageToken$EmoteToken;
+ .super Ltv/twitch/chat/library/model/MessageToken;
+ .source "MessageToken.kt"
+ 
+@@ -9,7 +9,7 @@
+ .end annotation
+ 
+ .annotation system Ldalvik/annotation/InnerClass;
+-    accessFlags = 0x19
++    accessFlags = 0x9
+     name = "EmoteToken"
+ .end annotation
+ 

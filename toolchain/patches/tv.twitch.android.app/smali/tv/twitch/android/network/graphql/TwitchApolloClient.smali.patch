@@ -1,0 +1,21 @@
+diff --git a/smali_classes2/tv/twitch/android/network/graphql/TwitchApolloClient.smali b/smali_classes2/tv/twitch/android/network/graphql/TwitchApolloClient.smali
+--- a/smali_classes2/tv/twitch/android/network/graphql/TwitchApolloClient.smali
++++ b/smali_classes2/tv/twitch/android/network/graphql/TwitchApolloClient.smali
+@@ -26,6 +26,8 @@
+ 
+ .field private final standardClient$delegate:Lkotlin/Lazy;
+ 
++.field private final injectedClient:Lokhttp3/OkHttpClient;
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -91,6 +93,8 @@
+ 
+     invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    iput-object p1, p0, Ltv/twitch/android/network/graphql/TwitchApolloClient;->injectedClient:Lokhttp3/OkHttpClient;
++
+     invoke-direct {p0, p2, p3}, Ltv/twitch/android/network/graphql/BaseApolloClient;-><init>(Lio/reactivex/subjects/PublishSubject;Lio/reactivex/subjects/PublishSubject;)V
+ 
+     iput-boolean p4, p0, Ltv/twitch/android/network/graphql/TwitchApolloClient;->shouldEnableGqlCloudflareBotScoreTracking:Z
