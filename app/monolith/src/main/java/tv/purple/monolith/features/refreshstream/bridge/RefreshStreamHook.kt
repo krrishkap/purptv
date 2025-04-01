@@ -20,9 +20,9 @@ import tv.twitch.android.shared.theatre.data.pub.model.TheatreCoordinatorRequest
 
 object RefreshStreamHook {
     @JvmStatic
-    fun tryPushRefreshRequest(presenter: TheatreViewCoordinatorPresenter) {
+    fun tryPushRefreshRequest(presenter: TheatreViewCoordinatorPresenter?) {
         LoggerImpl.debug("tryPushRefreshRequest: $presenter")
-        (presenter.getPrivateField<DataProvider<TheatreCoordinatorRequest>>("theatreCoordinatorRequestProvider") as SharedEventDispatcher).pushUpdate(
+        (presenter?.getPrivateField<DataProvider<TheatreCoordinatorRequest>>("theatreCoordinatorRequestProvider") as SharedEventDispatcher?)?.pushUpdate(
             TheatreCoordinatorRequest.RetryVideoPlay.INSTANCE
         )
     }
