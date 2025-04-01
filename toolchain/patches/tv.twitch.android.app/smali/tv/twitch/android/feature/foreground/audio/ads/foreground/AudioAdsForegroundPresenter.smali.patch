@@ -6,7 +6,7 @@ diff --git a/smali_classes5/tv/twitch/android/feature/foreground/audio/ads/foreg
      new-instance v2, Landroid/content/IntentFilter;
  
 -    const-string v3, "tv.twitch.android.media.action.sendAudioAdsContext"
-+    const-string v3, "tv.purple.media.action.sendAudioAdsContext"
++    const-string v3, "tv.orange.media.action.sendAudioAdsContext"
  
      invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
  
