@@ -1,11 +1,11 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali b/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
-@@ -671,6 +671,10 @@
+@@ -772,6 +772,10 @@
  
      move-result-object v0
  
-+    move-object/from16 v1, p3
++    move-object/from16 v1, p2
 +
 +    invoke-static {v0, v1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->setShouldHighlightBackground(Ltv/purple/monolith/bridge/ex/IMessageRecyclerItem;Ltv/twitch/android/shared/chat/pub/messages/data/ChatMessage$LiveChatMessage;)V
 +

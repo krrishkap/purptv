@@ -859,7 +859,8 @@ class ChatHookProvider @Inject constructor(
             msg.isDeletedMessageClickable,
             msg.isAction,
             msg.isMessageEffectAnimationsEnabled,
-            msg.clipSlug
+            msg.clipSlug,
+            msg.replyInfo
         )
     }
 

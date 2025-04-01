@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/NotificationIntentAction.smali b/smali_classes7/tv/twitch/android/shared/notifications/pub/NotificationIntentAction.smali
 --- a/smali_classes7/tv/twitch/android/shared/notifications/pub/NotificationIntentAction.smali
 +++ b/smali_classes7/tv/twitch/android/shared/notifications/pub/NotificationIntentAction.smali
-@@ -225,7 +225,7 @@
+@@ -241,7 +241,7 @@
  
      const/4 v1, 0x0
  
@@ -10,7 +10,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_HOMEPAGE"
  
-@@ -237,7 +237,7 @@
+@@ -253,7 +253,7 @@
  
      const/4 v1, 0x1
  
@@ -19,7 +19,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_CHANNEL_ACTION"
  
-@@ -249,7 +249,7 @@
+@@ -265,7 +265,7 @@
  
      const/4 v1, 0x2
  
@@ -28,7 +28,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_STREAM_MANAGER"
  
-@@ -261,7 +261,7 @@
+@@ -277,7 +277,7 @@
  
      const/4 v1, 0x3
  
@@ -37,7 +37,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_CREATOR_MODE_ACTION"
  
-@@ -273,7 +273,7 @@
+@@ -289,7 +289,7 @@
  
      const/4 v1, 0x4
  
@@ -46,7 +46,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_STORY_COMPOSER"
  
-@@ -285,7 +285,7 @@
+@@ -301,7 +301,7 @@
  
      const/4 v1, 0x5
  
@@ -55,7 +55,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_STORY_STANDALONE_THEATRE"
  
-@@ -297,7 +297,7 @@
+@@ -313,7 +313,7 @@
  
      const/4 v1, 0x6
  
@@ -64,7 +64,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_STORY_SINGLE_CREATOR_THEATRE"
  
-@@ -309,7 +309,7 @@
+@@ -325,7 +325,7 @@
  
      const/4 v1, 0x7
  
@@ -73,7 +73,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_WHISPER_ACTION"
  
-@@ -321,7 +321,7 @@
+@@ -337,7 +337,7 @@
  
      const/16 v1, 0x8
  
@@ -82,7 +82,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_REPORT_ACTION"
  
-@@ -333,7 +333,7 @@
+@@ -349,7 +349,7 @@
  
      const/16 v1, 0x9
  
@@ -91,7 +91,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_NOTIFICATION_SETTINGS_ACTION"
  
-@@ -345,7 +345,7 @@
+@@ -361,7 +361,7 @@
  
      const/16 v1, 0xa
  
@@ -100,7 +100,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_DISCOVER_ACTION"
  
-@@ -357,7 +357,7 @@
+@@ -373,7 +373,7 @@
  
      const/16 v1, 0xb
  
@@ -109,7 +109,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "DISMISS_ACTION"
  
-@@ -369,7 +369,7 @@
+@@ -385,7 +385,7 @@
  
      const/16 v1, 0xc
  
@@ -118,7 +118,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_CATEGORY_ACTION"
  
-@@ -381,7 +381,7 @@
+@@ -397,7 +397,7 @@
  
      const/16 v1, 0xd
  
@@ -127,7 +127,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_EXTERNAL_LINK"
  
-@@ -393,7 +393,7 @@
+@@ -409,7 +409,7 @@
  
      const/16 v1, 0xe
  
@@ -136,7 +136,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_GUEST_STAR"
  
-@@ -405,7 +405,7 @@
+@@ -421,7 +421,7 @@
  
      const/16 v1, 0xf
  
@@ -145,7 +145,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_DROP_STATUS"
  
-@@ -417,7 +417,7 @@
+@@ -433,7 +433,7 @@
  
      const/16 v1, 0x10
  
@@ -154,7 +154,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_DROPS_INVENTORY_PAGE"
  
-@@ -429,7 +429,7 @@
+@@ -445,7 +445,7 @@
  
      const/16 v1, 0x11
  
@@ -163,7 +163,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_DROPS_CAMPAIGN_PAGE"
  
-@@ -441,7 +441,7 @@
+@@ -457,7 +457,7 @@
  
      const/16 v1, 0x12
  
@@ -172,7 +172,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_CHANNEL_PAGE_CLIPS"
  
-@@ -453,7 +453,7 @@
+@@ -469,7 +469,7 @@
  
      const/16 v1, 0x13
  
@@ -181,7 +181,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_CLIP_PLAYER"
  
-@@ -465,7 +465,7 @@
+@@ -481,7 +481,7 @@
  
      const/16 v1, 0x14
  
@@ -190,7 +190,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
  
      const-string v3, "OPEN_VOD_PLAYER"
  
-@@ -477,7 +477,7 @@
+@@ -493,7 +493,7 @@
  
      const/16 v1, 0x15
  
