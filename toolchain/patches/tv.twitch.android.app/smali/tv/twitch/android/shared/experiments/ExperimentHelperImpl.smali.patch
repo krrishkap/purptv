@@ -31,7 +31,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      invoke-interface {p6, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
  
      invoke-static {}, Lio/reactivex/subjects/BehaviorSubject;->create()Lio/reactivex/subjects/BehaviorSubject;
-@@ -1151,7 +1160,7 @@
+@@ -1200,7 +1209,7 @@
      return v0
  .end method
  
@@ -40,7 +40,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 8
  
      const-string v0, "experiment"
-@@ -1189,7 +1198,23 @@
+@@ -1238,7 +1247,23 @@
      return-object p1
  .end method
  
@@ -65,7 +65,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
  
      const-string v0, "experiment"
-@@ -1211,6 +1236,22 @@
+@@ -1260,6 +1285,22 @@
      return-object p1
  .end method
  
@@ -88,7 +88,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
  .method public getHermesRolloutBetaTopics()Ljava/util/Set;
      .locals 1
      .annotation system Ldalvik/annotation/Signature;
-@@ -1864,7 +1905,7 @@
+@@ -1913,7 +1954,7 @@
      return v0
  .end method
  
@@ -97,7 +97,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
  
      const-string v0, "id"
-@@ -1880,6 +1921,21 @@
+@@ -1929,6 +1970,21 @@
      return-object p1
  .end method
  
@@ -119,7 +119,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
  .method public final getMultiMonthSubsEnabled()Z
      .locals 1
  
-@@ -2690,7 +2746,7 @@
+@@ -2763,7 +2819,7 @@
      return-object v0
  .end method
  
@@ -128,7 +128,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 8
  
      const-string v0, "id"
-@@ -2722,6 +2778,22 @@
+@@ -2795,6 +2851,22 @@
      return-object p1
  .end method
  
@@ -151,7 +151,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
  .method public final getTwoFactorAuthenticationEnabled()Z
      .locals 1
  
-@@ -2752,7 +2824,7 @@
+@@ -2825,7 +2897,7 @@
      return v0
  .end method
  
@@ -160,7 +160,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
      .annotation system Ldalvik/annotation/Signature;
          value = {
-@@ -2769,6 +2841,31 @@
+@@ -2842,6 +2914,31 @@
      return-object v0
  .end method
  
@@ -192,7 +192,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
  .method public isAprilFoolsEnabled()Z
      .locals 1
  
-@@ -2829,7 +2926,7 @@
+@@ -2902,7 +2999,7 @@
      return v0
  .end method
  
@@ -201,7 +201,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
  
      const-string v0, "experiment"
-@@ -2845,7 +2942,22 @@
+@@ -2918,7 +3015,22 @@
      return p1
  .end method
  
@@ -225,7 +225,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 8
  
      const-string v0, "experiment"
-@@ -2885,7 +2997,23 @@
+@@ -2958,7 +3070,23 @@
      return p1
  .end method
  
@@ -250,7 +250,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
  
      const-string v0, "experiment"
-@@ -2903,7 +3031,22 @@
+@@ -2976,7 +3104,22 @@
      return p1
  .end method
  
@@ -274,7 +274,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
  
      const-string v0, "experiment"
-@@ -2929,6 +3072,21 @@
+@@ -3002,6 +3145,21 @@
      return p1
  .end method
  
@@ -296,7 +296,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
  .method public isSubtemberBitsMatchingEnabled()Z
      .locals 1
  
-@@ -2959,7 +3117,7 @@
+@@ -3032,7 +3190,7 @@
      return v0
  .end method
  
@@ -305,7 +305,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
  
      const-string v0, "experiment"
-@@ -2983,7 +3141,22 @@
+@@ -3056,7 +3214,22 @@
      return-void
  .end method
  
@@ -329,7 +329,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 2
  
      iget-object v0, p0, Ltv/twitch/android/shared/experiments/ExperimentHelperImpl;->miniExperimentFetcher:Ltv/twitch/android/shared/experiments/MiniExperimentFetcher;
-@@ -3023,7 +3196,21 @@
+@@ -3096,7 +3269,21 @@
      return-void
  .end method
  
@@ -352,7 +352,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
  
      iget-object v0, p0, Ltv/twitch/android/shared/experiments/ExperimentHelperImpl;->miniExperimentFetcher:Ltv/twitch/android/shared/experiments/MiniExperimentFetcher;
-@@ -3045,6 +3232,20 @@
+@@ -3118,6 +3305,20 @@
      return-void
  .end method
  
@@ -373,7 +373,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
  .method public final resetOverrides()V
      .locals 1
  
-@@ -3070,7 +3271,7 @@
+@@ -3143,7 +3344,7 @@
      return-void
  .end method
  
@@ -382,7 +382,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/experiments/ExperimentHelpe
      .locals 1
      .annotation system Ldalvik/annotation/Signature;
          value = {
-@@ -3089,3 +3290,38 @@
+@@ -3162,3 +3363,38 @@
  
      return-object v0
  .end method

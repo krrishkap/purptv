@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali b/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
-@@ -983,6 +983,8 @@
+@@ -997,6 +997,8 @@
  
      invoke-direct {v3, v2, v1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;-><init>(Ljava/lang/String;Ltv/twitch/android/shared/ui/elements/span/MediaSpan$Type;)V
  
@@ -10,16 +10,16 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMess
      const/16 v1, 0x21
  
      const/4 v10, 0x0
-@@ -1914,6 +1916,12 @@
+@@ -1951,6 +1953,12 @@
  
      if-eqz p14, :cond_0
  
 +    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getTimestampsDisabled()Z
 +
-+    move-result v0
++    move-result v1
 +
-+    if-eqz v0, :cond_0
++    if-eqz v1, :cond_0
 +
      invoke-virtual/range {p14 .. p14}, Ljava/lang/Long;->longValue()J
  
-     move-result-wide v0
+     move-result-wide v1

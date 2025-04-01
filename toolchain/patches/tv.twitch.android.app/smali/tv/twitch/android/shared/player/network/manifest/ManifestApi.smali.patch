@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali b/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali
 --- a/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali
 +++ b/smali_classes2/tv/twitch/android/shared/player/network/manifest/ManifestApi.smali
-@@ -476,7 +476,9 @@
+@@ -474,7 +474,9 @@
  
      move-result-object v27
  
@@ -12,7 +12,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/player/network/manifest/Man
  
      const/4 v13, 0x1
  
-@@ -494,6 +496,10 @@
+@@ -492,6 +494,10 @@
  
      move-result-object v3
  
