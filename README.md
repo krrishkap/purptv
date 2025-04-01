@@ -56,7 +56,7 @@ After decompilation, the output directory should contain the necessary files for
 
 TODO: continue
 
-# Apk Relaese website 
+# Apk Release website 
 [PurpleTV ](https://PurpleTV.aeong.win/)
 
 # Telegram Hub
