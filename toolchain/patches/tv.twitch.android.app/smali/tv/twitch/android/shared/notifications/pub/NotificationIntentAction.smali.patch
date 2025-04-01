@@ -6,7 +6,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x0
  
 -    const-string v2, "tv.twitch.android.push.homepage"
-+    const-string v2, "tv.purple.push.homepage"
++    const-string v2, "tv.orange.push.homepage"
  
      const-string v3, "OPEN_HOMEPAGE"
  
@@ -15,7 +15,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x1
  
 -    const-string v2, "tv.twitch.android.push.channel"
-+    const-string v2, "tv.purple.push.channel"
++    const-string v2, "tv.orange.push.channel"
  
      const-string v3, "OPEN_CHANNEL_ACTION"
  
@@ -24,7 +24,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x2
  
 -    const-string v2, "tv.twitch.android.push.dashboard"
-+    const-string v2, "tv.purple.push.dashboard"
++    const-string v2, "tv.orange.push.dashboard"
  
      const-string v3, "OPEN_STREAM_MANAGER"
  
@@ -33,7 +33,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x3
  
 -    const-string v2, "tv.twitch.android.push.creatormode"
-+    const-string v2, "tv.purple.push.creatormode"
++    const-string v2, "tv.orange.push.creatormode"
  
      const-string v3, "OPEN_CREATOR_MODE_ACTION"
  
@@ -42,7 +42,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x4
  
 -    const-string v2, "tv.twitch.android.push.storycomposer"
-+    const-string v2, "tv.purple.push.storycomposer"
++    const-string v2, "tv.orange.push.storycomposer"
  
      const-string v3, "OPEN_STORY_COMPOSER"
  
@@ -51,7 +51,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x5
  
 -    const-string v2, "tv.twitch.android.push.storystandalonetheatre"
-+    const-string v2, "tv.purple.push.storystandalonetheatre"
++    const-string v2, "tv.orange.push.storystandalonetheatre"
  
      const-string v3, "OPEN_STORY_STANDALONE_THEATRE"
  
@@ -60,7 +60,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x6
  
 -    const-string v2, "tv.twitch.android.push.storysinglecreatortheatre"
-+    const-string v2, "tv.purple.push.storysinglecreatortheatre"
++    const-string v2, "tv.orange.push.storysinglecreatortheatre"
  
      const-string v3, "OPEN_STORY_SINGLE_CREATOR_THEATRE"
  
@@ -69,7 +69,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/4 v1, 0x7
  
 -    const-string v2, "tv.twitch.android.push.whisper"
-+    const-string v2, "tv.purple.push.whisper"
++    const-string v2, "tv.orange.push.whisper"
  
      const-string v3, "OPEN_WHISPER_ACTION"
  
@@ -78,7 +78,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x8
  
 -    const-string v2, "tv.twitch.android.push.report"
-+    const-string v2, "tv.purple.push.report"
++    const-string v2, "tv.orange.push.report"
  
      const-string v3, "OPEN_REPORT_ACTION"
  
@@ -87,7 +87,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x9
  
 -    const-string v2, "tv.twitch.android.push.notificationsettings"
-+    const-string v2, "tv.purple.push.notificationsettings"
++    const-string v2, "tv.orange.push.notificationsettings"
  
      const-string v3, "OPEN_NOTIFICATION_SETTINGS_ACTION"
  
@@ -96,7 +96,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0xa
  
 -    const-string v2, "tv.twitch.android.push.discover"
-+    const-string v2, "tv.purple.push.discover"
++    const-string v2, "tv.orange.push.discover"
  
      const-string v3, "OPEN_DISCOVER_ACTION"
  
@@ -105,7 +105,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0xb
  
 -    const-string v2, "tv.twitch.android.push.dismiss"
-+    const-string v2, "tv.purple.push.dismiss"
++    const-string v2, "tv.orange.push.dismiss"
  
      const-string v3, "DISMISS_ACTION"
  
@@ -114,7 +114,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0xc
  
 -    const-string v2, "tv.twitch.android.push.category"
-+    const-string v2, "tv.purple.push.category"
++    const-string v2, "tv.orange.push.category"
  
      const-string v3, "OPEN_CATEGORY_ACTION"
  
@@ -123,7 +123,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0xd
  
 -    const-string v2, "tv.twitch.android.push.externallink"
-+    const-string v2, "tv.purple.push.externallink"
++    const-string v2, "tv.orange.push.externallink"
  
      const-string v3, "OPEN_EXTERNAL_LINK"
  
@@ -132,7 +132,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0xe
  
 -    const-string v2, "tv.twitch.android.push.gueststar"
-+    const-string v2, "tv.purple.push.gueststar"
++    const-string v2, "tv.orange.push.gueststar"
  
      const-string v3, "OPEN_GUEST_STAR"
  
@@ -141,7 +141,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0xf
  
 -    const-string v2, "tv.twitch.android.push.dropstatus"
-+    const-string v2, "tv.purple.push.dropstatus"
++    const-string v2, "tv.orange.push.dropstatus"
  
      const-string v3, "OPEN_DROP_STATUS"
  
@@ -150,7 +150,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x10
  
 -    const-string v2, "tv.twitch.android.push.dropsinventory"
-+    const-string v2, "tv.purple.push.dropsinventory"
++    const-string v2, "tv.orange.push.dropsinventory"
  
      const-string v3, "OPEN_DROPS_INVENTORY_PAGE"
  
@@ -159,7 +159,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x11
  
 -    const-string v2, "tv.twitch.android.push.dropscampaign"
-+    const-string v2, "tv.purple.push.dropscampaign"
++    const-string v2, "tv.orange.push.dropscampaign"
  
      const-string v3, "OPEN_DROPS_CAMPAIGN_PAGE"
  
@@ -168,7 +168,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x12
  
 -    const-string v2, "tv.twitch.android.push.channelpageclips"
-+    const-string v2, "tv.purple.push.channelpageclips"
++    const-string v2, "tv.orange.push.channelpageclips"
  
      const-string v3, "OPEN_CHANNEL_PAGE_CLIPS"
  
@@ -177,7 +177,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x13
  
 -    const-string v2, "tv.twitch.android.push.clipplayer"
-+    const-string v2, "tv.purple.push.clipplayer"
++    const-string v2, "tv.orange.push.clipplayer"
  
      const-string v3, "OPEN_CLIP_PLAYER"
  
@@ -186,7 +186,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x14
  
 -    const-string v2, "tv.twitch.android.push.vodplayer"
-+    const-string v2, "tv.purple.push.vodplayer"
++    const-string v2, "tv.orange.push.vodplayer"
  
      const-string v3, "OPEN_VOD_PLAYER"
  
@@ -195,7 +195,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/notifications/pub/Notificat
      const/16 v1, 0x15
  
 -    const-string v2, "tv.twitch.android.push.channelpagevods"
-+    const-string v2, "tv.purple.push.channelpagevods"
++    const-string v2, "tv.orange.push.channelpagevods"
  
      const-string v3, "OPEN_CHANNEL_PAGE_VODS"
  

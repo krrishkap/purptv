@@ -6,12 +6,12 @@ diff --git a/smali_classes7/tv/twitch/android/shared/pip/NativePictureInPictureP
      invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
  
 -    const-string v3, "tv.twitch.android.media.action.pause_playback"
-+    const-string v3, "tv.purple.media.action.pause_playback"
++    const-string v3, "tv.orange.media.action.pause_playback"
  
      invoke-virtual {v2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
  
 -    const-string v3, "tv.twitch.android.media.action.resume_playback"
-+    const-string v3, "tv.purple.media.action.resume_playback"
++    const-string v3, "tv.orange.media.action.resume_playback"
  
      invoke-virtual {v2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
  
