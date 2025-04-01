@@ -36,9 +36,9 @@ diff --git a/smali/com/google/firebase/crashlytics/ndk/CrashlyticsNdkRegistrar.s
 -
 -    move-result-object v0
 -
--    new-instance v2, Lm6/a;
+-    new-instance v2, Lo6/a;
 -
--    invoke-direct {v2, p0}, Lm6/a;-><init>(Lcom/google/firebase/crashlytics/ndk/CrashlyticsNdkRegistrar;)V
+-    invoke-direct {v2, p0}, Lo6/a;-><init>(Lcom/google/firebase/crashlytics/ndk/CrashlyticsNdkRegistrar;)V
 -
 -    invoke-virtual {v0, v2}, Lcom/google/firebase/components/Component$Builder;->factory(Lcom/google/firebase/components/ComponentFactory;)Lcom/google/firebase/components/Component$Builder;
 -

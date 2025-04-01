@@ -9,7 +9,9 @@ import dagger.hilt.migration.DisableInstallInCheck
 import dagger.internal.Provider
 import tv.purple.monolith.core.compat.ClassCompat.callPrivateMethod
 import tv.purple.monolith.core.compat.ClassCompat.getPrivateField
+import tv.twitch.android.app.core.Experience
 import tv.twitch.android.core.activities.TwitchHiltActivity
+import tv.twitch.android.provider.experiments.helpers.ChatRepliesExperiment
 import tv.twitch.android.provider.experiments.helpers.MessageEffectsExperiment
 import tv.twitch.android.routing.routers.WebViewDialogRouter
 import tv.twitch.android.shared.badges.ChatBadgeProvider
@@ -139,6 +141,21 @@ class TwitchActivityModule {
     }
 
     @Provides
+    fun provideChatRepliesExperiment(gc: GeneratedComponent): ChatRepliesExperiment {
+        return callPrivateMethod(
+            obj = gc,
+            methodName = "chatRepliesExperimentImpl"
+        )
+    }
+
+    @Provides
+    fun provideExperienceProvider(gc: GeneratedComponent): Experience {
+        return gc.getPrivateField<Provider<Experience>>(
+            fieldName = "provideExperienceProvider"
+        ).get()
+    }
+
+    @Provides
     fun provideChatMessageV2Parser(
         aepu: AnimatedEmotesUrlUtil,
         cbp: ChatBadgeProvider,
@@ -147,7 +164,9 @@ class TwitchActivityModule {
         cmtw: ChatMessageTokenizerWrapper,
         cepei: ClipEditorPortalExperimentImpl,
         cw: ContextWrapper,
-        cdspp: CommunityDebugSharedPreferences
+        cdspp: CommunityDebugSharedPreferences,
+        cre: ChatRepliesExperiment
+
     ): ChatMessageV2Parser {
         return ChatMessageV2Parser(
             aepu,
@@ -158,7 +177,8 @@ class TwitchActivityModule {
             cepei,
             cdspp,
             cw,
-            { false }
+            { false },
+            cre
         )
     }
 }

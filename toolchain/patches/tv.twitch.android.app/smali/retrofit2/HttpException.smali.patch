@@ -1,6 +1,6 @@
-diff --git a/smali_classes4/retrofit2/HttpException.smali b/smali_classes4/retrofit2/HttpException.smali
---- a/smali_classes4/retrofit2/HttpException.smali
-+++ b/smali_classes4/retrofit2/HttpException.smali
+diff --git a/smali_classes5/retrofit2/HttpException.smali b/smali_classes5/retrofit2/HttpException.smali
+--- a/smali_classes5/retrofit2/HttpException.smali
++++ b/smali_classes5/retrofit2/HttpException.smali
 @@ -107,3 +107,12 @@
  
      return v0
