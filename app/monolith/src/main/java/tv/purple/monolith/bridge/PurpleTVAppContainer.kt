@@ -20,6 +20,7 @@ import tv.purple.monolith.features.tracking.Tracker
 import tv.purple.monolith.features.tracking.bridge.BugsnagUtil
 import tv.purple.monolith.features.ui.UI
 import tv.purple.monolith.features.updater.Updater
+import tv.purple.monolith.features.vodhunter.VodHunter
 import tv.purple.monolith.models.IPurpleTVAppContainer
 import tv.twitch.android.app.core.ApplicationContext
 import tv.twitch.android.core.user.TwitchAccountManager
@@ -103,6 +104,10 @@ class PurpleTVAppContainer(
 
     override fun provideChapters(): VodChapters {
         return motherComponent.provideVodChapters()
+    }
+
+    override fun provideVODHunter(): VodHunter {
+        return motherComponent.provideVodHunter()
     }
 
     companion object {
