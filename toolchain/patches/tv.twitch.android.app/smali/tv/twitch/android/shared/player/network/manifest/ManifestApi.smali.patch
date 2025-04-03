@@ -27,9 +27,9 @@ diff --git a/smali_classes2/tv/twitch/android/shared/player/network/manifest/Man
  
      move-result-object v2
  
-+    move-object v1, p1
++    move-object v3, p1
 +
-+    invoke-static {v2, v1}, Ltv/purple/monolith/features/vodhunter/bridge/VodHunterHook;->maybeHookVodManifestResponse(Lio/reactivex/Single;Ljava/lang/String;)Lio/reactivex/Single;
++    invoke-static {v2, v3}, Ltv/purple/monolith/features/vodhunter/bridge/VodHunterHook;->maybeHookVodManifestResponse(Lio/reactivex/Single;Ljava/lang/String;)Lio/reactivex/Single;
 +
 +    move-result-object v2
 +
