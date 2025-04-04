@@ -1,0 +1,30 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+@@ -2,6 +2,9 @@
+ .super Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;
+ .source "BottomPlayerControlOverlayViewDelegate.java"
+ 
++# interfaces
++.implements Ltv/purple/monolith/bridge/ex/IBottomPlayerControlOverlayViewDelegate;
++
+ 
+ # annotations
+ .annotation system Ldalvik/annotation/MemberClasses;
+@@ -805,3 +808,16 @@
+     :goto_0
+     return-void
+ .end method
++
++.method public onRefreshStreamClicked()V
++    .registers 2
++
++    .prologue
++    .line 42
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate;->mBottomPlayerControlListener:Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate$BottomPlayerControlListener;
++
++    invoke-interface {v0}, Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate$BottomPlayerControlListener;->onRefreshClicked()V
++
++    .line 43
++    return-void
++.end method

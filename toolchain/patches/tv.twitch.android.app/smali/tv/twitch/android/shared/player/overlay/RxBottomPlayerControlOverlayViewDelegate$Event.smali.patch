@@ -1,0 +1,13 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event.smali
+@@ -24,7 +24,8 @@
+         Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RotateClicked;,
+         Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$VideoLayoutChanged;,
+         Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$VideoStatsClicked;,
+-        Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$ViewCountClicked;
++        Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$ViewCountClicked;,
++        Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
+     }
+ .end annotation
+ 

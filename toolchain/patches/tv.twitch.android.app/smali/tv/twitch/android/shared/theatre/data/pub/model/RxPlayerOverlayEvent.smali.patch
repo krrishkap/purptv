@@ -1,0 +1,13 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent.smali b/smali_classes8/tv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent.smali
+--- a/smali_classes8/tv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent.smali
++++ b/smali_classes8/tv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent.smali
+@@ -18,7 +18,8 @@
+         Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$StreamSettingsClicked;,
+         Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$VideoLayoutChanged;,
+         Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$VideoStatsClicked;,
+-        Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$ViewCountClicked;
++        Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$ViewCountClicked;,
++        Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;
+     }
+ .end annotation
+ 
