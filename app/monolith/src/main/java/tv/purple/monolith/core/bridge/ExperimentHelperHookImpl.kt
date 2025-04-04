@@ -18,6 +18,7 @@ class ExperimentHelperHookImpl(
                 Experiment.AVAILABILITY_TRACKING,
                 Experiment.NETWORK_REQUEST_TRACKING,
                 Experiment.IVS_VODS_MANIFEST_REQUESTER,
+                Experiment.IVS_MANIFEST_REQUESTER, // temporary disable IVS for proxy & exoplayer
                 Experiment.VISAGE_TRACKING -> false
 
                 Experiment.CLIP_EDITOR_PORTAL,
