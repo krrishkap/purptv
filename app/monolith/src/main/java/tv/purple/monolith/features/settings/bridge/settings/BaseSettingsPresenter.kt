@@ -6,15 +6,14 @@ import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.core.BooleanValue
 import tv.purple.monolith.core.models.flag.core.IntRangeValue
 import tv.purple.monolith.core.models.flag.core.ListValue
-import tv.purple.monolith.core.models.flag.variants.MeStyle
 import tv.purple.monolith.core.models.flag.variants.VoidVariant
 import tv.purple.monolith.features.settings.bridge.factory.TwitchItemsFactory
 import tv.purple.monolith.features.settings.bridge.model.DropDownMenuModelExt
 import tv.purple.monolith.features.settings.bridge.model.FlagToggleMenuModelExt
 import tv.purple.monolith.features.settings.bridge.model.Item
-import tv.purple.monolith.features.settings.bridge.model.OrangeSubMenu
+import tv.purple.monolith.features.settings.bridge.model.PurpleTVSubMenu
 import tv.purple.monolith.features.settings.bridge.slider.SliderModel
-import tv.purple.monolith.features.settings.component.OrangeSettingsController
+import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
 import tv.twitch.android.shared.settings.BaseSettingsPresenter
 import tv.twitch.android.shared.settings.SettingsNavigationController
 import tv.twitch.android.shared.settings.SettingsTracker
@@ -22,31 +21,32 @@ import tv.twitch.android.shared.ui.menus.SettingsPreferencesController
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder
 import tv.twitch.android.shared.ui.menus.core.MenuModel
 
-open class BaseSettingsPresenter(
+abstract class BaseSettingsPresenter(
     activity: FragmentActivity,
     adapterBinder: MenuAdapterBinder,
     settingsTracker: SettingsTracker,
-    private val orangeController: OrangeSettingsController,
-    private val orangeSubMenuWrapper: OrangeSubMenu,
-    private val factory: TwitchItemsFactory
+    private val controller: PurpleTVSettingsController,
+    private val subMenuWrapper: PurpleTVSubMenu,
+    private val factory: TwitchItemsFactory,
+    private val itemFilter: (item: Item) -> Boolean = { true }
 ) : BaseSettingsPresenter(activity, adapterBinder, settingsTracker) {
     override fun getNavController(): SettingsNavigationController {
-        return orangeController
+        return controller
     }
 
     override fun getPrefController(): SettingsPreferencesController {
-        return orangeController
+        return controller
     }
 
     override fun getToolbarTitle(): String {
-        return orangeSubMenuWrapper.title.fromResToString()
+        return subMenuWrapper.title.fromResToString()
     }
 
     private fun itemToSettingModel(item: Item): MenuModel? {
         return when (item) {
             is Item.FlagItem ->
                 mapper(
-                    orangeController,
+                    controller,
                     item.flag
                 )
 
@@ -69,7 +69,7 @@ open class BaseSettingsPresenter(
 
     override fun updateSettingModels() {
         settingModels.clear()
-        orangeSubMenuWrapper.items.forEach {
+        subMenuWrapper.items.filter { itemFilter(it) }.forEach {
             itemToSettingModel(it)?.let { model ->
                 settingModels.add(model)
             }
@@ -77,7 +77,7 @@ open class BaseSettingsPresenter(
     }
 
     companion object {
-        private fun mapper(controller: OrangeSettingsController, flag: Flag): MenuModel? {
+        private fun mapper(controller: PurpleTVSettingsController, flag: Flag): MenuModel? {
             return when (flag.valueHolder) {
                 is BooleanValue -> FlagToggleMenuModelExt(flag)
                 is ListValue<*> -> DropDownMenuModelExt<VoidVariant>(flag, controller)

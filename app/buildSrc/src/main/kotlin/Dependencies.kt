@@ -40,6 +40,8 @@ object Dependencies {
 
     const val Bugsnag = "com.bugsnag:bugsnag-android:${Versions.BugsnagVersion}"
 
+    const val Relinker = "com.getkeepsafe.relinker:relinker:1.4.5"
+
     const val Compose = "androidx.compose.ui:ui:1.7.8"
     const val ComposeFoundation = "androidx.compose.foundation:foundation:1.7.8"
     const val ComposeMaterial = "androidx.compose.material:material:1.7.8"

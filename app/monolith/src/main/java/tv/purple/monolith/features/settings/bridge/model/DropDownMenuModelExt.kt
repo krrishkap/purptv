@@ -8,7 +8,7 @@ import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.core.Variant
 import tv.purple.monolith.core.models.flag.core.Variant.Companion.getPosition
 import tv.purple.monolith.core.models.flag.core.Variant.Companion.getVariants
-import tv.purple.monolith.features.settings.component.OrangeSettingsController
+import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
 import tv.twitch.android.core.adapters.TwitchArrayAdapter
 import tv.twitch.android.core.adapters.TwitchArrayAdapterModel
 import tv.twitch.android.shared.ui.menus.dropdown.DropDownMenuModel
@@ -16,7 +16,7 @@ import tv.twitch.android.shared.ui.menus.dropdown.DropDownMenuModel.DropDownMenu
 
 class DropDownMenuModelExt<T : Variant>(
     private val flag: Flag,
-    controller: OrangeSettingsController,
+    controller: PurpleTVSettingsController,
     raw: Boolean = false
 ) : DropDownMenuModel<TwitchArrayAdapterModel>(
     flag.asVariant<T>().getVariants().toAdapter(controller.getContext(), flag, raw),

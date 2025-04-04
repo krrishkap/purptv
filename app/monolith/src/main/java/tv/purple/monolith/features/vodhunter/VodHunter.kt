@@ -1,52 +1,59 @@
 package tv.purple.monolith.features.vodhunter
 
-import android.content.Context
 import io.reactivex.Single
 import retrofit2.Response
 import tv.purple.monolith.bridge.RES_STRINGS
-import tv.purple.monolith.bridge.ex.ISharePanelWidgetViewDelegate
 import tv.purple.monolith.component.api.repository.NopRepository
 import tv.purple.monolith.core.CoreUtil
-import tv.purple.monolith.core.LoggerImpl
+import tv.purple.monolith.core.LoggerWithTag
 import tv.purple.monolith.core.ResManager.fromResToString
-import tv.purple.monolith.core.compat.ClassCompat
 import tv.purple.monolith.core.models.flag.Flag
-import tv.purple.monolith.core.util.NetUtil
-import tv.purple.monolith.core.util.ViewUtil.getView
-import tv.twitch.android.core.mvp.viewdelegate.RxViewDelegate
-import tv.twitch.android.shared.share.panel.SharePanelDefaultPresenter
-import tv.twitch.android.shared.ui.elements.bottomsheet.InteractiveRowView
+import tv.purple.monolith.core.models.lifecycle.LifecycleAware
+import tv.twitch.android.core.user.TwitchAccountManager
 import javax.inject.Inject
 
 class VodHunter @Inject constructor(
     private val nopRepository: NopRepository,
-    private val context: Context
-) {
-    companion object {
-        @JvmStatic
-        val isEnabled: Boolean
-            get() = Flag.VODHUNTER.asBoolean()
+    private val manager: DonationManager
+) : LifecycleAware {
+    private val logger = LoggerWithTag("VODHunter")
+
+    fun canUseVodHunter(): Boolean {
+        return manager.isCurrentUserDonator()
     }
 
-    private fun hookVodManifestResponse(
+    fun hookVodManifestResponse(
         vodResponse: Single<Response<String>>,
         vodId: String
     ): Single<Response<String>> {
+        if (!canUseVodHunter()) {
+            return vodResponse
+        }
+
+        logger.debug("Try hooking response for vodId=$vodId")
         if (!Flag.VODHUNTER.asBoolean()) {
+            logger.debug("VODHunter is disabled, returning original response")
             return vodResponse
         }
 
         return vodResponse.flatMap {
             when {
-                it.isSuccessful -> return@flatMap vodResponse
+                it.isSuccessful -> {
+                    logger.debug("VOD is available, no action needed")
+                    return@flatMap vodResponse
+                }
+
                 it.code() == 403 -> {
+                    logger.debug("VOD access denied (HTTP 403), attempting hooking...")
                     return@flatMap createSubFreePlaylist(
                         orgResponse = it,
                         vodId = vodId
                     )
                 }
 
-                else -> vodResponse
+                else -> {
+                    vodResponse
+                }
             }
         }
     }
@@ -55,15 +62,17 @@ class VodHunter @Inject constructor(
         orgResponse: Response<String>,
         vodId: String
     ): Single<Response<String>> {
-        val payload = ""
-        LoggerImpl.debug("[test] payload --> $payload")
+        val payload = LibWrapper.getVodHunterPayload(stream = vodId)
+        logger.debug("Generated payload --> $payload for vodId=$vodId")
         return nopRepository.getVodHunterPlaylist(payload = payload)
             .doOnSuccess {
+                logger.info("OK")
                 CoreUtil.showToast(
                     "[VODHunter] ${RES_STRINGS.purpletv_vodhunter_hunting.fromResToString()}"
                 )
             }
             .onErrorResumeNext { th: Throwable ->
+                logger.info("FAIL")
                 CoreUtil.showToast(
                     RES_STRINGS.purpletv_generic_error_d.fromResToString(
                         "VODHunter",
@@ -75,32 +84,15 @@ class VodHunter @Inject constructor(
             }
     }
 
-    fun getDownloadClipButton(delegate: RxViewDelegate<*, *>): InteractiveRowView {
-        return delegate.contentView.getView<InteractiveRowView>(resName = "share_panel_widget__download_clip")
-            .apply {
-                ClassCompat.invokeIf<ISharePanelWidgetViewDelegate>(obj = delegate) { proxy ->
-                    setOnClickListener {
-                        proxy.pushDownloadClipEvent()
-                    }
-                }
-            }
+    override fun onAllComponentDestroyed() {}
+    override fun onAllComponentStopped() {}
+    override fun onAccountLogout() {}
+    override fun onFirstActivityCreated() {
+        manager.updateDonators()
     }
 
-    fun tryDownloadClip(
-        state: SharePanelDefaultPresenter.State.Initialized
-    ) {
-        val playable = state.sharePlayableModel ?: run {
-            LoggerImpl.error("sharePlayableModel is null")
-            return
-        }
-
-        if (playable is SharePanelDefaultPresenter.SharePlayable.Clip) {
-            val model = playable.clipModel
-            NetUtil.downloadClipLegacy(
-                context = context,
-                url = "", // FIXME: FIX
-                filename = model.title.removeSuffix(".")
-            )
-        }
-    }
+    override fun onFirstActivityStarted() {}
+    override fun onConnectedToChannel(channelId: Int) {}
+    override fun onConnectingToChannel(channelId: Int) {}
+    override fun onAccountLogin(tam: TwitchAccountManager) {}
 }

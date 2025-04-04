@@ -362,12 +362,16 @@ enum class Flag(
         titleResName = "purpletv_settings_proxy",
         value = ListValue(ProxyImpl::class)
     ),
+    VODHUNTER(
+        prefKey = "vodhunter",
+        titleResName = "purpletv_settings_vodhunter",
+        value = BooleanValue()
+    ),
 
     /**
      * ThirdParty stuff
      */
     PRONOUNS("pronouns", "purpletv_settings_pronouns", BooleanValue()),
-    VODHUNTER("vodhunter", "purpletv_settings_vodhunter", BooleanValue()),
 
     SHOW_REFRESH_BUTTON(
         "show_refresh_button_v2",
