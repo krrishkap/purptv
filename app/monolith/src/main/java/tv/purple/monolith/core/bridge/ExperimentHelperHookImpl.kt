@@ -17,6 +17,7 @@ class ExperimentHelperHookImpl(
             return when (p0) {
                 Experiment.AVAILABILITY_TRACKING,
                 Experiment.NETWORK_REQUEST_TRACKING,
+                Experiment.IVS_VODS_MANIFEST_REQUESTER,
                 Experiment.VISAGE_TRACKING -> false
 
                 Experiment.CLIP_EDITOR_PORTAL,

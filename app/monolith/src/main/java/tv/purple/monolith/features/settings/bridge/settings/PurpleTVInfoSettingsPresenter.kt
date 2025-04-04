@@ -4,13 +4,12 @@ import androidx.fragment.app.FragmentActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import tv.purple.monolith.bridge.PurpleTVAppContainer
 import tv.purple.monolith.bridge.RES_STRINGS
 import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.ResManager.fromResToString
 import tv.purple.monolith.features.settings.bridge.factory.TwitchItemsFactory
-import tv.purple.monolith.features.settings.bridge.model.OrangeSubMenu
-import tv.purple.monolith.features.settings.component.OrangeSettingsController
+import tv.purple.monolith.features.settings.bridge.model.PurpleTVSubMenu
+import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
 import tv.purple.monolith.features.tracking.Tracker
 import tv.twitch.android.shared.settings.SettingsTracker
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder
@@ -19,14 +18,14 @@ class PurpleTVInfoSettingsPresenter(
     activity: FragmentActivity,
     adapterBinder: MenuAdapterBinder,
     settingsTracker: SettingsTracker,
-    controller: OrangeSettingsController,
+    controller: PurpleTVSettingsController,
     factory: TwitchItemsFactory
 ) : BaseSettingsPresenter(
     activity,
     adapterBinder,
     settingsTracker,
     controller,
-    OrangeSubMenu.Info,
+    PurpleTVSubMenu.Info,
     factory
 ) {
     private val disposables = CompositeDisposable()

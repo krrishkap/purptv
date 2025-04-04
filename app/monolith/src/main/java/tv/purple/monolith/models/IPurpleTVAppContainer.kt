@@ -11,6 +11,7 @@ import tv.purple.monolith.features.settings.PurpleTVSettings
 import tv.purple.monolith.features.tracking.Tracker
 import tv.purple.monolith.features.ui.UI
 import tv.purple.monolith.features.updater.Updater
+import tv.purple.monolith.features.vodhunter.VodHunter
 import tv.twitch.android.core.user.TwitchAccountManager
 
 interface IPurpleTVAppContainer {
@@ -31,4 +32,5 @@ interface IPurpleTVAppContainer {
     fun provideSingletonC(): GeneratedComponent
     fun provideActivityFactory(): TwitchActivityComponent.Factory
     fun provideChapters(): VodChapters
+    fun provideVODHunter(): VodHunter
 }

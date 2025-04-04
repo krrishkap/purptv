@@ -61,6 +61,8 @@ dependencies {
 
     api(Dependencies.Bugsnag) // Injected lib
 
+    api(Dependencies.Relinker)
+
     api(Dependencies.Compose)
     api(Dependencies.ComposeFoundation)
     api(Dependencies.ComposeMaterial)

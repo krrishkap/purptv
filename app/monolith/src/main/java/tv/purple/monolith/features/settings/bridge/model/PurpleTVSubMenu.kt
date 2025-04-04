@@ -19,7 +19,7 @@ sealed interface Item {
     ) : Item
 }
 
-enum class OrangeSubMenu(
+enum class PurpleTVSubMenu(
     val destination: SettingsDestination,
     val title: String,
     val desc: String? = null,

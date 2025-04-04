@@ -4,7 +4,7 @@ import androidx.fragment.app.FragmentActivity
 import tv.purple.monolith.bridge.RES_STRINGS
 import tv.purple.monolith.core.ResManager.fromResToString
 import tv.purple.monolith.features.settings.bridge.factory.TwitchItemsFactory
-import tv.purple.monolith.features.settings.component.OrangeSettingsController
+import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
 import tv.twitch.android.shared.settings.BaseSettingsPresenter
 import tv.twitch.android.shared.settings.SettingsNavigationController
 import tv.twitch.android.shared.settings.SettingsTracker
@@ -15,7 +15,7 @@ class PurpleTVSettingsPresenter(
     activity: FragmentActivity,
     adapterBinder: MenuAdapterBinder,
     settingsTracker: SettingsTracker,
-    private val controller: OrangeSettingsController,
+    private val controller: PurpleTVSettingsController,
     factory: TwitchItemsFactory
 ) : BaseSettingsPresenter(activity, adapterBinder, settingsTracker) {
     override fun getNavController(): SettingsNavigationController {

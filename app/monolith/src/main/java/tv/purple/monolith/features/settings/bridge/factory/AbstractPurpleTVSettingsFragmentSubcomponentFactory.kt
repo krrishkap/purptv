@@ -3,17 +3,17 @@ package tv.purple.monolith.features.settings.bridge.factory
 import androidx.fragment.app.FragmentActivity
 import dagger.android.AndroidInjector
 import tv.purple.monolith.features.settings.bridge.IModFragment
-import tv.purple.monolith.features.settings.component.OrangeSettingsController
+import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
 import tv.twitch.android.shared.settings.BaseSettingsPresenter
 import tv.twitch.android.shared.settings.SettingsTracker
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder
 import javax.inject.Provider
 
-abstract class AbstractOrangeSettingsFragmentSubcomponentFactory<T : IModFragment>(
+abstract class AbstractPurpleTVSettingsFragmentSubcomponentFactory<T : IModFragment>(
     private val fragmentActivityProvider: Provider<FragmentActivity>,
     private val menuAdapterBinderProvider: MenuAdapterBinder,
     private val settingsTrackerProvider: SettingsTracker,
-    private val orangeSettingsControllerProvider: Provider<OrangeSettingsController>,
+    private val purpleTVSettingsControllerProvider: Provider<PurpleTVSettingsController>,
     private val twitchItemsFactoryProvider: Provider<TwitchItemsFactory>
 ) : AndroidInjector.Factory<T> {
 
@@ -21,7 +21,7 @@ abstract class AbstractOrangeSettingsFragmentSubcomponentFactory<T : IModFragmen
         fragmentActivity: FragmentActivity,
         adapterBinder: MenuAdapterBinder,
         settingsTracker: SettingsTracker,
-        orangeSettingsController: OrangeSettingsController,
+        purpleTVSettingsController: PurpleTVSettingsController,
         twitchItemsFactory: TwitchItemsFactory
     ): BaseSettingsPresenter
 
@@ -32,7 +32,7 @@ abstract class AbstractOrangeSettingsFragmentSubcomponentFactory<T : IModFragmen
                     fragmentActivityProvider.get(),
                     menuAdapterBinderProvider,
                     settingsTrackerProvider,
-                    orangeSettingsControllerProvider.get(),
+                    purpleTVSettingsControllerProvider.get(),
                     twitchItemsFactoryProvider.get()
                 )
             )

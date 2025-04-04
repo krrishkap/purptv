@@ -13,8 +13,8 @@ import tv.purple.monolith.features.proxy.Proxy
 import tv.purple.monolith.features.settings.bridge.DaggerInjectionList
 import tv.purple.monolith.features.settings.bridge.IModFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVSettingsFragment
-import tv.purple.monolith.features.settings.component.OrangeSettingsController
-import tv.purple.monolith.features.settings.component.OrangeSettingsController_Factory
+import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
+import tv.purple.monolith.features.settings.component.PurpleTVSettingsController_Factory
 import tv.twitch.android.routing.routers.WebViewRouter
 import tv.twitch.android.shared.settings.BaseSettingsPresenter
 import tv.twitch.android.shared.settings.SettingsTracker
@@ -52,9 +52,9 @@ class PurpleTVSettingsDaggerFactory @Inject constructor(
     private fun provideOrangeSettingsController(
         activityComponent: ActivityComponent,
         genComponent: GeneratedComponent
-    ): Provider<OrangeSettingsController> {
+    ): Provider<PurpleTVSettingsController> {
         return Provider {
-            OrangeSettingsController_Factory.newInstance(
+            PurpleTVSettingsController_Factory.newInstance(
                 activityComponent.getPrivateField<Provider<FragmentActivity>>("provideFragmentActivityProvider")
                     .get(),
                 callPrivateMethod(genComponent, "iFragmentRouter"),
@@ -72,12 +72,12 @@ class PurpleTVSettingsDaggerFactory @Inject constructor(
     companion object {
         fun <T : IModFragment> buildInjector(
             activityComponent: ActivityComponent,
-            settingsControllerProvider: Provider<OrangeSettingsController>,
+            settingsControllerProvider: Provider<PurpleTVSettingsController>,
             factory: Provider<TwitchItemsFactory>,
             clazz: Class<out BaseSettingsPresenter>
         ): Provider<AndroidInjector.Factory<*>> {
             return Provider<AndroidInjector.Factory<*>> {
-                object : AbstractOrangeSettingsFragmentSubcomponentFactory<T>(
+                object : AbstractPurpleTVSettingsFragmentSubcomponentFactory<T>(
                     activityComponent.getPrivateField("provideFragmentActivityProvider"),
                     callPrivateMethod(activityComponent, "menuAdapterBinder"),
                     callPrivateMethod(activityComponent, "settingsTracker"),
@@ -88,14 +88,14 @@ class PurpleTVSettingsDaggerFactory @Inject constructor(
                         fragmentActivity: FragmentActivity,
                         adapterBinder: MenuAdapterBinder,
                         settingsTracker: SettingsTracker,
-                        orangeSettingsController: OrangeSettingsController,
+                        purpleTVSettingsController: PurpleTVSettingsController,
                         twitchItemsFactory: TwitchItemsFactory
                     ): BaseSettingsPresenter {
                         return clazz.constructors.first().newInstance(
                             fragmentActivity,
                             adapterBinder,
                             settingsTracker,
-                            orangeSettingsController,
+                            purpleTVSettingsController,
                             twitchItemsFactory
                         ) as BaseSettingsPresenter
                     }

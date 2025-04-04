@@ -15,7 +15,7 @@ import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.core.Variant
 import tv.purple.monolith.features.proxy.Proxy
 import tv.purple.monolith.features.settings.bridge.factory.TwitchItemsFactory
-import tv.purple.monolith.features.settings.bridge.model.OrangeSubMenu
+import tv.purple.monolith.features.settings.bridge.model.PurpleTVSubMenu
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVChatSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVDevSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVGestureSettingsFragment
@@ -36,7 +36,7 @@ import tv.twitch.android.shared.ui.menus.core.MenuModel
 import tv.twitch.android.shared.ui.menus.togglemenu.ToggleMenuModel
 import javax.inject.Inject
 
-class OrangeSettingsController @Inject constructor(
+class PurpleTVSettingsController @Inject constructor(
     private val activity: FragmentActivity,
     private val fragmentRouter: IFragmentRouter,
     private val webViewRouter: WebViewRouter,
@@ -86,7 +86,7 @@ class OrangeSettingsController @Inject constructor(
     }
 
     fun getMainSettingModels(): Collection<MenuModel> {
-        return OrangeSubMenu.values().filter {
+        return PurpleTVSubMenu.values().filter {
             (it.items.isNotEmpty() || ALWAYS_SHOW_MENUS.contains(it)) && !SUB_SETTINGS.contains(it)
         }.map {
             twitchItemsFactory.createSubMenuModel(
@@ -168,13 +168,13 @@ class OrangeSettingsController @Inject constructor(
 
     companion object {
         private val SUB_SETTINGS = setOf(
-            OrangeSubMenu.ThirdPartyEmotes,
-            OrangeSubMenu.ThirdPartyBadges,
+            PurpleTVSubMenu.ThirdPartyEmotes,
+            PurpleTVSubMenu.ThirdPartyBadges,
         )
 
         private val ALWAYS_SHOW_MENUS = setOf(
-            OrangeSubMenu.Wiki,
-            OrangeSubMenu.Info,
+            PurpleTVSubMenu.Wiki,
+            PurpleTVSubMenu.Info,
         )
 
         private val RESTART_FLAGS = setOf(
