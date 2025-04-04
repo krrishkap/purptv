@@ -26,7 +26,6 @@ import tv.purple.monolith.core.CoreUtil
 import tv.purple.monolith.core.LifecycleCore
 import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.LoggerWithTag
-import tv.purple.monolith.core.PrefManager
 import tv.purple.monolith.core.ResManager.fromResToStringId
 import tv.purple.monolith.core.compat.ClassCompat.getPrivateField
 import tv.purple.monolith.core.models.flag.Flag
@@ -68,6 +67,7 @@ import tv.twitch.android.shared.chat.pub.events.ChatNoticeEvent.ChannelNoticeEve
 import tv.twitch.android.shared.chat.pub.events.MessagesReceivedEvent
 import tv.twitch.android.shared.chat.pub.messages.data.ChatMessage
 import tv.twitch.android.shared.chat.pub.messages.data.MessageTokenV2
+import tv.twitch.android.shared.chat.pub.messages.data.MessageTokenV2.EmoteToken
 import tv.twitch.android.shared.chat.pub.messages.data.MessageTokenV2.MentionToken
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageClickedEvents
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface
@@ -188,18 +188,19 @@ class ChatHookProvider @Inject constructor(
                     }
 
                     if (emote != null) {
+                        val spaceToken = MessageTokenV2.TextToken(" ")
                         stack.add(
                             PurpleTVEmoteToken(
                                 emote,
                                 currentEmoteSize
                             )
                         )
-                        stack.add(MessageTokenV2.TextToken(" "))
+                        stack.addAll(listOf(spaceToken))
                     } else {
                         stack.add(MessageTokenV2.TextToken("$word "))
                     }
                 }
-            } else if (token is MentionToken) {
+            } else if (token is MentionToken || token is EmoteToken) {
                 stack.add(token)
                 stack.add(MessageTokenV2.TextToken(" "))
             } else {
