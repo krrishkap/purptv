@@ -47,7 +47,7 @@
                 android:textSize="@dimen/font_medium" />
 
             <TextView
-                android:id="@+id/orangetv_submit_custom_proxy_url"
+                android:id="@+id/purpletv_submit_custom_proxy_url"
                 style="@style/ButtonStyle.Primary"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
