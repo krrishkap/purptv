@@ -56,6 +56,9 @@ class PurpleTVAppContainer(
         motherComponent.provideTracker().apply {
             provideLifecycleController().register(this)
         }
+        motherComponent.provideVodHunter().apply {
+            provideLifecycleController().register(this)
+        }
     }
 
     override fun provideTwitchAccountManager(): TwitchAccountManager {

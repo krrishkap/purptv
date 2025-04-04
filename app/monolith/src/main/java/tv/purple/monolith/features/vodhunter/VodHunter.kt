@@ -8,17 +8,28 @@ import tv.purple.monolith.core.CoreUtil
 import tv.purple.monolith.core.LoggerWithTag
 import tv.purple.monolith.core.ResManager.fromResToString
 import tv.purple.monolith.core.models.flag.Flag
+import tv.purple.monolith.core.models.lifecycle.LifecycleAware
+import tv.twitch.android.core.user.TwitchAccountManager
 import javax.inject.Inject
 
 class VodHunter @Inject constructor(
-    private val nopRepository: NopRepository
-) {
+    private val nopRepository: NopRepository,
+    private val manager: DonationManager
+) : LifecycleAware {
     private val logger = LoggerWithTag("VODHunter")
+
+    fun canUseVodHunter(): Boolean {
+        return manager.isCurrentUserDonator()
+    }
 
     fun hookVodManifestResponse(
         vodResponse: Single<Response<String>>,
         vodId: String
     ): Single<Response<String>> {
+        if (!canUseVodHunter()) {
+            return vodResponse
+        }
+
         logger.debug("Try hooking response for vodId=$vodId")
         if (!Flag.VODHUNTER.asBoolean()) {
             logger.debug("VODHunter is disabled, returning original response")
@@ -72,4 +83,16 @@ class VodHunter @Inject constructor(
                 Single.just(orgResponse)
             }
     }
+
+    override fun onAllComponentDestroyed() {}
+    override fun onAllComponentStopped() {}
+    override fun onAccountLogout() {}
+    override fun onFirstActivityCreated() {
+        manager.updateDonators()
+    }
+
+    override fun onFirstActivityStarted() {}
+    override fun onConnectedToChannel(channelId: Int) {}
+    override fun onConnectingToChannel(channelId: Int) {}
+    override fun onAccountLogin(tam: TwitchAccountManager) {}
 }
