@@ -1,0 +1,78 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
+@@ -2,6 +2,9 @@
+ .super Ltv/twitch/android/core/mvp/presenter/RxPresenter;
+ .source "RxBottomPlayerControlOverlayPresenter.kt"
+ 
++# interfaces
++.implements Ltv/purple/monolith/bridge/ex/IRxBottomPlayerControlOverlayPresenter;
++
+ 
+ # annotations
+ .annotation system Ldalvik/annotation/MemberClasses;
+@@ -121,6 +124,19 @@
+     .end annotation
+ .end field
+ 
++.field private theatreRequestUpdater:Ldagger/internal/Provider;
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "Ldagger/internal/Provider",
++            "<",
++            "Ltv/twitch/android/core/data/source/DataUpdater",
++            "<",
++            "Ltv/twitch/android/shared/theatre/data/pub/model/TheatreCoordinatorRequest;",
++            ">;>;"
++        }
++    .end annotation
++.end field
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -919,6 +935,17 @@
+ .method private final onViewEventReceived(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event;)V
+     .locals 9
+ 
++    instance-of v0, p1, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
++
++    if-eqz v0, :cond_z
++
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter;->theatreRequestUpdater:Ldagger/internal/Provider;
++
++    invoke-static {v0}, Ltv/purple/monolith/features/refreshstream/bridge/RefreshStreamHook;->tryPushRefreshRequest(Ldagger/internal/Provider;)V
++
++    goto/16 :goto_5
++
++    :cond_z
+     instance-of v0, p1, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RotateClicked;
+ 
+     if-eqz v0, :cond_1
+@@ -2411,3 +2438,26 @@
+ 
+     return-object v0
+ .end method
++
++.method public inject(Ldagger/internal/Provider;)V
++    .registers 2
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "(",
++            "Ldagger/internal/Provider",
++            "<",
++            "Ltv/twitch/android/core/data/source/DataUpdater",
++            "<",
++            "Ltv/twitch/android/shared/theatre/data/pub/model/TheatreCoordinatorRequest;",
++            ">;>;)V"
++        }
++    .end annotation
++
++    .prologue
++    .line 24
++    .local p1, "provider":Ldagger/internal/Provider;, "Ldagger/internal/Provider<Ltv/twitch/android/core/data/source/DataUpdater<Ltv/twitch/android/shared/theatre/data/pub/model/TheatreCoordinatorRequest;>;>;"
++    iput-object p1, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter;->theatreRequestUpdater:Ldagger/internal/Provider;
++
++    .line 25
++    return-void
++.end method

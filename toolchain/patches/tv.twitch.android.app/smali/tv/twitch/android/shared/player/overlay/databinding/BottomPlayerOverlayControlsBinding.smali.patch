@@ -1,0 +1,44 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
+@@ -39,6 +39,8 @@
+ 
+ .field public final videoDebugInfoButton:Landroid/widget/ImageView;
+ 
++.field public refreshStreamButton:Landroid/widget/ImageView;
++
+ 
+ # direct methods
+ .method private constructor <init>(Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroidx/constraintlayout/widget/Barrier;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/Chronometer;Landroidx/appcompat/widget/SwitchCompat;Landroid/widget/FrameLayout;Landroid/widget/ImageView;)V
+@@ -272,6 +274,8 @@
+ 
+     invoke-direct/range {v0 .. v16}, Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;-><init>(Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroidx/constraintlayout/widget/Barrier;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/Chronometer;Landroidx/appcompat/widget/SwitchCompat;Landroid/widget/FrameLayout;Landroid/widget/ImageView;)V
+ 
++    invoke-direct {v0}, Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;->bindPurpleTVStuff()V
++
+     return-object v17
+ 
+     :cond_0
+@@ -315,3 +319,22 @@
+ 
+     return-object v0
+ .end method
++
++.method private bindPurpleTVStuff()V
++    .registers 2
++
++    .prologue
++    .line 32
++    invoke-virtual {p0}, Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;->getRoot()Landroidx/constraintlayout/widget/ConstraintLayout;
++
++    move-result-object v0
++
++    invoke-static {v0}, Ltv/purple/monolith/features/refreshstream/bridge/RefreshStreamHook;->getRefreshStreamButton(Landroid/view/View;)Landroid/widget/ImageView;
++
++    move-result-object v0
++
++    iput-object v0, p0, Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;->refreshStreamButton:Landroid/widget/ImageView;
++
++    .line 33
++    return-void
++.end method

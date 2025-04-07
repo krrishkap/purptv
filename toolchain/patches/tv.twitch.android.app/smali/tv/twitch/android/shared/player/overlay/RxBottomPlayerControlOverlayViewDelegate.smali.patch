@@ -1,0 +1,65 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+@@ -2,6 +2,9 @@
+ .super Ltv/twitch/android/core/mvp/viewdelegate/RxViewDelegate;
+ .source "RxBottomPlayerControlOverlayViewDelegate.kt"
+ 
++# interfaces
++.implements Ltv/purple/monolith/bridge/ex/IRxBottomPlayerControlOverlayViewDelegate;
++
+ 
+ # annotations
+ .annotation system Ldalvik/annotation/MemberClasses;
+@@ -203,6 +206,12 @@
+     :cond_1
+     iput-object v1, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate;->sharedViewerCountIcon:Landroid/graphics/drawable/Drawable;
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;
++
++    iget-object v0, v0, Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;->refreshStreamButton:Landroid/widget/ImageView;
++
++    invoke-static {p0, v0}, Ltv/purple/monolith/features/refreshstream/bridge/RefreshStreamHook;->bind(Ltv/purple/monolith/bridge/ex/IRxBottomPlayerControlOverlayViewDelegate;Landroid/widget/ImageView;)V
++
+     return-void
+ .end method
+ 
+@@ -1413,3 +1422,38 @@
+ 
+     return-void
+ .end method
++
++.method public pushRefreshEvent()V
++    .registers 3
++
++    .prologue
++    .line 30
++    sget-object v0, Ltv/purple/monolith/core/LoggerImpl;->INSTANCE:Ltv/purple/monolith/core/LoggerImpl;
++
++    const-string v1, "pushRefreshEvent"
++
++    invoke-virtual {v0, v1}, Ltv/purple/monolith/core/LoggerImpl;->debug(Ljava/lang/String;)V
++
++    .line 31
++    sget-object v0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;->INSTANCE:Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
++
++    invoke-virtual {p0, v0}, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate;->pushEvent(Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateEvent;)V
++
++    .line 32
++    return-void
++.end method
++
++.method public getRefreshButton()Landroid/widget/ImageView;
++    .registers 2
++    .annotation build Landroidx/annotation/NonNull;
++    .end annotation
++
++    .prologue
++    .line 37
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;
++
++    iget-object v0, v0, Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;->refreshStreamButton:Landroid/widget/ImageView;
++
++    return-object v0
++.end method
++

@@ -33,7 +33,7 @@ public class RxBottomPlayerControlOverlayViewDelegate extends RxViewDelegate<Vie
 
     @NonNull
     @Override
-    public ImageView getRefreshButton() {
+    public ImageView getRefreshButton() { // TODO: __INJECT_METHOD
         return viewBinding.refreshStreamButton;
     }
 

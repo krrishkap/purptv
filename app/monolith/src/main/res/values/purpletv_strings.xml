@@ -306,7 +306,7 @@
     <string name="purpletv_emote_picker_emotes_button_content_description">Go to third party emotes</string>
     <string name="purpletv_chapters_talkback">Chapters</string>
     <string name="purpletv_timer_talkback">Timer</string>
-    <string name="orange_refresh_talkback">Refresh</string>
+    <string name="purpletv_refresh_talkback">Refresh</string>
     <string name="purpletv_settings_glide_cache_size">Glide cache size</string>
     <string name="purpletv_settings_glide_cache_size_desc">Adjust the size of the Glide cache in megabytes (MB) to optimize storage usage on your device and reduce network traffic</string>
     <string name="purpletv_settings_homies_badges">Homies badges</string>

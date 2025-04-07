@@ -1,0 +1,17 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayPresenter.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayPresenter.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayPresenter.smali
+@@ -837,6 +837,13 @@
+ .method private final onBottomOverlayViewEventReceived(Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent;)V
+     .locals 2
+ 
++    instance-of v0, p1, Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;
++
++    if-eqz v0, :cond_z
++
++    return-void
++
++    :cond_z
+     instance-of v0, p1, Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$VideoLayoutChanged;
+ 
+     const/4 v1, 0x1
