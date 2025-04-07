@@ -1,5 +1,6 @@
 import argparse
 import json
+import logging
 import os
 from datetime import datetime
 from pathlib import Path
@@ -11,6 +12,9 @@ from src.model.data import Env, ApkDescriptor, Context
 from src.task import apktool, internal, git, d2j
 from src.task.base import BaseTask
 from src.util import get_working_directory, get_safe_path, done, print_title, die
+
+logging.basicConfig()
+logging.getLogger().setLevel(logging.INFO)
 
 
 def parse_file_arg(arg: str):
@@ -83,9 +87,10 @@ def run(tasks: [BaseTask]):
             raise e
 
 
-def create_decompile_tasks(tasks, ctx: Context, verbose=False):
+def create_decompile_tasks(tasks, ctx: Context, package_name: str, verbose=False):
     tasks.append(internal.Cleanup(ctx))
     tasks.append(apktool.DecompileApk(ctx, verbose=verbose))
+    tasks.append(apktool.CloneApk(ctx, package_name=package_name, verbose=verbose))
     tasks.append(apktool.FixAnnotations(ctx))
     tasks.append(apktool.FixColors(ctx))
     tasks.append(apktool.FixLauncherIcon(ctx))
@@ -125,7 +130,7 @@ def handle_args(ctx: Context):
         if apk_dir.exists():
             die("Use --force")
 
-        create_decompile_tasks(tasks, ctx=ctx, verbose=args.verbose)
+        create_decompile_tasks(tasks, ctx=ctx, package_name=args.package_name, verbose=args.verbose)
     if args.jar:
         tasks.append(d2j.GenerateJarFile(ctx))
     if args.check:
@@ -144,7 +149,7 @@ def handle_args(ctx: Context):
         if apk_dir.exists() and not args.force:
             die("Use --force")
 
-        create_decompile_tasks(tasks, ctx=ctx, verbose=args.verbose)
+        create_decompile_tasks(tasks, ctx=ctx, package_name=args.package_name, verbose=args.verbose)
         tasks.append(git.ApplyPatches(ctx, check=False))
         create_recompile_tasks(tasks, ctx, args.skip_app, args.skip_apktool, args.x64, args.verbose, args.debuggable)
 
@@ -189,6 +194,7 @@ def parse_args():
                         help='Build for x64 architecture only (removes other architecture libraries)')
     parser.add_argument('--verbose', action='store_true', help='Verbose output')
     parser.add_argument('--debuggable', action='store_true', help='Build debuggable APK')
+    parser.add_argument("--package_name", default="tv.orange", help="Change package name")
 
     compile_options_group = parser.add_mutually_exclusive_group()
     compile_options_group.add_argument('--skip_app', action='store_true', help='Skip building the dex file')
