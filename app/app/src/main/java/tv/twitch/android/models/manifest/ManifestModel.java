@@ -2,7 +2,6 @@ package tv.twitch.android.models.manifest;
 
 import android.text.TextUtils;
 
-import tv.purple.monolith.features.adblocker.AdBlocker;
 import tv.purple.monolith.models.exception.VirtualImpl;
 
 public class ManifestModel {

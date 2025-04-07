@@ -2,9 +2,7 @@ package tv.twitch.android.shared.chat.command;
 
 import java.util.Set;
 
-import tv.purple.monolith.features.logs.ChatLogs;
 import tv.purple.monolith.features.logs.bridge.ChatLogsHook;
-import tv.purple.monolith.features.spam.Spam;
 import tv.purple.monolith.models.exception.VirtualImpl;
 
 public class ChatCommandInterceptorFactory {
