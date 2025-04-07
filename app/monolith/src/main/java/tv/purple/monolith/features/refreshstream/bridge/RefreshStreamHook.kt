@@ -4,6 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.ImageView
+import dagger.internal.Provider
 import tv.purple.monolith.bridge.ex.IRxBottomPlayerControlOverlayViewDelegate
 import tv.purple.monolith.core.LoggerWithTag
 import tv.purple.monolith.core.compat.ClassCompat.getPrivateField
@@ -57,11 +58,14 @@ object RefreshStreamHook {
     }
 
     @JvmStatic
-    fun tryPushRefreshRequest(du: DataUpdater<TheatreCoordinatorRequest>?) {
+    fun tryPushRefreshRequest(provider: Provider<DataUpdater<TheatreCoordinatorRequest>>?) {
+        logger.debug("provider: $provider")
+        provider ?: return
+
+        val du = provider.get()
         logger.debug("du: $du")
-        if (du == null) {
-            return
-        }
+        du ?: return
+
         Handler(Looper.getMainLooper()).post {
             logger.debug("Pushing RetryVideoPlay")
             du.pushUpdate(TheatreCoordinatorRequest.RetryVideoPlay.INSTANCE)

@@ -8,7 +8,7 @@ import tv.twitch.android.core.mvp.presenter.RxPresenter;
 import tv.twitch.android.shared.theatre.data.pub.model.TheatreCoordinatorRequest;
 
 public class RxBottomPlayerControlOverlayPresenter extends RxPresenter implements IRxBottomPlayerControlOverlayPresenter {
-    private DataUpdater<TheatreCoordinatorRequest> theatreRequestUpdater = null; // TODO: __INJECT_FIELD
+    private Provider<DataUpdater<TheatreCoordinatorRequest>> theatreRequestUpdater = null; // TODO: __INJECT_FIELD
 
     private final void onViewEventReceived(RxBottomPlayerControlOverlayViewDelegate.Event event) {
         if (event instanceof RxBottomPlayerControlOverlayViewDelegate.Event.RefreshClicked) { // TODO: __INJECT_CODE
@@ -21,6 +21,6 @@ public class RxBottomPlayerControlOverlayPresenter extends RxPresenter implement
 
     @Override
     public void inject(Provider<DataUpdater<TheatreCoordinatorRequest>> provider) { // TODO: __INJECT_METHOD
-        theatreRequestUpdater = provider.get();
+        theatreRequestUpdater = provider;
     }
 }

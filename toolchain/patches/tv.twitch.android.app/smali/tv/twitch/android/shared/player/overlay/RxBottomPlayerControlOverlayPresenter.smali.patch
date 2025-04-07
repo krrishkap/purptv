@@ -11,17 +11,19 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlay
  
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
-@@ -121,6 +124,17 @@
+@@ -121,6 +124,19 @@
      .end annotation
  .end field
  
-+.field private theatreRequestUpdater:Ltv/twitch/android/core/data/source/DataUpdater;
++.field private theatreRequestUpdater:Ldagger/internal/Provider;
 +    .annotation system Ldalvik/annotation/Signature;
 +        value = {
++            "Ldagger/internal/Provider",
++            "<",
 +            "Ltv/twitch/android/core/data/source/DataUpdater",
 +            "<",
 +            "Ltv/twitch/android/shared/theatre/data/pub/model/TheatreCoordinatorRequest;",
-+            ">;"
++            ">;>;"
 +        }
 +    .end annotation
 +.end field
@@ -29,7 +31,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlay
  
  # direct methods
  .method static constructor <clinit>()V
-@@ -919,6 +933,17 @@
+@@ -919,6 +935,17 @@
  .method private final onViewEventReceived(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event;)V
      .locals 9
  
@@ -37,9 +39,9 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlay
 +
 +    if-eqz v0, :cond_z
 +
-+    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter;->theatreRequestUpdater:Ltv/twitch/android/core/data/source/DataUpdater;
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter;->theatreRequestUpdater:Ldagger/internal/Provider;
 +
-+    invoke-static {v0}, Ltv/purple/monolith/features/refreshstream/bridge/RefreshStreamHook;->tryPushRefreshRequest(Ltv/twitch/android/core/data/source/DataUpdater;)V
++    invoke-static {v0}, Ltv/purple/monolith/features/refreshstream/bridge/RefreshStreamHook;->tryPushRefreshRequest(Ldagger/internal/Provider;)V
 +
 +    goto/16 :goto_5
 +
@@ -47,13 +49,13 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlay
      instance-of v0, p1, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RotateClicked;
  
      if-eqz v0, :cond_1
-@@ -2411,3 +2436,29 @@
+@@ -2411,3 +2438,26 @@
  
      return-object v0
  .end method
 +
 +.method public inject(Ldagger/internal/Provider;)V
-+    .registers 3
++    .registers 2
 +    .annotation system Ldalvik/annotation/Signature;
 +        value = {
 +            "(",
@@ -67,13 +69,10 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlay
 +    .end annotation
 +
 +    .prologue
-+    invoke-interface {p1}, Ldagger/internal/Provider;->get()Ljava/lang/Object;
++    .line 24
++    .local p1, "provider":Ldagger/internal/Provider;, "Ldagger/internal/Provider<Ltv/twitch/android/core/data/source/DataUpdater<Ltv/twitch/android/shared/theatre/data/pub/model/TheatreCoordinatorRequest;>;>;"
++    iput-object p1, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter;->theatreRequestUpdater:Ldagger/internal/Provider;
 +
-+    move-result-object v0
-+
-+    check-cast v0, Ltv/twitch/android/core/data/source/DataUpdater;
-+
-+    iput-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter;->theatreRequestUpdater:Ltv/twitch/android/core/data/source/DataUpdater;
-+
++    .line 25
 +    return-void
 +.end method
