@@ -1,0 +1,48 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali
+new file mode 100644
+index 000000000..ebe217063
+--- /dev/null
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali
+@@ -0,0 +1,42 @@
++.class public final Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
++.super Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event;
++.source "RxBottomPlayerControlOverlayViewDelegate.kt"
++
++
++# annotations
++.annotation system Ldalvik/annotation/EnclosingClass;
++    value = Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event;
++.end annotation
++
++.annotation system Ldalvik/annotation/InnerClass;
++    accessFlags = 0x19
++    name = "RefreshClicked"
++.end annotation
++
++
++# static fields
++.field public static final INSTANCE:Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
++
++
++# direct methods
++.method static constructor <clinit>()V
++    .locals 1
++
++    new-instance v0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
++
++    invoke-direct {v0}, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;-><init>()V
++
++    sput-object v0, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;->INSTANCE:Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
++
++    return-void
++.end method
++
++.method private constructor <init>()V
++    .locals 1
++
++    const/4 v0, 0x0
++
++    invoke-direct {p0, v0}, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
++
++    return-void
++.end method

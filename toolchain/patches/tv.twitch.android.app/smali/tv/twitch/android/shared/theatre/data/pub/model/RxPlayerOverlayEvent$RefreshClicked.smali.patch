@@ -1,0 +1,48 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked.smali b/smali_classes8/tv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked.smali
+new file mode 100644
+index 000000000..04e1d8c78
+--- /dev/null
++++ b/smali_classes8/tv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked.smali
+@@ -0,0 +1,42 @@
++.class public final Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;
++.super Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent;
++.source "RxPlayerOverlayEvent.kt"
++
++
++# annotations
++.annotation system Ldalvik/annotation/EnclosingClass;
++    value = Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent;
++.end annotation
++
++.annotation system Ldalvik/annotation/InnerClass;
++    accessFlags = 0x19
++    name = "RefreshClicked"
++.end annotation
++
++
++# static fields
++.field public static final INSTANCE:Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;
++
++
++# direct methods
++.method static constructor <clinit>()V
++    .locals 1
++
++    new-instance v0, Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;
++
++    invoke-direct {v0}, Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;-><init>()V
++
++    sput-object v0, Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;->INSTANCE:Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent$RefreshClicked;
++
++    return-void
++.end method
++
++.method private constructor <init>()V
++    .locals 1
++
++    const/4 v0, 0x0
++
++    invoke-direct {p0, v0}, Ltv/twitch/android/shared/theatre/data/pub/model/RxPlayerOverlayEvent;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
++
++    return-void
++.end method
