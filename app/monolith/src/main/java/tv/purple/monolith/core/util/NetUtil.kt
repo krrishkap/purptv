@@ -4,6 +4,7 @@ import android.app.DownloadManager
 import android.content.Context
 import android.net.Uri
 import android.os.Environment
+import retrofit2.Retrofit
 import tv.purple.monolith.core.di.module.NetworkModule
 import java.io.File
 import java.io.FileOutputStream
@@ -131,5 +132,14 @@ object NetUtil {
             '"', '*', '/', ':', '<', '>', '?', '\\', '|' -> false
             else -> true
         }
+    }
+
+
+    inline fun <reified T> createApi(retrofit: Retrofit): T {
+        return retrofit.create(T::class.java)
+    }
+
+    fun createRetrofit(builder: Retrofit.Builder, baseUrl: String): Retrofit {
+        return builder.baseUrl(baseUrl).build()
     }
 }
