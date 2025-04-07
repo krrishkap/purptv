@@ -6,7 +6,7 @@ from pathlib import Path
 
 import src.util
 from src.config import RUN_JAVA_COMMAND
-from src.model.data import Env
+from src.model.data import Env, Context
 from src.task.base import BaseTask
 
 logger = getLogger(__name__)
@@ -34,6 +34,109 @@ class DecompileApk(BaseTask):
 
         logger.debug({"ctx": ctx, 'command': command})
         subprocess.run(command, check=True)
+
+
+class CloneApk(BaseTask):
+    """
+    Создает клон приложения с нужным названием пакета
+    """
+    __TASK_NAME__ = "CLONE_APK"
+
+    ACTION_SMALI = ["tv/twitch/android/shared/pip/NativePipParamsUpdater.smali",
+                    "tv/twitch/android/shared/pip/NativePictureInPicturePresenter.smali",
+                    "tv/twitch/android/shared/pip/NativePictureInPicturePresenter$commandReceiver$1.smali",
+                    "tv/twitch/android/shared/audio/ads/AudioAdsPresenter.smali",
+                    "tv/twitch/android/feature/foreground/audio/ads/foreground/AudioAdsForegroundPresenter.smali"]
+    ACTION_SMALI_FIX = ["tv/twitch/android/shared/pip/NativePictureInPicturePresenter$commandReceiver$1.smali"]
+    PUSH_SMALI = ["tv/twitch/android/shared/notifications/pub/NotificationIntentAction.smali"]
+    ANDROID_MANIFEST = ["AndroidManifest.xml"]
+
+    def __init__(self, context, package_name, verbose=False):
+        super().__init__(context)
+        self._verbose = verbose
+        self._package_name = package_name.lower()
+
+    @staticmethod
+    def _replace(mp, files, replace_pairs):
+        if mp is None:
+            logger.error("Empty smali_map")
+            return
+
+        if not files:
+            logger.warning("Empty files")
+            return
+
+        if not replace_pairs:
+            logger.warning("Empty replace_pairs")
+            return
+
+        for rel_path in files:
+            full_path = mp.get(rel_path, None)
+            if not full_path:
+                logger.error("File `{}` not found! Skip".format(rel_path))
+                continue
+
+            for search, replace in replace_pairs:
+                replace_in_binary_file(rel_path, full_path, search, replace)
+
+    def fix_action_hash(self, smali_map: dict):
+        str1 = "{}.media.action.pause_playback".format(self._package_name)
+        str2 = "{}.media.action.resume_playback".format(self._package_name)
+        hash_1 = "{}".format(calc_java_string_hash(str1)).encode("utf-8")
+        hash_2 = "{}".format(calc_java_string_hash(str2)).encode("utf-8")
+
+        self._replace(
+            mp=smali_map,
+            files=self.ACTION_SMALI_FIX,
+            replace_pairs=[(b"-0xf2323c", hash_1), (b"-0x69bc8593", hash_2)]
+        )
+
+    def replace_push(self, smali_map: dict):
+        org = b"tv.twitch.android.push."
+        replace = "{}.push.".format(self._package_name).encode("utf-8")
+        self._replace(smali_map, files=self.PUSH_SMALI, replace_pairs=[(org, replace)])
+
+    def replace_action(self, smali_map: dict):
+        org = b"tv.twitch.android.media.action."
+        replace = "{}.media.action.".format(self._package_name).encode("utf-8")
+        self._replace(smali_map, files=self.ACTION_SMALI, replace_pairs=[(org, replace)])
+
+    def run(self, env: Env):
+        ctx = self.ctx()
+        logger.info("Generating smali map...")
+        smali_map = {rel.as_posix(): file.as_posix() for rel, file in get_smali_classes(ctx)}
+        self.replace_action(smali_map)
+        self.fix_action_hash(smali_map)
+        self.replace_push(smali_map)
+        self.replace_android_manifest(ctx)
+
+    def replace_android_manifest(self, ctx: Context):
+        mp = {"AndroidManifest.xml": ctx.apk_dir.joinpath("AndroidManifest.xml")}
+
+        replace_pairs = [(
+            'package="tv.twitch.android.app"'.encode("utf-8"),
+            'package="{}"'.format(self._package_name).encode("utf-8")
+        ), (
+            'android:name="tv.twitch.android.push.'.encode("utf-8"),
+            'android:name="{}.push.'.format(self._package_name).encode("utf-8")
+        ), (
+            'android:name="tv.twitch.android.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"'.encode("utf-8"),
+            'android:name="{}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"'.format(self._package_name).encode("utf-8")
+        ), (
+            'android:authorities="tv.twitch.android.app.'.encode("utf-8"),
+            'android:authorities="{}.'.format(self._package_name).encode("utf-8")
+        ), (
+            'android:authorities="com.amazon.identity.auth.device.MapInfoProvider.tv.twitch.android.app"'.encode("utf-8"),
+            'android:authorities="com.amazon.identity.auth.device.MapInfoProvider.{}"'.format(self._package_name).encode("utf-8")
+        ), (
+            '<data android:host="tv.twitch.android.app" android:scheme="amzn"/>'.encode("utf-8"),
+            '<data android:host="{}" android:scheme="amzn"/>'.format(self._package_name).encode("utf-8")
+        )]
+
+        self._replace(
+            mp=mp,
+            files=self.ANDROID_MANIFEST,
+            replace_pairs=replace_pairs)
 
 
 class RecompileApk(BaseTask):
@@ -167,7 +270,6 @@ class FixLauncherIcon(BaseTask):
                     file.unlink()
 
 
-
 class UberSignApk(BaseTask):
     """
     Подписывает скомпилированный APK файл.
@@ -240,3 +342,44 @@ def move_classes(frm: Path, to: Path):
 def remove_classes(path: Path):
     print(f"Removing: {path.as_posix()}")
     shutil.rmtree(path.as_posix())
+
+
+def iter_dir(root: Path, path: Path):
+    for obj in path.iterdir():
+        if obj.is_dir():
+            yield from iter_dir(root=root, path=obj)
+        elif obj.is_file():
+            yield obj.relative_to(root), obj
+        else:
+            pass
+
+
+def get_smali_classes(ctx: Context):
+    smali_dir = ctx.apk_dir.joinpath('smali')
+    yield from iter_dir(root=smali_dir, path=smali_dir)
+
+    last_dex_number = get_last_dex_num(ctx.apk_dir)
+    for dex_number in range(2, last_dex_number + 1):
+        smali_dir = Path(ctx.apk_dir).joinpath(f"smali_classes{dex_number}")
+        yield from iter_dir(root=smali_dir, path=smali_dir)
+
+
+def calc_java_string_hash(s):
+    h = 0
+    for c in s:
+        h = int((((31 * h + ord(c)) ^ 0x80000000) & 0xFFFFFFFF) - 0x80000000)
+    return hex(h)
+
+
+def replace_in_binary_file(rel_path, full_path, search, replace):
+    with open(full_path, "rb") as fp:
+        content = fp.read()
+    if search in content:
+        logger.info("[{}] Replace `{}` with `{}`".format(rel_path, search, replace))
+    else:
+        logger.error("[{}] `{}` not found!".format(rel_path, search))
+        return
+
+    content = content.replace(search, replace)
+    with open(full_path, "wb") as fp:
+        fp.write(content)
