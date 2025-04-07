@@ -1,6 +1,6 @@
 diff --git a/res/drawable/ic_launcher_background.xml b/res/drawable/ic_launcher_background.xml
 new file mode 100644
-index 000000000..04dc4fe51
+index 000000000..ed148a4ba
 --- /dev/null
 +++ b/res/drawable/ic_launcher_background.xml
 @@ -0,0 +1,13 @@
