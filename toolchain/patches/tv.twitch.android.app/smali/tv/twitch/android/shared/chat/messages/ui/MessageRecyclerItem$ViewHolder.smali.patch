@@ -10,14 +10,14 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/MessageRec
  
      move-result-object v4
  
-@@ -299,6 +299,10 @@
+@@ -301,6 +301,10 @@
  
-     move-result-object v1
+     sget-object v4, Landroid/widget/TextView$BufferType;->SPANNABLE:Landroid/widget/TextView$BufferType;
  
 +    invoke-static {v0, p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->maybeAddTimestamp(Landroid/text/Spanned;Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;)Landroid/text/Spanned;
 +
 +    move-result-object v0
 +
-     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+     invoke-virtual {v1, v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
  
      invoke-static {p1}, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->access$getMessageHeaderCreator$p(Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;)Lkotlin/jvm/functions/Function0;
