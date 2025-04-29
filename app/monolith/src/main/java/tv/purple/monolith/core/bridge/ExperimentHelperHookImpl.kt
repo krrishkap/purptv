@@ -22,8 +22,6 @@ class ExperimentHelperHookImpl(
                 Experiment.THEATRE_MUTE_BUTTON,
                 Experiment.VISAGE_TRACKING -> false
 
-                Experiment.CLIP_EDITOR_PORTAL,
-                Experiment.CLIP_EDITOR_PORTAL_M2,
                 Experiment.MESSAGE_EFFECT_RENDERING,
                 Experiment.ANIMATED_EMOTES -> true
 
