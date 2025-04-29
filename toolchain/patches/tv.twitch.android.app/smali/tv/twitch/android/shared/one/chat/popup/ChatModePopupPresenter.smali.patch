@@ -16,4 +16,4 @@ diff --git a/smali_classes7/tv/twitch/android/shared/one/chat/popup/ChatModePopu
 +    :cond_z
      iget-object v0, p0, Ltv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter;->oneChatExperiment:Ltv/twitch/android/provider/experiments/helpers/OneChatExperiment;
  
-     invoke-virtual {v0}, Ltv/twitch/android/provider/experiments/helpers/OneChatExperiment;->isEnabled()Z
+     invoke-interface {v0}, Ltv/twitch/android/provider/experiments/helpers/OneChatExperiment;->isEnabled()Z

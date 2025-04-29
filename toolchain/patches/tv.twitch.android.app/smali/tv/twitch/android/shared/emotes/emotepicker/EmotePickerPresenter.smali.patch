@@ -14,14 +14,14 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePic
  
      invoke-direct {v3, p0, p1, p2}, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$createAllEmoteSetsFlowable$1;-><init>(Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;Ljava/lang/Integer;Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerSource;)V
  
--    new-instance p1, Leq/x;
-+    new-instance v4, Leq/x;
+-    new-instance p1, Lfq/x;
++    new-instance v4, Lfq/x;
 +
-+    invoke-direct {v4, v3}, Leq/x;-><init>(Lkotlin/jvm/functions/Function3;)V
-+
-+    invoke-static {v0, v1, v2, v4}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
++    invoke-direct {v4, v3}, Lfq/x;-><init>(Lkotlin/jvm/functions/Function3;)V
  
--    invoke-direct {p1, v3}, Leq/x;-><init>(Lkotlin/jvm/functions/Function3;)V
+-    invoke-direct {p1, v3}, Lfq/x;-><init>(Lkotlin/jvm/functions/Function3;)V
++    invoke-static {v0, v1, v2, v4}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
++
 +    move-result-object v4
  
 -    invoke-static {v0, v1, v2, p1}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
@@ -29,14 +29,3 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePic
  
      move-result-object p1
  
-@@ -2911,6 +2915,10 @@
-         }
-     .end annotation
- 
-+    invoke-static {p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->sortEmotePickerUiSets(Ljava/util/List;)Ljava/util/List;
-+
-+    move-result-object p1
-+
-     iget-object v0, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;->stateMachine:Ltv/twitch/android/core/mvp/presenter/StateMachine;
- 
-     new-instance v1, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$UpdateEvent$NewEmoteSets;
