@@ -19,10 +19,9 @@ class ExperimentHelperHookImpl(
                 Experiment.NETWORK_REQUEST_TRACKING,
                 Experiment.IVS_VODS_MANIFEST_REQUESTER,
                 Experiment.IVS_MANIFEST_REQUESTER, // temporary disable IVS for proxy & exoplayer
+                Experiment.THEATRE_MUTE_BUTTON,
                 Experiment.VISAGE_TRACKING -> false
 
-                Experiment.CLIP_EDITOR_PORTAL,
-                Experiment.CLIP_EDITOR_PORTAL_M2,
                 Experiment.MESSAGE_EFFECT_RENDERING,
                 Experiment.ANIMATED_EMOTES -> true
 

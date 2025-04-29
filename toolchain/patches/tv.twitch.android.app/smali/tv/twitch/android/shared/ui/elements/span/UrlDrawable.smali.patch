@@ -17,7 +17,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
  # instance fields
  .field private drawable:Landroid/graphics/drawable/Drawable;
  
-@@ -24,8 +30,57 @@
+@@ -24,11 +30,54 @@
  
  .field private final url:Ljava/lang/String;
  
@@ -44,7 +44,8 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +
  
  # direct methods
-+.method static constructor <clinit>()V
+ .method static constructor <clinit>()V
+-    .locals 0
 +    .registers 2
 +
 +    .prologue
@@ -63,19 +64,16 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    new-instance v0, Landroid/graphics/ColorMatrixColorFilter;
 +
 +    sget-object v1, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->GREY_MATRIX:Landroid/graphics/ColorMatrix;
-+
+ 
 +    invoke-direct {v0, v1}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
 +
 +    sput-object v0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->GREY_FILTER:Landroid/graphics/ColorMatrixColorFilter;
 +
 +    .line 40
-+    return-void
-+.end method
-+
- .method public constructor <init>()V
-     .locals 2
+     return-void
+ .end method
  
-@@ -55,6 +110,26 @@
+@@ -61,6 +110,26 @@
  
      iput-object p2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->type:Ltv/twitch/android/shared/ui/elements/span/MediaSpan$Type;
  
@@ -102,7 +100,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
      return-void
  .end method
  
-@@ -82,70 +157,188 @@
+@@ -88,70 +157,188 @@
  
  
  # virtual methods
@@ -116,19 +114,19 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    const/4 v4, 0x0
  
 -    iput-boolean v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isDestroyed:Z
-+    .line 152
++    .line 158
 +    iget-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isDestroyed:Z
  
 -    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
 +    if-eqz v2, :cond_6
  
 -    if-eqz v0, :cond_0
-+    .line 170
++    .line 176
 +    :goto_5
 +    return-void
  
 -    instance-of v1, v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
-+    .line 156
++    .line 162
 +    :cond_6
 +    iget-object v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->stack:Ljava/util/List;
  
@@ -148,7 +146,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    move-result-object v1
  
 -    invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->stop()V
-+    .line 157
++    .line 163
 +    .local v1, "iterator":Ljava/util/ListIterator;, "Ljava/util/ListIterator<Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;>;"
 +    :goto_12
 +    invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
@@ -161,7 +159,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    if-eqz v2, :cond_22
  
 -    iput-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->onBoundsChangeListener:Lkotlin/jvm/functions/Function1;
-+    .line 158
++    .line 164
 +    invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
  
 -    return-void
@@ -173,33 +171,33 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +
 +    goto :goto_12
 +
-+    .line 161
++    .line 167
 +    :cond_22
 +    const/4 v2, 0x1
 +
 +    iput-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isDestroyed:Z
 +
-+    .line 162
++    .line 168
 +    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
 +
-+    .line 163
++    .line 169
 +    .local v0, "drw":Landroid/graphics/drawable/Drawable;
 +    invoke-static {v0}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->stopAnimation(Landroid/graphics/drawable/Drawable;)V
 +
-+    .line 164
++    .line 170
 +    if-eqz v0, :cond_32
 +
-+    .line 165
++    .line 171
 +    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 +
-+    .line 166
++    .line 172
 +    invoke-virtual {v0, v4}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 +
-+    .line 168
++    .line 174
 +    :cond_32
 +    iput-object v4, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
 +
-+    .line 169
++    .line 175
 +    iput-object v4, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->onBoundsChangeListener:Lkotlin/jvm/functions/Function1;
 +
 +    goto :goto_5
@@ -212,53 +210,53 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
  
 -    const-string v0, "canvas"
 +    .prologue
-+    .line 115
++    .line 121
 +    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
  
 -    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-+    .line 116
++    .line 122
 +    .local v0, "drw":Landroid/graphics/drawable/Drawable;
 +    if-nez v0, :cond_5
  
 -    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
-+    .line 140
++    .line 146
 +    :cond_4
 +    return-void
  
 -    if-eqz v0, :cond_0
-+    .line 120
++    .line 126
 +    :cond_5
 +    iget-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isFirstDraw:Z
- 
-+    if-eqz v2, :cond_19
 +
-+    .line 121
++    if-eqz v2, :cond_19
+ 
++    .line 127
 +    iget-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->grey:Z
 +
 +    if-eqz v2, :cond_44
 +
-+    .line 122
++    .line 128
 +    sget-object v2, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->GREY_FILTER:Landroid/graphics/ColorMatrixColorFilter;
 +
 +    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 +
-+    .line 126
++    .line 132
 +    :goto_12
 +    instance-of v2, v0, Landroid/graphics/drawable/Animatable;
 +
 +    iput-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isAnimatable:Z
 +
-+    .line 127
++    .line 133
 +    const/4 v2, 0x0
 +
 +    iput-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isFirstDraw:Z
 +
-+    .line 130
++    .line 136
 +    :cond_19
      invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
  
 -    instance-of p1, v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
-+    .line 131
++    .line 137
 +    iget-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawAnimation:Z
  
 -    if-eqz p1, :cond_0
@@ -271,11 +269,11 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    if-eqz v2, :cond_26
  
 -    move-result p1
-+    .line 132
++    .line 138
 +    invoke-static {v0}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->startAnimation(Landroid/graphics/drawable/Drawable;)V
  
 -    if-nez p1, :cond_0
-+    .line 135
++    .line 141
 +    :cond_26
 +    iget-object v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->stack:Ljava/util/List;
  
@@ -288,7 +286,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +
 +    if-nez v2, :cond_4
 +
-+    .line 136
++    .line 142
 +    iget-object v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->stack:Ljava/util/List;
 +
 +    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -308,13 +306,13 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +
 +    check-cast v1, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
 +
-+    .line 137
++    .line 143
 +    .local v1, "stackItem":Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
 +    invoke-virtual {v1, p1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->draw(Landroid/graphics/Canvas;)V
 +
 +    goto :goto_34
 +
-+    .line 124
++    .line 130
 +    .end local v1    # "stackItem":Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
 +    :cond_44
 +    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
@@ -323,7 +321,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
  .end method
  
  .method public final getImageSize()I
-@@ -219,10 +412,218 @@
+@@ -225,10 +412,218 @@
      return-void
  .end method
  
@@ -336,11 +334,11 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    .prologue
 +    .line 80
 +    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
- 
++
 +    .line 81
 +    .local v0, "drw":Landroid/graphics/drawable/Drawable;
 +    if-eqz v0, :cond_e
-+
+ 
 +    .line 82
 +    invoke-static {v0}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->stopAnimation(Landroid/graphics/drawable/Drawable;)V
 +
@@ -519,7 +517,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 +
 +    .prologue
-+    .line 172
++    .line 187
 +    instance-of v1, p0, Landroid/graphics/drawable/Animatable;
 +
 +    if-eqz v1, :cond_10
@@ -528,7 +526,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +
 +    check-cast v0, Landroid/graphics/drawable/Animatable;
 +
-+    .line 173
++    .line 188
 +    .local v0, "anim":Landroid/graphics/drawable/Animatable;
 +    invoke-interface {v0}, Landroid/graphics/drawable/Animatable;->isRunning()Z
 +
@@ -536,10 +534,10 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +
 +    if-eqz v1, :cond_10
 +
-+    .line 174
++    .line 189
 +    invoke-interface {v0}, Landroid/graphics/drawable/Animatable;->stop()V
 +
-+    .line 177
++    .line 192
 +    .end local v0    # "anim":Landroid/graphics/drawable/Animatable;
 +    :cond_10
      return-void

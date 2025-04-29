@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
 --- a/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
-@@ -1896,3 +1896,43 @@
+@@ -1902,3 +1902,43 @@
      :cond_1
      return-void
  .end method
