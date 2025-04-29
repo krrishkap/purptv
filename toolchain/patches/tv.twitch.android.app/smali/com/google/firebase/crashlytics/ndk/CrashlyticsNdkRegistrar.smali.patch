@@ -52,7 +52,7 @@ diff --git a/smali/com/google/firebase/crashlytics/ndk/CrashlyticsNdkRegistrar.s
 -
 -    move-result-object v0
 -
--    const-string v2, "19.4.1"
+-    const-string v2, "19.4.2"
 -
 -    invoke-static {v1, v2}, Lcom/google/firebase/platforminfo/LibraryVersionComponent;->create(Ljava/lang/String;Ljava/lang/String;)Lcom/google/firebase/components/Component;
 -

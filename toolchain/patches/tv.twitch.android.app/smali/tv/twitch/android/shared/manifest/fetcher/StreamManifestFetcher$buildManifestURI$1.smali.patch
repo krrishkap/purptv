@@ -3,7 +3,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/manifest/fetcher/StreamMani
 +++ b/smali_classes2/tv/twitch/android/shared/manifest/fetcher/StreamManifestFetcher$buildManifestURI$1.smali
 @@ -148,6 +148,10 @@
  
-     const-string v0, "true"
+     const-string/jumbo v0, "true"
  
 +    invoke-static {v0}, Ltv/purple/monolith/core/bridge/CoreHook;->hookFastBreadArg(Ljava/lang/String;)Ljava/lang/String;
 +

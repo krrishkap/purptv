@@ -20,7 +20,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/MessageRec
  
  # direct methods
  .method static constructor <clinit>()V
-@@ -1726,3 +1731,97 @@
+@@ -1761,3 +1766,97 @@
  
      return-void
  .end method

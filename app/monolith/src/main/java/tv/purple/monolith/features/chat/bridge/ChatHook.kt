@@ -360,4 +360,9 @@ object ChatHook {
                     chatHookProvider.isMessageInBlacklist(it))
         }
     }
+
+    @JvmStatic
+    fun getPurpleTVEmoteUrl(url: String?, emoteToken: MessageTokenV2.EmoteToken): String? {
+        return EmoteCardModelWrapper.fromString(str = emoteToken.id)?.emoteUrl ?: url
+    }
 }

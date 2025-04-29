@@ -1,9 +1,9 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/leaderboards/repository/LeaderboardsDataSource.smali b/smali_classes7/tv/twitch/android/shared/leaderboards/repository/LeaderboardsDataSource.smali
 --- a/smali_classes7/tv/twitch/android/shared/leaderboards/repository/LeaderboardsDataSource.smali
 +++ b/smali_classes7/tv/twitch/android/shared/leaderboards/repository/LeaderboardsDataSource.smali
-@@ -512,6 +512,15 @@
+@@ -556,6 +556,15 @@
  .method private final observePubSubUpdates(Ltv/twitch/android/models/leaderboard/ChannelLeaderboards;)V
-     .locals 4
+     .locals 6
  
 +    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->getHideLeaderboards()Z
 +
@@ -14,10 +14,10 @@ diff --git a/smali_classes7/tv/twitch/android/shared/leaderboards/repository/Lea
 +    return-void
 +
 +    :cond_z
-     invoke-virtual {p1}, Ltv/twitch/android/models/leaderboard/ChannelLeaderboards;->getSubGiftsLeaderboard()Ltv/twitch/android/models/leaderboard/ChannelLeaderboard;
+     invoke-virtual {p1}, Ltv/twitch/android/models/leaderboard/ChannelLeaderboards;->getSubGiftsLeaderboard()Ltv/twitch/android/models/leaderboard/ChannelLeaderboard$ChannelUsersLeaderboard;
  
      move-result-object v0
-@@ -604,6 +613,17 @@
+@@ -664,6 +673,17 @@
  .method private final shouldFetchLeaderboards(Ltv/twitch/android/models/chat/ChatBroadcaster;)Z
      .locals 2
  

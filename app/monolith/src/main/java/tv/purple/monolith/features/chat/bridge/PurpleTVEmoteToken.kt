@@ -11,8 +11,8 @@ class PurpleTVEmoteToken(
     EmoteCardModelWrapper(
         token = emote.getCode(),
         url = emote.getUrl(Emote.Size.LARGE),
-        emote.getPackageSet()
+        emoteUrl = emote.getUrl(emoteSize),
+        set = emote.getPackageSet()
     ).toJsonString(),
-    emote.getCode(),
-    emote.getUrl(emoteSize)
+    emote.getCode()
 )

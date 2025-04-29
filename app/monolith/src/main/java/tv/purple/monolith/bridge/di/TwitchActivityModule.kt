@@ -169,14 +169,11 @@ class TwitchActivityModule {
 
     ): ChatMessageV2Parser {
         return ChatMessageV2Parser(
-            aepu,
             cbp,
             cfpf,
             cmtw,
             cspf,
             cepei,
-            cdspp,
-            cw,
             { false },
             cre
         )

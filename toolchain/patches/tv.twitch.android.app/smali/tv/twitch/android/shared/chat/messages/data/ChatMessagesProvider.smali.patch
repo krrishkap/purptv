@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/data/ChatMessagesProvider.smali b/smali_classes6/tv/twitch/android/shared/chat/messages/data/ChatMessagesProvider.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messages/data/ChatMessagesProvider.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messages/data/ChatMessagesProvider.smali
-@@ -1035,5 +1035,9 @@
+@@ -1081,5 +1081,9 @@
  
      invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
  

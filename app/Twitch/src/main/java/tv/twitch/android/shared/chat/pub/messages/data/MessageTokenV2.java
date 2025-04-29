@@ -12,19 +12,15 @@ public abstract class MessageTokenV2 {
     /* ... */
 
     public static class EmoteToken extends MessageTokenV2 {
-        private final String emoteUrl;
         private final String id;
         private final String text;
 
-        public EmoteToken(String var1, String var2, String var3) {
+        public EmoteToken(String id2, String text) {
             super(null);
-            this.id = var1;
-            this.text = var2;
-            this.emoteUrl = var3;
-        }
-
-        public final String getEmoteUrl() {
-            return this.emoteUrl;
+            Intrinsics.checkNotNullParameter(id2, "id");
+            Intrinsics.checkNotNullParameter(text, "text");
+            this.id = id2;
+            this.text = text;
         }
 
         public final String getId() {

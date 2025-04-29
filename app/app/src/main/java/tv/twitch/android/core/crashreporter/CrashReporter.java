@@ -79,7 +79,7 @@ public final class CrashReporter {
     }
 
     public final void log(LogLevel logLevel, LogTag tag, int i, LogArg... args) { // TODO: __REPLACE_METHOD
-        String safeLogMessage = CrashReporterContextKt.getSafeLogMessage(application, i, (LogArg[]) Arrays.copyOf(args, args.length));
+        String safeLogMessage = CrashReporterContextKt.getSafeLogMessage(application, i, Arrays.copyOf(args, args.length));
         BugsnagUtil.logEvent(logLevel.name(), tag.value + ": " + safeLogMessage);
     }
 

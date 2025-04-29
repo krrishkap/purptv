@@ -53,6 +53,7 @@ import tv.purple.monolith.models.data.emotes.Emote
 import tv.purple.monolith.models.wrapper.EmotePackageSet
 import tv.twitch.android.core.adapters.RecyclerAdapterItem
 import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher
+import tv.twitch.android.core.strings.StringResource
 import tv.twitch.android.core.user.TwitchAccountManager
 import tv.twitch.android.models.chat.ChatModNoticeEvents
 import tv.twitch.android.models.chat.MessageBadgeViewModel
@@ -518,8 +519,7 @@ class ChatHookProvider @Inject constructor(
                 ChatModNoticeEvents.UserTimedOutEvent(
                     userName,
                     timeout
-                ),
-                context
+                )
             ).getString(context)
         }
 
@@ -531,8 +531,7 @@ class ChatHookProvider @Inject constructor(
             return ChatNoticeExtensionsKt.getSystemMessageText(
                 ChatModNoticeEvents.UserBannedEvent(
                     userName
-                ),
-                context
+                )
             ).getString(context)
         }
 
@@ -789,46 +788,47 @@ class ChatHookProvider @Inject constructor(
         noticeEventsSubject: PublishSubject<ChatNoticeEvent>?,
         chatChannelEvent: ChatChannelEvent.ChannelUserMessagesCleared
     ) {
-        if (!Flag.MOD_LOG_NOTICES.asBoolean()) {
-            return
-        }
-
-        val message = if (isTimeoutMessage(chatChannelEvent.components)) {
-            val timeout =
-                chatChannelEvent.components?.messageTags?.get("ban-duration")?.toIntOrNull()
-            val username = chatChannelEvent.components?.content?.trim()
-
-            if (timeout != null && !username.isNullOrBlank()) {
-                getLocalizedTimeoutMessage(context, username, timeout)
-            } else {
-                null
-            }
-        } else if (isBanMessage(chatChannelEvent.components)) {
-            val username = chatChannelEvent.components?.content?.trim()
-
-            if (!username.isNullOrBlank()) {
-                getLocalizedBanMessage(context, username)
-            } else {
-                null
-            }
-        } else {
-            null
-        }
-
-        if (message != null) {
-            noticeEventsSubject?.onNext(
-                ChannelNoticeEvent(
-                    chatChannelEvent.channelId,
-                    ChannelNotice.ModVariableChannelNotice(
-                        UUID.randomUUID().toString(),
-                        message,
-                        message
-                    )
-                )
-            )
-        } else {
-            LoggerImpl.debug("ChatChannelEvent: $chatChannelEvent")
-        }
+        // FIXME: broken since 20.9.0
+//        if (!Flag.MOD_LOG_NOTICES.asBoolean()) {
+//            return
+//        }
+//
+//        val message = if (isTimeoutMessage(chatChannelEvent.components)) {
+//            val timeout =
+//                chatChannelEvent.components?.messageTags?.get("ban-duration")?.toIntOrNull()
+//            val username = chatChannelEvent.components?.content?.trim()
+//
+//            if (timeout != null && !username.isNullOrBlank()) {
+//                getLocalizedTimeoutMessage(context, username, timeout)
+//            } else {
+//                null
+//            }
+//        } else if (isBanMessage(chatChannelEvent.components)) {
+//            val username = chatChannelEvent.components?.content?.trim()
+//
+//            if (!username.isNullOrBlank()) {
+//                getLocalizedBanMessage(context, username)
+//            } else {
+//                null
+//            }
+//        } else {
+//            null
+//        }
+//
+//        if (message != null) {
+//            noticeEventsSubject?.onNext(
+//                ChannelNoticeEvent(
+//                    chatChannelEvent.channelId,
+//                    ChannelNotice.ModVariableChannelNotice(
+//                        UUID.randomUUID().toString(),
+//                        StringResource.Companion..message,
+//                        message
+//                    )
+//                )
+//            )
+//        } else {
+//            LoggerImpl.debug("ChatChannelEvent: $chatChannelEvent")
+//        }
     }
 
     fun hookLiveChatMessage(

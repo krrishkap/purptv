@@ -1,20 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
 --- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
 +++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
-@@ -323,6 +323,12 @@
-     invoke-virtual {v5, v0}, Landroidx/compose/ui/platform/ComposeView;->setContent(Lkotlin/jvm/functions/Function2;)V
- 
-     :cond_1
-+    move-object/from16 v0, p0
-+
-+    iget-object v1, v0, Ltv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate;->openChatSettingsButton:Landroid/widget/ImageView;
-+
-+    invoke-static {v1}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideChatSettingsButton(Landroid/widget/ImageView;)V
-+
-     return-void
- .end method
- 
-@@ -541,6 +547,10 @@
+@@ -569,6 +569,10 @@
      :goto_2
      invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
  
@@ -25,30 +12,25 @@ diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessa
      return-void
  .end method
  
-@@ -649,3 +659,28 @@
-     :goto_0
+@@ -677,3 +681,23 @@
+ 
      return-void
  .end method
 +
 +.method public show()V
-+    .registers 2
++    .locals 1
 +
-+    .prologue
-+    .line 41
 +    invoke-static {p0}, Ltv/purple/monolith/features/ui/bridge/UIHook;->shouldHideMessageInput(Ltv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate;)Z
 +
 +    move-result v0
 +
 +    if-eqz v0, :cond_a
 +
-+    .line 42
 +    invoke-super {p0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->hide()V
 +
-+    .line 46
 +    :goto_9
 +    return-void
 +
-+    .line 44
 +    :cond_a
 +    invoke-super {p0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->show()V
 +
