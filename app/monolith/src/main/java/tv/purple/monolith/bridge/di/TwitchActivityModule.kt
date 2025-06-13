@@ -1,6 +1,6 @@
 package tv.purple.monolith.bridge.di
 
-import android.content.ContextWrapper
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.internal.GeneratedComponent
@@ -11,17 +11,15 @@ import tv.purple.monolith.core.compat.ClassCompat.callPrivateMethod
 import tv.purple.monolith.core.compat.ClassCompat.getPrivateField
 import tv.twitch.android.app.core.Experience
 import tv.twitch.android.core.activities.TwitchHiltActivity
+import tv.twitch.android.preferences.PreferenceType
 import tv.twitch.android.provider.experiments.helpers.ChatRepliesExperiment
 import tv.twitch.android.provider.experiments.helpers.MessageEffectsExperiment
 import tv.twitch.android.routing.routers.WebViewDialogRouter
 import tv.twitch.android.shared.badges.ChatBadgeProvider
 import tv.twitch.android.shared.chat.messages.data.ChatMessageV2Parser
-import tv.twitch.android.shared.chat.pub.messages.ChatMessageTokenizerWrapper
 import tv.twitch.android.shared.chat.settings.preferences.ChatSettingsPreferencesFile
 import tv.twitch.android.shared.chat.settings.readablecolors.ReadableColorsCache
-import tv.twitch.android.shared.community.debug.CommunityDebugSharedPreferences
 import tv.twitch.android.shared.emotes.utils.AnimatedEmotesPresenterUtils
-import tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil
 import tv.twitch.android.shared.experiments.helpers.ClipEditorPortalExperimentImpl
 import tv.twitch.android.shared.preferences.chatfilters.ChatFiltersPreferenceFile
 import tv.twitch.android.shared.ui.elements.span.ISpanHelper
@@ -65,30 +63,10 @@ class TwitchActivityModule {
     }
 
     @Provides
-    fun provideChatMessageTokenizerWrapper(gc: GeneratedComponent): ChatMessageTokenizerWrapper {
-        return gc.getPrivateField<Provider<ChatMessageTokenizerWrapper>>(
-            fieldName = "chatMessageTokenizerWrapperImplProvider"
-        ).get()
-    }
-
-    @Provides
     fun provideClipEditorPortalExperimentImpl(gc: GeneratedComponent): ClipEditorPortalExperimentImpl {
         return callPrivateMethod(
             obj = gc, methodName = "clipEditorPortalExperimentImpl"
         )
-    }
-
-    @Provides
-    fun provideContextWrapper(@Named("activity") activity: GeneratedComponent): ContextWrapper {
-        return activity.getPrivateField<Provider<ContextWrapper>>("provideContextWrapperProvider")
-            .get()
-    }
-
-    @Provides
-    fun provideCommunityDebugSharedPreferences(gc: GeneratedComponent): CommunityDebugSharedPreferences {
-        return gc.getPrivateField<Provider<CommunityDebugSharedPreferences>>(
-            fieldName = "communityDebugSharedPreferencesProvider"
-        ).get()
     }
 
     @Provides
@@ -157,21 +135,15 @@ class TwitchActivityModule {
 
     @Provides
     fun provideChatMessageV2Parser(
-        aepu: AnimatedEmotesUrlUtil,
         cbp: ChatBadgeProvider,
         cfpf: ChatFiltersPreferenceFile,
         cspf: ChatSettingsPreferencesFile,
-        cmtw: ChatMessageTokenizerWrapper,
         cepei: ClipEditorPortalExperimentImpl,
-        cw: ContextWrapper,
-        cdspp: CommunityDebugSharedPreferences,
         cre: ChatRepliesExperiment
-
     ): ChatMessageV2Parser {
         return ChatMessageV2Parser(
             cbp,
             cfpf,
-            cmtw,
             cspf,
             cepei,
             { false },

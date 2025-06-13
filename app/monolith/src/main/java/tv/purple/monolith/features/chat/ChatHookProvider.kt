@@ -483,11 +483,9 @@ class ChatHookProvider @Inject constructor(
         }
 
         @JvmStatic
+        @Deprecated("remove")
         fun parseClearChatChatEvent(components: IrcEventComponents): ChannelEvent {
-            val userId = components.messageTags["target-user-id"]?.toIntOrNull()
-                ?: return ChannelEvent.ChatChannelMessagesCleared.INSTANCE
-
-            return ChannelEvent.ChatChannelUserMessagesCleared(userId, components)
+            return ChannelEvent.ChatChannelMessagesCleared.INSTANCE
         }
 
         private fun isBanMessage(components: IrcEventComponents?): Boolean {
@@ -861,7 +859,8 @@ class ChatHookProvider @Inject constructor(
             msg.isAction,
             msg.isMessageEffectAnimationsEnabled,
             msg.clipSlug,
-            msg.replyInfo
+            msg.replyInfo,
+            msg.sourceInfo
         )
     }
 

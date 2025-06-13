@@ -3,8 +3,6 @@ package com.amazon.identity.auth.device.appid;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
-import com.amazon.identity.auth.device.utils.HashAlgorithm;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +24,7 @@ public class APIKeyDecoder {
         throw new VirtualImpl();
     }
 
-    private static void verifySignature(String str, String str2, HashAlgorithm hashAlgorithm, Context context) {
+    private static void verifySignature(String str, String str2, Object hashAlgorithm, Context context) {
         str = SpoofingUtil.spoofRealPackageName(str); // TODO: __INJECT_CODE
 
         /* ... */

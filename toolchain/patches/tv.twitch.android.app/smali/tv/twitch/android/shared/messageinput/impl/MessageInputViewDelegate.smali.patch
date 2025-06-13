@@ -1,7 +1,7 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
---- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
-+++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
-@@ -1071,6 +1071,10 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
+@@ -1089,6 +1089,10 @@
  
      move-result v1
  

@@ -1,7 +1,5 @@
 package tv.purple.monolith.features.ui
 
-import android.content.Context
-import android.content.res.Configuration
 import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
@@ -14,20 +12,13 @@ import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.variants.BottomNavbarPosition
 import tv.purple.monolith.core.util.ViewUtil.changeVisibility
 import tv.purple.monolith.core.util.ViewUtil.getView
-import tv.purple.monolith.core.util.ViewUtil.isLandscapeOrientation
-import tv.purple.monolith.core.util.ViewUtil.isVisible
 import tv.purple.monolith.features.ui.bridge.HideKeyboardActionButtonClicked
 import tv.purple.monolith.models.IPurpleTVAppContainer
 import tv.twitch.android.app.core.ApplicationContext
 import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher
-import tv.twitch.android.feature.viewer.landing.bottomnavigation.models.BottomNavigationMenuItem
-import tv.twitch.android.models.GameModel
 import tv.twitch.android.shared.chat.ChatViewDelegate
 import tv.twitch.android.shared.chat.chatheader.ChatHeaderPresenter
 import tv.twitch.android.shared.chat.chatheader.ChatHeaderViewDelegate
-import tv.twitch.android.shared.chat.emotecard.FollowButtonUiModel
-import tv.twitch.android.shared.player.overlay.PlayerOverlayViewDelegate
-import tv.twitch.android.shared.player.overlay.stream.StreamOverlayConfiguration
 import tv.twitch.android.shared.ui.elements.AnimationUtil
 import javax.inject.Inject
 import javax.inject.Singleton

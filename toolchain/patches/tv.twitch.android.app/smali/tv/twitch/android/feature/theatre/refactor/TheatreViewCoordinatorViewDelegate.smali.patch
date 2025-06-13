@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali b/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
 @@ -2512,7 +2512,9 @@
  
      move-result p2

@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
 @@ -437,6 +437,18 @@
  
      invoke-virtual {v1, v2}, Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate;->setBottomPlayerControlListener(Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate$BottomPlayerControlListener;)V
@@ -44,7 +44,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverla
      iput-boolean p1, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->shouldShowChromecast:Z
  
      iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->castButton:Landroidx/mediarouter/app/MediaRouteButton;
-@@ -1474,6 +1496,10 @@
+@@ -1424,6 +1446,10 @@
      invoke-virtual {v0, v1}, Landroidx/mediarouter/app/MediaRouteButton;->setVisibility(I)V
  
      :goto_0
@@ -55,7 +55,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverla
      return-void
  .end method
  
-@@ -1672,3 +1698,44 @@
+@@ -1500,3 +1526,44 @@
  
      return-void
  .end method

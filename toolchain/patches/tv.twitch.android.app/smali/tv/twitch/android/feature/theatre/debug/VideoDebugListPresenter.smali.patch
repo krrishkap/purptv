@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali b/smali_classes5/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali b/smali_classes6/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/debug/VideoDebugListPresenter.smali
 @@ -370,6 +370,29 @@
          }
      .end annotation

@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali b/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali b/smali_classes6/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/ads/LiveAdsAllocationPresenter.smali
 @@ -125,27 +125,7 @@
  .end method
  

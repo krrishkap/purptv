@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
---- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
-+++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
 @@ -569,6 +569,10 @@
      :goto_2
      invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V

@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding.smali
 @@ -49,6 +49,10 @@
  
  .field public final shareButton:Landroid/widget/ImageView;
