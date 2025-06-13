@@ -15,7 +15,6 @@ import tv.twitch.android.shared.chat.ChatViewDelegate
 import tv.twitch.android.shared.chat.emotecard.FollowButtonUiModel
 import tv.twitch.android.shared.messageinput.impl.ChatMessageInputViewDelegate
 import tv.twitch.android.shared.player.overlay.PlayerOverlayViewDelegate
-import tv.twitch.android.shared.player.overlay.stream.StreamOverlayConfiguration
 
 object UIHook {
     @JvmStatic
@@ -117,25 +116,6 @@ object UIHook {
         }
         if (Flag.HIDE_PLAYER_LIVE_SHARE_BUTTON.asBoolean()) {
             shareButton?.changeVisibility(false)
-        }
-    }
-
-    @JvmStatic
-    fun maybeHideLiveShareButton(
-        streamOverlayConfiguration: StreamOverlayConfiguration?,
-        viewDelegate: PlayerOverlayViewDelegate?
-    ) {
-        streamOverlayConfiguration ?: return
-        viewDelegate ?: return
-
-        if (streamOverlayConfiguration == StreamOverlayConfiguration.SingleStream.INSTANCE) {
-            if (Flag.HIDE_PLAYER_LIVE_SHARE_BUTTON.asBoolean()) {
-                viewDelegate.shareButton.changeVisibility(false)
-            }
-        }
-        if (Flag.HIDE_CREATE_BUTTON.asBoolean()) {
-            viewDelegate.createClipButton.changeVisibility(false)
-            viewDelegate.createClipButtonComposeView.changeVisibility(false)
         }
     }
 

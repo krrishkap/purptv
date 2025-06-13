@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali b/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali b/smali_classes7/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/creatorpinnedchatmessage/presenters/CreatorPinnedChatMessagePresenter$setupPinnedMessage$1.smali
 @@ -101,6 +101,10 @@
  
      check-cast v0, Ltv/twitch/android/shared/chat/pub/pinnedchat/CreatorPinnedChatUiModel;

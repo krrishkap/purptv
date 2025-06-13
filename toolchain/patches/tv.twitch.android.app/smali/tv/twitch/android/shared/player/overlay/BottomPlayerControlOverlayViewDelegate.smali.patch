@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 @@ -2,6 +2,9 @@
  .super Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;
  .source "BottomPlayerControlOverlayViewDelegate.java"
@@ -11,7 +11,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayer
  
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
-@@ -805,3 +808,16 @@
+@@ -746,3 +749,16 @@
      :goto_0
      return-void
  .end method

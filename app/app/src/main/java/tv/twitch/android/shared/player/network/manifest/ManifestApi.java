@@ -53,7 +53,7 @@ public class ManifestApi {
         /* ... */
 
         // success.getRequestUrl()
-        String url = ProxyHook.tryHookPlaylistUrl(success.getRequestUrl(), model); // TODO: __INJECT_CODE
+        //String url = ProxyHook.tryHookPlaylistUrl(success.getRequestUrl(), model); // TODO: __INJECT_CODE
 
         /* ... */
 

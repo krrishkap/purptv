@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali b/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali
 --- a/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali
 +++ b/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEventProvider.smali
-@@ -1997,6 +1997,19 @@
+@@ -2017,6 +2017,19 @@
          }
      .end annotation
  
@@ -21,7 +21,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/hypetrain/data/HypeTrainEve
      invoke-virtual {p0}, Ltv/twitch/android/core/mvp/presenter/RxPresenter;->stateObserver()Lio/reactivex/Flowable;
  
      move-result-object v0
-@@ -2057,6 +2070,15 @@
+@@ -2077,6 +2090,15 @@
  .method public bind(I)V
      .locals 2
  

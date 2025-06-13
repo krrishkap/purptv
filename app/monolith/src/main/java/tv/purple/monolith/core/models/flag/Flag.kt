@@ -293,9 +293,9 @@ enum class Flag(
         value = BooleanValue(false)
     ),
     DEV_MODE(
-        prefKey = "dev_mode",
+        prefKey = "dev_mode_on",
         titleResName = "purpletv_settings_dev_mode",
-        value = BooleanValue(false)
+        value = BooleanValue(true)
     ),
     BRIGHTNESS_GESTURE(
         prefKey = "brightness_gesture_v2",
@@ -440,9 +440,9 @@ enum class Flag(
     ),
     STORIES("stories", "purpletv_settings_stories", BooleanValue(true)),
     DEBUG_STATE_MACHINE(
-        "shil_state_machine",
+        "shil_state_machine_on",
         "purpletv_settings_debug_state_machine",
-        BooleanValue(false)
+        BooleanValue(true)
     ),
     DISABLE_COMSCORE("disable_comscore", "purpletv_settings_disable_comscore", BooleanValue(true)),
     DISABLE_GOOGLE_PLAY_SERVICES(

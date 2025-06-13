@@ -1,8 +1,8 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali
 new file mode 100644
 index 000000000..ebe217063
 --- /dev/null
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked.smali
 @@ -0,0 +1,42 @@
 +.class public final Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event$RefreshClicked;
 +.super Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$Event;
