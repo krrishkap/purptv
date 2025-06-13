@@ -7,26 +7,33 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
-tasks.register<Copy>("copyAppDex") {
-    dependsOn("mergeDexRelease")
-    from(layout.buildDirectory.dir("/intermediates/dex/release/mergeDexRelease/"))
-    include("**/*.dex")
-    into("${project.rootDir}/dex/")
-    rename { "app.dex" }
-    doFirst {
-        println("[monolith] Copying dex...")
-    }
+tasks.register("genDex") {
+    delete("${project.rootDir}/monolith/build/")
+    dependsOn(":app:mergeDexRelease")
     doLast {
-        println("[monolith] Done!")
+        val dexDir = file("${project.rootDir}/monolith/build/.transforms")
+        println("[monolith] Looking for dex files in: ${dexDir.absolutePath}")
+        println("[monolith] Directory exists: ${dexDir.exists()}")
+        if (dexDir.exists()) {
+            val dexFiles = dexDir.walk()
+                .filter { it.isFile && it.name.endsWith(".dex") }
+                .toList()
+            
+            if (dexFiles.isNotEmpty()) {
+                println("[monolith] Found dex file: ${dexFiles[0].name}")
+                copy {
+                    from(dexFiles[0])
+                    into("${project.rootDir}/dex/")
+                    rename { "app.dex" }
+                }
+                println("[monolith] Dex file has been copied successfully!")
+            } else {
+                println("[monolith] No dex files found in ${dexDir.absolutePath} or its subdirectories")
+            }
+        } else {
+            println("[monolith] Transforms directory not found at ${dexDir.absolutePath}")
+        }
     }
-}
-
-tasks.register("genDex").apply {
-    dependsOn("mergeDexRelease")
-}
-
-tasks.named("genDex") {
-    finalizedBy("copyAppDex")
 }
 
 android {
