@@ -1,7 +1,7 @@
 diff --git a/res/layout-v22/stream_settings_fragment.xml b/res/layout-v22/stream_settings_fragment.xml
 --- a/res/layout-v22/stream_settings_fragment.xml
 +++ b/res/layout-v22/stream_settings_fragment.xml
-@@ -50,6 +50,11 @@
+@@ -51,6 +51,11 @@
                          <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center|right" android:id="@id/pip_switch" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="@dimen/stream_settings_content_margin" />
                      </FrameLayout>
                  </LinearLayout>

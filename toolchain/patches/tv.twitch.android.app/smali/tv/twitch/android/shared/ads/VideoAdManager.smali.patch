@@ -23,17 +23,17 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/VideoAdManager.smali b/
 -
 -    invoke-direct {v2, p0, p1, p2}, Ltv/twitch/android/shared/ads/VideoAdManager$checkAdEligibilityAndRequestAd$1;-><init>(Ltv/twitch/android/shared/ads/VideoAdManager;Ltv/twitch/android/shared/ads/models/AdRequestInfo;Landroid/view/ViewGroup;)V
 -
--    new-instance p2, Lmh/p;
+-    new-instance p2, Lji/r;
 -
--    invoke-direct {p2, v2}, Lmh/p;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {p2, v2}, Lji/r;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
 -    new-instance v2, Ltv/twitch/android/shared/ads/VideoAdManager$checkAdEligibilityAndRequestAd$2;
 -
 -    invoke-direct {v2, p0, p1}, Ltv/twitch/android/shared/ads/VideoAdManager$checkAdEligibilityAndRequestAd$2;-><init>(Ltv/twitch/android/shared/ads/VideoAdManager;Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
 -
--    new-instance p1, Lmh/q;
+-    new-instance p1, Lji/s;
 -
--    invoke-direct {p1, v2}, Lmh/q;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {p1, v2}, Lji/s;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
 -    invoke-virtual {v1, p2, p1}, Lio/reactivex/Single;->subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
 -
@@ -70,7 +70,14 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/VideoAdManager.smali b/
  
      return-void
  .end method
-@@ -379,13 +328,5 @@
+@@ -373,19 +322,11 @@
+ .end method
+ 
+ .method public final requestAds(Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
+-    .locals 1
++    .locals 0
+ 
+     const-string v0, "adRequestInfo"
  
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  

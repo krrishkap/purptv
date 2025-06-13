@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali b/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali b/smali_classes6/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/LandscapeChatLayoutController.smali
 @@ -853,6 +853,10 @@
      const/16 v0, 0x1e
  

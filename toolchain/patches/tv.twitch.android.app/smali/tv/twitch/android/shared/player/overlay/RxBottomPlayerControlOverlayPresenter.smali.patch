@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter.smali
 @@ -2,6 +2,9 @@
  .super Ltv/twitch/android/core/mvp/presenter/RxPresenter;
  .source "RxBottomPlayerControlOverlayPresenter.kt"

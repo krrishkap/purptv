@@ -1,18 +1,7 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
-@@ -632,6 +632,10 @@
- 
-     move-result-object v0
- 
-+    iget-object v1, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->viewDelegate:Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;
-+
-+    invoke-static {v0, v1}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideLiveShareButton(Ltv/twitch/android/shared/player/overlay/stream/StreamOverlayConfiguration;Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;)V
-+
-     sget-object v1, Ltv/twitch/android/shared/player/overlay/stream/StreamOverlayConfiguration$SingleStream;->INSTANCE:Ltv/twitch/android/shared/player/overlay/stream/StreamOverlayConfiguration$SingleStream;
- 
-     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-@@ -931,3 +935,44 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
+@@ -724,3 +724,44 @@
  
      return-void
  .end method

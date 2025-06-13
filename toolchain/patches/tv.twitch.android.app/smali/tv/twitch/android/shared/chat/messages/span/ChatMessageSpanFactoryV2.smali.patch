@@ -1,25 +1,29 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali b/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
-@@ -997,6 +997,8 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali b/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
+@@ -1083,10 +1083,25 @@
  
-     invoke-direct {v3, v2, v1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;-><init>(Ljava/lang/String;Ltv/twitch/android/shared/ui/elements/span/MediaSpan$Type;)V
+     move-result-object v3
  
-+    invoke-static {v3, p4}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->maybeSetWideToUrlDrawable(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;Ltv/twitch/android/shared/chat/pub/messages/data/MessageTokenV2$EmoteToken;)V
++    move-object/from16 v11, p4
 +
-     const/16 v1, 0x21
- 
-     const/4 v10, 0x0
-@@ -1951,6 +1953,12 @@
- 
-     if-eqz p14, :cond_0
- 
-+    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getTimestampsDisabled()Z
++    instance-of v1, v11, Ltv/purple/monolith/features/chat/bridge/PurpleTVEmoteToken;
 +
-+    move-result v1
++    if-eqz v1, :goto_zz
 +
-+    if-eqz v1, :cond_0
++    invoke-static {v3, v11}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getPurpleTVEmoteUrl(Ljava/lang/String;Ltv/twitch/android/shared/chat/pub/messages/data/MessageTokenV2$EmoteToken;)Ljava/lang/String;
 +
-     invoke-virtual/range {p14 .. p14}, Ljava/lang/Long;->longValue()J
++    move-result-object v3
++
++    :goto_zz
+     new-instance v1, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
  
-     move-result-wide v1
+     invoke-direct {v1, v3, v0}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;-><init>(Ljava/lang/String;Ltv/twitch/android/shared/ui/elements/span/MediaSpan$Type;)V
+ 
++    move-object/from16 v11, p4
++
++    invoke-static {v1, v11}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->maybeSetWideToUrlDrawable(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;Ltv/twitch/android/shared/chat/pub/messages/data/MessageTokenV2$EmoteToken;)V
++
+     const/16 v11, 0x21
+ 
+     if-nez p6, :cond_3

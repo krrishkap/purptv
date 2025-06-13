@@ -1,7 +1,7 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
-@@ -1910,6 +1910,8 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes7/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
+@@ -1929,6 +1929,8 @@
      goto :goto_1
  
      :cond_3
@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
      invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->getChatConnectionInfo(I)Ltv/twitch/android/shared/chat/observables/ChatConnectionController$ChatConnectionInfo;
  
      move-result-object v0
-@@ -1945,6 +1947,8 @@
+@@ -1964,6 +1966,8 @@
      goto :goto_1
  
      :cond_4
@@ -19,7 +19,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
      iget-object v0, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->chatConnectionEventsSubject:Lio/reactivex/subjects/BehaviorSubject;
  
      new-instance v3, Ltv/twitch/android/shared/chat/pub/events/ChatConnectionEvents$ChatConnectingEvent;
-@@ -2802,6 +2806,8 @@
+@@ -2803,6 +2807,8 @@
  .method private final setBroadcaster(Ltv/twitch/android/models/channel/ChannelInfo;Ltv/twitch/android/models/streams/StreamType;)V
      .locals 2
  

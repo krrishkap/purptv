@@ -8,6 +8,7 @@ import android.text.SpannedString;
 import java.util.List;
 
 import tv.purple.monolith.features.chat.bridge.ChatHook;
+import tv.purple.monolith.features.chat.bridge.PurpleTVEmoteToken;
 import tv.purple.monolith.models.exception.VirtualImpl;
 import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher;
 import tv.twitch.android.models.chat.MessageBadgeViewModel;
@@ -40,9 +41,12 @@ public class ChatMessageSpanFactoryV2 {
 
     private final CharSequence emoteSpannable(Context context, String str, Integer num, MessageTokenV2.EmoteToken emoteToken, boolean z10, Integer num2, EventDispatcher<ChatItemClickEvent> eventDispatcher) {
         SpannableString spannableString;
-        UrlDrawable urlDrawable = new UrlDrawable(emoteToken.getEmoteUrl(), z10 ? MediaSpan$Type.GigantifiedEmote : MediaSpan$Type.Emote);
+        UrlDrawable urlDrawable = new UrlDrawable("", z10 ? MediaSpan$Type.GigantifiedEmote : MediaSpan$Type.Emote);
+        String url = null;
+        if (emoteToken instanceof PurpleTVEmoteToken) { // TODO: __INJECT_CODE
+            url = ChatHook.getPurpleTVEmoteUrl(url, emoteToken);
+        }
         ChatHook.maybeSetWideToUrlDrawable(urlDrawable, emoteToken); // TODO: __INJECT_CODE
-
 
         /* ... */
 

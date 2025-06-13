@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali b/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali b/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator.smali
 @@ -973,22 +973,10 @@
  .end method
  

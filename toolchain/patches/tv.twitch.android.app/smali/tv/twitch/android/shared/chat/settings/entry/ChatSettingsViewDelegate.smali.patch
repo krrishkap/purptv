@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
 @@ -99,6 +99,8 @@
  
  .field private final subOnlyToggleViewDelegate:Ltv/twitch/android/shared/ui/menus/togglemenu/SimpleToggleRowViewDelegate;

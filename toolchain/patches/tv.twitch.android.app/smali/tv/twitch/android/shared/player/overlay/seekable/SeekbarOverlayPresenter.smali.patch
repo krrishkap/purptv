@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayPresenter.smali
 @@ -2,6 +2,9 @@
  .super Ltv/twitch/android/core/mvp/presenter/BasePresenter;
  .source "SeekbarOverlayPresenter.kt"

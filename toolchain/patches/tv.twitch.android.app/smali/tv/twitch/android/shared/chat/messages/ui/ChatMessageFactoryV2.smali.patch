@@ -1,7 +1,7 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali b/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
-@@ -772,6 +772,10 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali b/smali_classes7/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/messages/ui/ChatMessageFactoryV2.smali
+@@ -847,6 +847,10 @@
  
      move-result-object v0
  
