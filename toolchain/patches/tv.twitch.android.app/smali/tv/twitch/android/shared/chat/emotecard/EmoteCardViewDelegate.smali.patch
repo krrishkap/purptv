@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 @@ -737,6 +737,22 @@
      invoke-direct {v0, v2}, Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;->hideViews([Landroid/view/View;)V
  

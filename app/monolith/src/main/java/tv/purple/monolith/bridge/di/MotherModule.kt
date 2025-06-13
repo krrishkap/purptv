@@ -1,5 +1,6 @@
 package tv.purple.monolith.bridge.di
 
+import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
@@ -15,10 +16,12 @@ import tv.purple.monolith.core.compat.ClassCompat.getPrivateField
 import tv.purple.monolith.features.chat.db.FavEmotesDatabase
 import tv.twitch.android.api.TwitchAccountManagerUpdater
 import tv.twitch.android.app.consumer.Hilt_TwitchApplication
+import tv.twitch.android.app.core.ApplicationContext
 import tv.twitch.android.core.analytics.UniqueDeviceIdentifier
 import tv.twitch.android.core.user.TwitchAccountManager
 import tv.twitch.android.network.graphql.GraphQlService
 import tv.twitch.android.network.graphql.TwitchApolloClient
+import tv.twitch.android.preferences.PreferenceType
 import tv.twitch.android.shared.chat.settings.preferences.ChatSettingsPreferencesFile
 import javax.inject.Singleton
 
@@ -113,4 +116,10 @@ class MotherModule {
         ).get()
     }
 
+    @Provides
+    fun provideApplication(): Application =
+        ApplicationContext.getInstance().getContext() as Application
+    
+    @Provides
+    fun provideDebug(context: Context): PreferenceType.Debug = PreferenceType.Debug(context)
 }

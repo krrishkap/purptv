@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekbarOverlayViewDelegate.smali
 @@ -1267,3 +1267,28 @@
      :goto_2
      return-void

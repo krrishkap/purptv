@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
 @@ -269,6 +269,10 @@
  
      invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V

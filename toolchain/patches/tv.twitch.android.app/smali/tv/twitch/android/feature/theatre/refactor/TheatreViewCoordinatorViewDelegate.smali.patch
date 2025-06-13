@@ -1,7 +1,7 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
-@@ -2545,7 +2545,9 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali b/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
+@@ -2512,7 +2512,9 @@
  
      move-result p2
  
@@ -12,7 +12,7 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/refactor/TheatreVi
  
      invoke-virtual {p1, p2, v0}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
  
-@@ -2641,6 +2643,10 @@
+@@ -2608,6 +2610,10 @@
      const v3, 0x3f333333    # 0.7f
  
      :goto_1

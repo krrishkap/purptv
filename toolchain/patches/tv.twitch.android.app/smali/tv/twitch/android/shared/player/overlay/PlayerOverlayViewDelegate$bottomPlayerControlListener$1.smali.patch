@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate$bottomPlayerControlListener$1.smali
 @@ -225,3 +225,28 @@
  
      return-void

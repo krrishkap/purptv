@@ -1,7 +1,16 @@
 diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
 --- a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
-@@ -78,6 +78,48 @@
+@@ -14,8 +14,6 @@
+ 
+ 
+ # static fields
+-.field private static final synthetic $ENTRIES:Lkotlin/enums/EnumEntries;
+-
+ .field private static final synthetic $VALUES:[Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+ .field public static final enum Account:Ltv/twitch/android/models/settings/SettingsDestination;
+@@ -80,6 +78,48 @@
  
  .field public static final enum PrivacyNotice:Ltv/twitch/android/models/settings/SettingsDestination;
  
@@ -50,11 +59,18 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
  .field public static final enum PushNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
  .field public static final enum RecommendationsFeedbackPerCategory:Ltv/twitch/android/models/settings/SettingsDestination;
-@@ -109,288 +151,418 @@
+@@ -109,931 +149,1195 @@
+ .field public static final enum ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
+ 
+-# instance fields
+-.field private final requiresLogin:Z
+-
+-
  # direct methods
- .method private static synthetic $values()[Ltv/twitch/android/models/settings/SettingsDestination;
+-.method private static final synthetic $values()[Ltv/twitch/android/models/settings/SettingsDestination;
 -    .locals 3
++.method private static synthetic $values()[Ltv/twitch/android/models/settings/SettingsDestination;
 +    .registers 3
  
 -    const/16 v0, 0x2d
@@ -77,7 +93,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/4 v1, 0x1
  
 -    const/4 v2, 0x1
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditBio:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->AddEmail:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -86,7 +102,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/4 v1, 0x2
  
 -    const/4 v2, 0x2
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->AddEmail:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ChallengeGates:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -95,7 +111,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/4 v1, 0x3
  
 -    const/4 v2, 0x3
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ChallengeGates:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ChangePassword:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -104,7 +120,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/4 v1, 0x4
  
 -    const/4 v2, 0x4
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ChangePassword:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ChannelNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -113,7 +129,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/4 v1, 0x5
  
 -    const/4 v2, 0x5
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ChannelNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ClearAmazonLogin:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -122,7 +138,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/4 v1, 0x6
  
 -    const/4 v2, 0x6
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ClearAmazonLogin:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -131,7 +147,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/4 v1, 0x7
  
 -    const/4 v2, 0x7
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Connections:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -140,7 +156,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x8
  
 -    const/16 v2, 0x8
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Connections:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ContentFiltering:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -149,7 +165,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x9
  
 -    const/16 v2, 0x9
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ContentFiltering:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->CreateRoom:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -158,7 +174,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0xa
  
 -    const/16 v2, 0xa
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->CreateRoom:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Credits:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -167,7 +183,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0xb
  
 -    const/16 v2, 0xb
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Credits:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->DeleteAccount:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -176,7 +192,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0xc
  
 -    const/16 v2, 0xc
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->StreamManager:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->DisableAccount:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -185,7 +201,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0xd
  
 -    const/16 v2, 0xd
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->DeleteAccount:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditBio:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -194,7 +210,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0xe
  
 -    const/16 v2, 0xe
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->DisableAccount:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditProfile:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -203,7 +219,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0xf
  
 -    const/16 v2, 0xf
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditProfile:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditRoom:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -212,7 +228,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x10
  
 -    const/16 v2, 0x10
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditRoom:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditSocialLinks:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -221,7 +237,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x11
  
 -    const/16 v2, 0x11
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EditSocialLinks:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EmailNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -230,7 +246,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x12
  
 -    const/16 v2, 0x12
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EmailNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsUnverified:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -248,7 +264,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x14
  
 -    const/16 v2, 0x14
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsUnverified:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EntityInformation:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -257,7 +273,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x15
  
 -    const/16 v2, 0x15
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->EntityInformation:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Help:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -266,7 +282,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x16
  
 -    const/16 v2, 0x16
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Help:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->InAppNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -275,7 +291,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x17
  
 -    const/16 v2, 0x17
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->InAppNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Legal:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -284,7 +300,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x18
  
 -    const/16 v2, 0x18
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Legal:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Licenses:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -293,7 +309,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x19
  
 -    const/16 v2, 0x19
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Licenses:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Notifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -302,7 +318,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x1a
  
 -    const/16 v2, 0x1a
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Notifications:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PasswordConfirmation:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -311,7 +327,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x1b
  
 -    const/16 v2, 0x1b
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PasswordConfirmation:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PersonalizedAds:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -320,7 +336,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x1c
  
 -    const/16 v2, 0x1c
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PersonalizedAds:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PhoneNumberSettings:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -329,7 +345,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x1d
  
 -    const/16 v2, 0x1d
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PhoneNumberSettings:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Preferences:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -338,7 +354,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x1e
  
 -    const/16 v2, 0x1e
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Preferences:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PrivacyNotice:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -347,7 +363,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x1f
  
 -    const/16 v2, 0x1f
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PrivacyNotice:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PushNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -356,7 +372,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x20
  
 -    const/16 v2, 0x20
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PushNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerCategory:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -365,7 +381,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x21
  
 -    const/16 v2, 0x21
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerCategory:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerChannel:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -374,7 +390,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x22
  
 -    const/16 v2, 0x22
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerChannel:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerVideos:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -383,7 +399,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x23
  
 -    const/16 v2, 0x23
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerVideos:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Rooms:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -392,7 +408,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x24
  
 -    const/16 v2, 0x24
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Rooms:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->SecurityPrivacy:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -401,7 +417,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x25
  
 -    const/16 v2, 0x25
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->SecurityPrivacy:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Settings:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -410,7 +426,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x26
  
 -    const/16 v2, 0x26
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Settings:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->StreamManager:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -419,7 +435,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x27
  
 -    const/16 v2, 0x27
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Subscriptions:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->SubmitBugReport:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -428,7 +444,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x28
  
 -    const/16 v2, 0x28
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->SubmitBugReport:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->Subscriptions:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -446,7 +462,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x2a
  
 -    const/16 v2, 0x2a
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationEnable:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationDisable:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -455,7 +471,7 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x2b
  
 -    const/16 v2, 0x2b
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationDisable:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationEnable:Ltv/twitch/android/models/settings/SettingsDestination;
  
 -    aput-object v1, v0, v2
 +    aput-object v2, v0, v1
@@ -465,126 +481,187 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
  
 -    const/16 v2, 0x2c
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
-+
-+    aput-object v2, v0, v1
-+
-+    const/16 v1, 0x2d
-+
-+    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleThirdParty:Ltv/twitch/android/models/settings/SettingsDestination;
-+
-+    aput-object v2, v0, v1
  
 -    aput-object v1, v0, v2
++    aput-object v2, v0, v1
+ 
+-    return-object v0
+-.end method
++    const/16 v1, 0x2d
+ 
+-.method static constructor <clinit>()V
+-    .locals 16
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleThirdParty:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    new-instance v6, Ltv/twitch/android/models/settings/SettingsDestination;
++    aput-object v2, v0, v1
+ 
+-    const/4 v4, 0x1
 +    const/16 v1, 0x2e
-+
+ 
+-    const/4 v5, 0x0
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleThirdPartyEmotes:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    const-string v1, "Account"
 +    aput-object v2, v0, v1
-+
+ 
+-    const/4 v2, 0x0
 +    const/16 v1, 0x2f
-+
+ 
+-    const/4 v3, 0x0
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleThirdPartyBadges:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v0, v6
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct/range {v0 .. v5}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v1, 0x30
-+
+ 
+-    sput-object v6, Ltv/twitch/android/models/settings/SettingsDestination;->Account:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleChat:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +    aput-object v2, v0, v1
-+
+ 
+-    const/4 v11, 0x1
 +    const/16 v1, 0x31
-+
+ 
+-    const/4 v12, 0x0
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurplePlayer:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    const-string v8, "EditBio"
 +    aput-object v2, v0, v1
-+
+ 
+-    const/4 v9, 0x1
 +    const/16 v1, 0x32
-+
+ 
+-    const/4 v10, 0x0
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleGestures:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v7, v0
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct/range {v7 .. v12}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v1, 0x33
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditBio:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleView:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +    aput-object v2, v0, v1
-+
+ 
+-    const/4 v5, 0x1
 +    const/16 v1, 0x34
-+
+ 
+-    const/4 v6, 0x0
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurplePatches:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    const-string v2, "AddEmail"
 +    aput-object v2, v0, v1
-+
+ 
+-    const/4 v3, 0x2
 +    const/16 v1, 0x35
-+
+ 
+-    const/4 v4, 0x0
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleDev:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v1, v0
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct/range {v1 .. v6}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v1, 0x36
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->AddEmail:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleSupport:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +    aput-object v2, v0, v1
-+
+ 
+-    const-string v8, "ChallengeGates"
 +    const/16 v1, 0x37
-+
+ 
+-    const/4 v9, 0x3
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleWiki:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v7, v0
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct/range {v7 .. v12}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v1, 0x38
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChallengeGates:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleOTA:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +    aput-object v2, v0, v1
-+
+ 
+-    const-string v2, "ChangePassword"
 +    const/16 v1, 0x39
-+
+ 
+-    const/4 v3, 0x4
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleInfo:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v1, v0
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct/range {v1 .. v6}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v1, 0x3a
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChangePassword:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleHighlighter:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +    aput-object v2, v0, v1
-+
+ 
+-    const-string v8, "ChannelNotifications"
 +    const/16 v1, 0x3b
-+
+ 
+-    const/4 v9, 0x5
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleUpdater:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v7, v0
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct/range {v7 .. v12}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v1, 0x3c
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChannelNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleBlacklist:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +    aput-object v2, v0, v1
-+
+ 
+-    const-string v2, "ClearAmazonLogin"
 +    const/16 v1, 0x3d
-+
+ 
+-    const/4 v3, 0x6
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleHighlightColor:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v1, v0
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct/range {v1 .. v6}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v1, 0x3e
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ClearAmazonLogin:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleSettings:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +    aput-object v2, v0, v1
-+
+ 
+-    const-string v1, "CommunityGuidelines"
 +    const/16 v1, 0x3f
-+
+ 
+-    const/4 v2, 0x7
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleCerberus:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    const/4 v3, 0x0
 +    aput-object v2, v0, v1
-+
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
 +    const/16 v1, 0x40
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleAdBlock:Ltv/twitch/android/models/settings/SettingsDestination;
 +
 +    aput-object v2, v0, v1
@@ -592,382 +669,670 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v1, 0x41
 +
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleCustomProxy:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
 +    aput-object v2, v0, v1
- 
-     return-object v0
- .end method
- 
- .method static constructor <clinit>()V
--    .locals 3
++
++    return-object v0
++.end method
++
++.method static constructor <clinit>()V
 +    .registers 3
- 
++
 +    .prologue
 +    .line 4
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Account"
-@@ -401,6 +573,7 @@
+-    const/4 v8, 0x1
++    const-string v1, "Account"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Account:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/4 v9, 0x0
++    const/4 v2, 0x0
  
+-    const-string v5, "Connections"
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    const/16 v6, 0x8
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Account:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    const/4 v7, 0x0
 +    .line 5
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EditBio"
-@@ -411,6 +584,7 @@
+-    move-object v4, v0
++    const-string v1, "AddEmail"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditBio:Ltv/twitch/android/models/settings/SettingsDestination;
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    const/4 v2, 0x1
  
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Connections:Ltv/twitch/android/models/settings/SettingsDestination;
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->AddEmail:Ltv/twitch/android/models/settings/SettingsDestination;
++
 +    .line 6
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "AddEmail"
-@@ -421,6 +595,7 @@
+-    const/4 v14, 0x1
++    const-string v1, "ChallengeGates"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->AddEmail:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/4 v15, 0x0
++    const/4 v2, 0x2
  
+-    const-string v11, "ContentFiltering"
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    const/16 v12, 0x9
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChallengeGates:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    const/4 v13, 0x0
 +    .line 7
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "ChallengeGates"
-@@ -431,6 +606,7 @@
+-    move-object v10, v0
++    const-string v1, "ChangePassword"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChallengeGates:Ltv/twitch/android/models/settings/SettingsDestination;
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    const/4 v2, 0x3
  
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ContentFiltering:Ltv/twitch/android/models/settings/SettingsDestination;
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChangePassword:Ltv/twitch/android/models/settings/SettingsDestination;
++
 +    .line 8
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "ChangePassword"
-@@ -441,6 +617,7 @@
+-    const-string v5, "CreateRoom"
++    const-string v1, "ChannelNotifications"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChangePassword:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v6, 0xa
++    const/4 v2, 0x4
  
+-    move-object v4, v0
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChannelNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->CreateRoom:Ltv/twitch/android/models/settings/SettingsDestination;
 +    .line 9
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
- 
-     const-string v1, "ChannelNotifications"
-@@ -451,6 +628,7 @@
- 
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ChannelNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++
++    const-string v1, "ClearAmazonLogin"
++
++    const/4 v2, 0x5
++
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ClearAmazonLogin:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 10
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "ClearAmazonLogin"
-@@ -461,6 +639,7 @@
+-    const-string v1, "Credits"
++    const-string v1, "CommunityGuidelines"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ClearAmazonLogin:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0xb
++    const/4 v2, 0x6
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Credits:Ltv/twitch/android/models/settings/SettingsDestination;
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 11
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "CommunityGuidelines"
-@@ -471,6 +650,7 @@
+-    const-string v5, "StreamManager"
++    const-string v1, "Connections"
++
++    const/4 v2, 0x7
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v6, 0xc
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
  
+-    move-object v4, v0
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Connections:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    .line 12
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Connections"
-@@ -481,6 +661,7 @@
- 
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Connections:Ltv/twitch/android/models/settings/SettingsDestination;
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->StreamManager:Ltv/twitch/android/models/settings/SettingsDestination;
++    const-string v1, "ContentFiltering"
++
++    const/16 v2, 0x8
++
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ContentFiltering:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 13
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "ContentFiltering"
-@@ -491,6 +672,7 @@
+-    const-string v11, "DeleteAccount"
++    const-string v1, "CreateRoom"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ContentFiltering:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v12, 0xd
++    const/16 v2, 0x9
  
+-    move-object v10, v0
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->CreateRoom:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->DeleteAccount:Ltv/twitch/android/models/settings/SettingsDestination;
 +    .line 14
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++
++    const-string v1, "Credits"
  
-     const-string v1, "CreateRoom"
-@@ -501,6 +683,7 @@
- 
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->CreateRoom:Ltv/twitch/android/models/settings/SettingsDestination;
- 
++    const/16 v2, 0xa
++
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Credits:Ltv/twitch/android/models/settings/SettingsDestination;
++
 +    .line 15
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Credits"
-@@ -511,6 +694,7 @@
+-    const-string v5, "DisableAccount"
++    const-string v1, "DeleteAccount"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Credits:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v6, 0xe
++    const/16 v2, 0xb
  
+-    move-object v4, v0
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->DeleteAccount:Ltv/twitch/android/models/settings/SettingsDestination;
++
 +    .line 16
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++
++    const-string v1, "DisableAccount"
++
++    const/16 v2, 0xc
++
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
  
-     const-string v1, "StreamManager"
-@@ -521,6 +705,7 @@
- 
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->StreamManager:Ltv/twitch/android/models/settings/SettingsDestination;
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->DisableAccount:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 17
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "DeleteAccount"
-@@ -531,6 +716,7 @@
- 
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->DeleteAccount:Ltv/twitch/android/models/settings/SettingsDestination;
- 
+-    const-string v11, "EditProfile"
++    const-string v1, "EditBio"
++
++    const/16 v2, 0xd
++
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditBio:Ltv/twitch/android/models/settings/SettingsDestination;
++
 +    .line 18
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "DisableAccount"
-@@ -541,6 +727,7 @@
+-    const/16 v12, 0xf
++    const-string v1, "EditProfile"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->DisableAccount:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v10, v0
++    const/16 v2, 0xe
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditProfile:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 19
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EditProfile"
-@@ -551,6 +738,7 @@
+-    const-string v5, "EditRoom"
+-
+-    const/16 v6, 0x10
++    const-string v1, "EditRoom"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditProfile:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0xf
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditRoom:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 20
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EditRoom"
-@@ -561,6 +749,7 @@
+-    const-string v11, "EditSocialLinks"
++    const-string v1, "EditSocialLinks"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditRoom:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v12, 0x11
+-
+-    move-object v10, v0
++    const/16 v2, 0x10
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditSocialLinks:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 21
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EditSocialLinks"
-@@ -571,6 +760,7 @@
+-    const-string v5, "EmailNotifications"
+-
+-    const/16 v6, 0x12
++    const-string v1, "EmailNotifications"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EditSocialLinks:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x11
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 22
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EmailNotifications"
-@@ -581,6 +771,7 @@
+-    const-string v11, "EmailSettingsVerified"
+-
+-    const/16 v12, 0x13
++    const-string v1, "EmailSettingsUnverified"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v10, v0
++    const/16 v2, 0x12
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsVerified:Ltv/twitch/android/models/settings/SettingsDestination;
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsUnverified:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 23
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EmailSettingsVerified"
-@@ -591,6 +782,7 @@
+-    const-string v5, "EmailSettingsUnverified"
+-
+-    const/16 v6, 0x14
++    const-string v1, "EmailSettingsVerified"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsVerified:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x13
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsUnverified:Ltv/twitch/android/models/settings/SettingsDestination;
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsVerified:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 24
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EmailSettingsUnverified"
-@@ -601,6 +793,7 @@
+     const-string v1, "EntityInformation"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EmailSettingsUnverified:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x15
++    const/16 v2, 0x14
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EntityInformation:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 25
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "EntityInformation"
-@@ -611,6 +804,7 @@
+     const-string v1, "Help"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->EntityInformation:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x16
++    const/16 v2, 0x15
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Help:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 26
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Help"
-@@ -621,6 +815,7 @@
+-    const-string v5, "InAppNotifications"
+-
+-    const/16 v6, 0x17
++    const-string v1, "InAppNotifications"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Help:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x16
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->InAppNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 27
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "InAppNotifications"
-@@ -631,6 +826,7 @@
+     const-string v1, "Legal"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->InAppNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x18
++    const/16 v2, 0x17
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Legal:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 28
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Legal"
-@@ -641,6 +837,7 @@
+     const-string v1, "Licenses"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Legal:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x19
++    const/16 v2, 0x18
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Licenses:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 29
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Licenses"
-@@ -651,6 +848,7 @@
+-    const-string v5, "Notifications"
+-
+-    const/16 v6, 0x1a
++    const-string v1, "Notifications"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Licenses:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x19
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Notifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 30
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Notifications"
-@@ -661,6 +859,7 @@
+-    const-string v11, "PasswordConfirmation"
+-
+-    const/16 v12, 0x1b
++    const-string v1, "PasswordConfirmation"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Notifications:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v10, v0
++    const/16 v2, 0x1a
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PasswordConfirmation:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 31
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "PasswordConfirmation"
-@@ -671,6 +870,7 @@
+     const-string v1, "PersonalizedAds"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PasswordConfirmation:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x1c
++    const/16 v2, 0x1b
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PersonalizedAds:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 32
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "PersonalizedAds"
-@@ -681,6 +881,7 @@
+-    const-string v5, "PhoneNumberSettings"
+-
+-    const/16 v6, 0x1d
++    const-string v1, "PhoneNumberSettings"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PersonalizedAds:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x1c
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PhoneNumberSettings:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 33
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "PhoneNumberSettings"
-@@ -691,6 +892,7 @@
+     const-string v1, "Preferences"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PhoneNumberSettings:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x1e
++    const/16 v2, 0x1d
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Preferences:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 34
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Preferences"
-@@ -701,6 +903,7 @@
+     const-string v1, "PrivacyNotice"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Preferences:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x1f
++    const/16 v2, 0x1e
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PrivacyNotice:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 35
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "PrivacyNotice"
-@@ -711,6 +914,7 @@
+-    const-string v5, "PushNotifications"
+-
+-    const/16 v6, 0x20
++    const-string v1, "PushNotifications"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PrivacyNotice:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x1f
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PushNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 36
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "PushNotifications"
-@@ -721,6 +925,7 @@
+-    const-string v11, "RecommendationsFeedbackPerCategory"
+-
+-    const/16 v12, 0x21
++    const-string v1, "RecommendationsFeedbackPerCategory"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PushNotifications:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v10, v0
++    const/16 v2, 0x20
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerCategory:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 37
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "RecommendationsFeedbackPerCategory"
-@@ -731,6 +936,7 @@
+-    const-string v5, "RecommendationsFeedbackPerChannel"
++    const-string v1, "RecommendationsFeedbackPerChannel"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerCategory:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v6, 0x22
+-
+-    move-object v4, v0
++    const/16 v2, 0x21
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerChannel:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 38
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "RecommendationsFeedbackPerChannel"
-@@ -741,6 +947,7 @@
+-    const-string v11, "RecommendationsFeedbackPerVideos"
++    const-string v1, "RecommendationsFeedbackPerVideos"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerChannel:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v12, 0x23
+-
+-    move-object v10, v0
++    const/16 v2, 0x22
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerVideos:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 39
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "RecommendationsFeedbackPerVideos"
-@@ -751,6 +958,7 @@
+-    const-string v5, "Rooms"
+-
+-    const/16 v6, 0x24
++    const-string v1, "Rooms"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->RecommendationsFeedbackPerVideos:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x23
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Rooms:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 40
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Rooms"
-@@ -761,6 +969,7 @@
+-    const-string v11, "SecurityPrivacy"
+-
+-    const/16 v12, 0x25
++    const-string v1, "SecurityPrivacy"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Rooms:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v10, v0
++    const/16 v2, 0x24
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->SecurityPrivacy:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 41
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "SecurityPrivacy"
-@@ -771,6 +980,7 @@
+     const-string v1, "Settings"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->SecurityPrivacy:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v2, 0x26
++    const/16 v2, 0x25
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Settings:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 42
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Settings"
-@@ -781,6 +991,7 @@
+-    const-string v5, "Subscriptions"
+-
+-    const/16 v6, 0x27
++    const-string v1, "StreamManager"
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Settings:Ltv/twitch/android/models/settings/SettingsDestination;
+-    move-object v4, v0
++    const/16 v2, 0x26
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Subscriptions:Ltv/twitch/android/models/settings/SettingsDestination;
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->StreamManager:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 43
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "Subscriptions"
-@@ -791,6 +1002,7 @@
- 
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Subscriptions:Ltv/twitch/android/models/settings/SettingsDestination;
- 
-+    .line 44
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
- 
      const-string v1, "SubmitBugReport"
-@@ -801,6 +1013,7 @@
+ 
+-    const/16 v2, 0x28
++    const/16 v2, 0x27
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
  
      sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->SubmitBugReport:Ltv/twitch/android/models/settings/SettingsDestination;
  
++    .line 44
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++
++    const-string v1, "Subscriptions"
++
++    const/16 v2, 0x28
++
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->Subscriptions:Ltv/twitch/android/models/settings/SettingsDestination;
++
 +    .line 45
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
      const-string v1, "System"
-@@ -811,6 +1024,7 @@
+ 
+     const/16 v2, 0x29
+ 
+-    invoke-direct {v0, v1, v2, v3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
  
      sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->System:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 46
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "TwoFactorAuthenticationEnable"
-@@ -821,6 +1035,7 @@
+-    const-string v5, "TwoFactorAuthenticationEnable"
++    const-string v1, "TwoFactorAuthenticationDisable"
++
++    const/16 v2, 0x2a
++
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationDisable:Ltv/twitch/android/models/settings/SettingsDestination;
++
++    .line 47
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    const/16 v6, 0x2a
++    const-string v1, "TwoFactorAuthenticationEnable"
+ 
+-    move-object v4, v0
++    const/16 v2, 0x2b
+ 
+-    invoke-direct/range {v4 .. v9}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
  
      sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationEnable:Ltv/twitch/android/models/settings/SettingsDestination;
- 
-+    .line 47
-     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
- 
-     const-string v1, "TwoFactorAuthenticationDisable"
-@@ -831,6 +1046,7 @@
- 
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationDisable:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +    .line 48
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-     const-string v1, "ViewerChatFilters"
-@@ -841,6 +1057,238 @@
+-    const-string v11, "TwoFactorAuthenticationDisable"
++    const-string v1, "ViewerChatFilters"
++
++    const/16 v2, 0x2c
  
-     sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
+-    const/16 v12, 0x2b
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
  
+-    move-object v10, v0
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    invoke-direct/range {v10 .. v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    .line 49
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->TwoFactorAuthenticationDisable:Ltv/twitch/android/models/settings/SettingsDestination;
 +    const-string v1, "PurpleThirdParty"
-+
+ 
 +    const/16 v2, 0x2d
 +
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
@@ -975,47 +1340,74 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleThirdParty:Ltv/twitch/android/models/settings/SettingsDestination;
 +
 +    .line 50
-+    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
-+
+     new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+-    const/4 v5, 0x1
 +    const-string v1, "PurpleThirdPartyEmotes"
-+
+ 
+-    const/4 v6, 0x0
 +    const/16 v2, 0x2e
-+
+ 
+-    const-string v2, "ViewerChatFilters"
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
-+
+ 
+-    const/16 v3, 0x2c
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleThirdPartyEmotes:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    const/4 v4, 0x0
 +    .line 51
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-object v1, v0
 +    const-string v1, "PurpleThirdPartyBadges"
-+
+ 
+-    invoke-direct/range {v1 .. v6}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +    const/16 v2, 0x2f
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
-+
+ 
+-    invoke-static {}, Ltv/twitch/android/models/settings/SettingsDestination;->$values()[Ltv/twitch/android/models/settings/SettingsDestination;
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleThirdPartyBadges:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    move-result-object v0
 +    .line 52
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->$VALUES:[Ltv/twitch/android/models/settings/SettingsDestination;
 +    const-string v1, "PurpleChat"
-+
+ 
+-    invoke-static {v0}, Lkotlin/enums/EnumEntriesKt;->enumEntries([Ljava/lang/Enum;)Lkotlin/enums/EnumEntries;
 +    const/16 v2, 0x30
-+
+ 
+-    move-result-object v0
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
-+
+ 
+-    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->$ENTRIES:Lkotlin/enums/EnumEntries;
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleChat:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    return-void
+-.end method
 +    .line 53
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-.method private constructor <init>(Ljava/lang/String;IZ)V
+-    .locals 0
+-    .annotation system Ldalvik/annotation/Signature;
+-        value = {
+-            "(Z)V"
+-        }
+-    .end annotation
 +    const-string v1, "PurplePlayer"
-+
+ 
+-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 +    const/16 v2, 0x31
-+
+ 
+-    iput-boolean p3, p0, Ltv/twitch/android/models/settings/SettingsDestination;->requiresLogin:Z
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
-+
+ 
+-    return-void
+-.end method
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurplePlayer:Ltv/twitch/android/models/settings/SettingsDestination;
 +
 +    .line 54
@@ -1042,15 +1434,21 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +
 +    .line 56
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-.method synthetic constructor <init>(Ljava/lang/String;IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+-    .locals 0
 +    const-string v1, "PurplePatches"
-+
+ 
+-    const/4 p5, 0x1
 +    const/16 v2, 0x34
-+
+ 
+-    and-int/2addr p4, p5
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
-+
+ 
+-    if-eqz p4, :cond_0
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurplePatches:Ltv/twitch/android/models/settings/SettingsDestination;
-+
+ 
+-    const/4 p3, 0x1
 +    .line 57
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +
@@ -1136,7 +1534,9 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v2, 0x3c
 +
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
-+
+ 
+-    :cond_0
+-    invoke-direct {p0, p1, p2, p3}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;IZ)V
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleBlacklist:Ltv/twitch/android/models/settings/SettingsDestination;
 +
 +    .line 65
@@ -1195,26 +1595,36 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleCustomProxy:Ltv/twitch/android/models/settings/SettingsDestination;
 +
 +    .line 3
-     invoke-static {}, Ltv/twitch/android/models/settings/SettingsDestination;->$values()[Ltv/twitch/android/models/settings/SettingsDestination;
++    invoke-static {}, Ltv/twitch/android/models/settings/SettingsDestination;->$values()[Ltv/twitch/android/models/settings/SettingsDestination;
++
++    move-result-object v0
++
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->$VALUES:[Ltv/twitch/android/models/settings/SettingsDestination;
  
-     move-result-object v0
-@@ -851,35 +1299,42 @@
+     return-void
  .end method
  
- .method private constructor <init>(Ljava/lang/String;I)V
--    .locals 0
+-.method public static getEntries()Lkotlin/enums/EnumEntries;
+-    .locals 1
++.method private constructor <init>(Ljava/lang/String;I)V
 +    .registers 3
      .annotation system Ldalvik/annotation/Signature;
          value = {
-             "()V"
+-            "()",
+-            "Lkotlin/enums/EnumEntries<",
+-            "Ltv/twitch/android/models/settings/SettingsDestination;",
+-            ">;"
++            "()V"
          }
      .end annotation
  
+-    sget-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->$ENTRIES:Lkotlin/enums/EnumEntries;
 +    .prologue
 +    .line 3
-     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
++    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
  
-     return-void
+-    return-object v0
++    return-void
  .end method
  
  .method public static valueOf(Ljava/lang/String;)Ltv/twitch/android/models/settings/SettingsDestination;
@@ -1246,4 +1656,22 @@ diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestinatio
 +    .line 3
      sget-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->$VALUES:[Ltv/twitch/android/models/settings/SettingsDestination;
  
-     invoke-virtual {v0}, [Ltv/twitch/android/models/settings/SettingsDestination;->clone()Ljava/lang/Object;
+-    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
++    invoke-virtual {v0}, [Ltv/twitch/android/models/settings/SettingsDestination;->clone()Ljava/lang/Object;
+ 
+     move-result-object v0
+ 
+@@ -1041,13 +1345,3 @@
+ 
+     return-object v0
+ .end method
+-
+-
+-# virtual methods
+-.method public final getRequiresLogin()Z
+-    .locals 1
+-
+-    iget-boolean v0, p0, Ltv/twitch/android/models/settings/SettingsDestination;->requiresLogin:Z
+-
+-    return v0
+-.end method

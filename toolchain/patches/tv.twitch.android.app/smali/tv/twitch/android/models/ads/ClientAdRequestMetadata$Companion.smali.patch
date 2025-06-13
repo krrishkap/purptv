@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/models/ads/ClientAdRequestMetadata$Companion.smali b/smali_classes6/tv/twitch/android/models/ads/ClientAdRequestMetadata$Companion.smali
+--- a/smali_classes6/tv/twitch/android/models/ads/ClientAdRequestMetadata$Companion.smali
++++ b/smali_classes6/tv/twitch/android/models/ads/ClientAdRequestMetadata$Companion.smali
+@@ -40,6 +40,8 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    const/4 p2, 0x0
++
+     sget-object v0, Ltv/twitch/android/models/ads/AdBreakPosition;->Preroll:Ltv/twitch/android/models/ads/AdBreakPosition;
+ 
+     if-ne p1, v0, :cond_0

@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/seekable/SeekableOverlayPresenter.smali
 @@ -894,6 +894,10 @@
  
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
